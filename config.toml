@@ -1,4 +1,4 @@
-baseURL = "https://visualcomputing.github.io/RGB"
+baseURL = "https://emmendezp.github.io/RGB"
 languageCode = "en-us"
 title = "RGB Template"
 theme = 'book'
@@ -22,7 +22,7 @@ enableGitInfo = true
 
   # Set source repository location.
   # Used for 'Last Modified' and 'Edit this page' links.
-  BookRepo = 'https://github.com/visualcomputing/RGB'
+  BookRepo = 'https://github.com/emmendezp/RGB'
 
   # Configure the date format used on the pages
   # - In git information
