@@ -28,4 +28,3 @@ type: docs
 **Intereses:** Desarrollo de Software
 
 **Pasatiempos:** Futbol, Videojuegos
-{{< p5-iframe sketch="/RGB/sketches/cube.js" width="325" height="325" >}}
