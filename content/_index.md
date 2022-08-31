@@ -3,37 +3,29 @@ title: Introduction
 type: docs
 ---
 
-# RGB Template
+# Introducción
 
-Welcome to the [gohugo](https://gohugo.io/) template to create rich content [academic reports](https://www.wordy.com/writers-workshop/writing-an-academic-report/) having [p5.js](https://p5js.org/) sketches.
+## Presentación de Estudiantes
 
-## Hacking
+### **Nombre:** Julio Javier Muñoz Quiñonez
+**Intereses:** Desarrollo de Software, Produccion audiovisual 
 
-Install the [gohugo](https://gohugo.io/) [static site generator](https://jamstack.org/generators/) then:
+**Pasatiempos:** Ciclismo, Musica, Cine
 
-```sh
-$git clone https://github.com/VisualComputing/RGb
-$cd RGb
-$git submodule update --init --recursive
-$hugo server -D --disableFastRender
-```
 
-Deploy with `$git push` after redefined `baseURL` in `config.toml` which should point to your actual public remote.
+### **Nombre:** Elkin Mauricio Mendez Pinzon
+**Intereses:** Desarrollo de Software, Videojuegos
 
-### Remarks
+**Pasatiempos:** Jugar lolsito 
 
-{{< hint info >}}
-If you renamed the repo, say to `newreponame`, don't forget to update all url references of the markdown and js file sources, to reflect that change, i.e., look within all [content folder](https://github.com/VisualComputing/RGb/tree/main/content) files for `RGb` occurrences and replace them by `newreponame`.
-{{< /hint >}}
 
-{{< hint info >}}
-If you forked the repo don't forget to activate the [actions](https://github.com/VisualComputing/RGb/actions).
-{{< /hint >}}
+### **Nombre:**  Mario Anibal Bohorquez Mora
+**Intereses:** Desarrollo de Software
 
-{{< hint info >}}
-Don't forget to select the `gh-pages` branch as the one to serve your site from at the [pages section of your repo configuration page](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site), if it is no so by default.
-{{< /hint >}}
+**Pasatiempos:** Futbol, Videojuegos
 
-{{< hint info >}}
-The **RGb** template uses the [hugo-book](https://github.com/alex-shpak/hugo-book) theme by default. Check the [hugo themes site](https://themes.gohugo.io/) if you wish to add other ones.
-{{< /hint >}}
+### **Nombre:**  Harold Andres Potosi Jojoa
+**Intereses:** Desarrollo de Software
+
+**Pasatiempos:** Futbol, Videojuegos
+{{< p5-iframe sketch="/RGB/sketches/cube.js" width="325" height="325" >}}
