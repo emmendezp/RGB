@@ -99,7 +99,7 @@ For example, if we have two three-by-three matrices, the first a kernel, and the
 
 ### Example
 
-{{< p5-global-iframe id="breath" width="1000" height="850" >}}
+{{< p5-global-iframe id="breath" width="700" height="450" >}}
 
 let kernel = [[-1, -1, -1 ], [ -1,  9, -1 ], [-1, -1, -1 ]]; 
 
@@ -111,7 +111,7 @@ let kernel = [[-1, -1, -1 ], [ -1,  9, -1 ], [-1, -1, -1 ]];
 // preload() makes sure image is loaded before anything else occurs
 function preload() {
   // load the original image
-  img = loadImage("/images/657987.jpg"); 
+  img = loadImage("/images/657987.png"); 
 }
 
 // setup() runs after preload, once()
