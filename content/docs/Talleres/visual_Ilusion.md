@@ -99,7 +99,7 @@ For example, if we have two three-by-three matrices, the first a kernel, and the
 
 ### Example
 
-{{< p5-global-iframe id="breath" width="700" height="450" >}}
+{{< p5-global-iframe id="breath" width="1000" height="850" >}}
 
 let kernel = [[-1, -1, -1 ], [ -1,  9, -1 ], [-1, -1, -1 ]]; 
 
