@@ -12,36 +12,47 @@ In mathematics (in particular, functional analysis), convolution is a mathematic
 
 
 {{< p5-global-iframe id="breath" width="500" height="450" >}}
-var start, speed;
-var color_1, color_2, color_3;
+var linew = 20;
+var lineoffset = 30;
+var space = linew + lineoffset;
 
 function setup() {
-  createCanvas(400, 400);
-  start = 0;
-  // Slider that controls the truning speed.
-  slider = createSlider(0, 120, 20);
-  slider.position(10, 10);
-  slider.style('width', '80px');
-  // Color pickers for the three sections.
-  color_1 = createColorPicker('red');
-  color_1.position(width + 5, 5);
-  color_2 = createColorPicker('green');
-  color_2.position(width + 5, 35);
-  color_3 = createColorPicker('blue');
-  color_3.position(width + 5, 65);
+    var canvas = createCanvas(400, 400);
+    canvas.parent('sketch-div');
+    strokeCap(PROJECT);
 }
 
 function draw() {
-  background(220);
-  speed = slider.value();
-  // Draw the three circular sections.
-  fill(color_1.color());
-  arc(200, 200, 100, 100, start, start + 2*PI/3);
-  fill(color_2.color());
-  arc(200, 200, 100, 100, start + 2*PI/3, start + 4*PI/3);
-  fill(color_3.color());
-  arc(200, 200, 100, 100, start + 4*PI/3, start);
-  // Update the start point to turn in the next frame.
-  start += speed*PI/180;
+    background(255);
+
+    // lines
+    strokeWeight(linew);
+    for (let i = 0; i < 1.5 * width / space; i++) {
+        if (i % 2 == 0) {
+            stroke(255, 0, 0);
+        } else {
+            stroke(0, 0, 255);
+        }
+
+        let xoff = i * space + frameCount % (2 * space);
+        line(-width / 2 + xoff,
+            height / 4,
+            xoff,
+            3 * height / 4);
+    }
+
+    // hiding blocks
+    if (!mouseIsPressed) {
+        noStroke();
+        fill(255);
+        rect(0, 0, width, height / 4);
+        rect(0, 3 * height / 4, width, height / 4);
+        rect(0, 0, 2 * width / 5, height);
+        rect(3 * width / 5, 0, 2 * width / 5, height);
+    }
+    strokeWeight(1);
+    stroke(0);
+    noFill();
+    rect(2 * width / 5, height / 4, width / 5, height / 2);
 }
 {{< /p5-global-iframe >}}
