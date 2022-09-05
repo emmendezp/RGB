@@ -99,9 +99,7 @@ For example, if we have two three-by-three matrices, the first a kernel, and the
 
 ### Example
 
-{{< p5-global-iframe id="breath" width="1000" height="750" >}}
-
-
+{{< p5-global-iframe id="breath" width="700" height="450" >}}
 let img;
 let w = 80;
 
@@ -141,8 +139,7 @@ function draw() {
   // Begin our loop for every pixel in the smaller image
   for (let x = xstart; x < xend; x++) {
     for (let y = ystart; y < yend; y++ ) {
-      let c = convolution(x, y, matrix, matrixsize, img);
-      
+      let c = convolution(x, y, matrix, matrixsize, img);  
       // retrieve the RGBA values from c and update pixels()
       let loc = (x + y*img.width) * 4;
       pixels[loc] = red(c);
@@ -160,16 +157,13 @@ function convolution(x, y, matrix, matrixsize, img) {
   let btotal = 0.0;
   const offset = Math.floor(matrixsize / 2);
   for (let i = 0; i < matrixsize; i++){
-    for (let j = 0; j < matrixsize; j++){
-      
+    for (let j = 0; j < matrixsize; j++){ 
       // What pixel are we testing
       const xloc = (x + i - offset);
       const yloc = (y + j - offset);
       let loc = (xloc + img.width * yloc) * 4;
-
       // Make sure we haven't walked off our image, we could do better here
       loc = constrain(loc, 0 , img.pixels.length - 1);
-
       // Calculate the convolution
       // retrieve RGB values
       rtotal += (img.pixels[loc]) * matrix[i][j];
@@ -181,7 +175,6 @@ function convolution(x, y, matrix, matrixsize, img) {
   rtotal = constrain(rtotal, 0, 255);
   gtotal = constrain(gtotal, 0, 255);
   btotal = constrain(btotal, 0, 255);
-  
   // Return the resulting color
   return color(rtotal, gtotal, btotal);
 } 
