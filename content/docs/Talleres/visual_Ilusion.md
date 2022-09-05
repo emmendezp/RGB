@@ -186,3 +186,12 @@ function convolution(x, y, matrix, matrixsize, img) {
   return color(rtotal, gtotal, btotal);
 } 
 {{< /p5-global-iframe >}}
+
+# The coffee shop wall illusion
+This coffee shop wall illusion has repeatedly jumped out of the geometric plane and into the real world in different coffee shops or locations, thanks to the visual appeal it represents.
+
+In fact, one of the most consulted books by lovers of optical illusions has been written by Gregory and is entitled The eye and the brain , in which, in addition to the neurological contributions, it also addresses issues of perception, an issue that has disturbed the author throughout his professional career.
+
+In this illusion of the cafeteria wall, all sections are straight, although the impression is the opposite , since the contrast between the tones does not allow the dividing lines between the rows to be clearly visualized. That is why the paintings create the illusion of widening towards the ends.
+
+<a href="https://imgur.com/AdnD2na"><img src="https://i.imgur.com/AdnD2na.jpg" title="source: imgur.com" /></a>
