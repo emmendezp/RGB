@@ -100,94 +100,95 @@ For example, if we have two three-by-three matrices, the first a kernel, and the
 ### Example
 
 {{< p5-global-iframe id="breath" width="700" height="450" >}}
+/*
+ * @name Convolution
+ * @description Applies a convolution matrix to a portion of an image. Move mouse to apply filter to different parts of the image. This example is a port of  <a href="https://processing.org/examples/convolution.html" target="blank">Dan Shiffman's example</a> for Processing. Original comments written by Dan unless otherwise specified.
+ * <p><em><span class="small"> To run this example locally, you will need an
+ * image file, and a running <a href="https://github.com/processing/p5.js/wiki/Local-server">
+ * local server</a>.</span></em></p>
+ */
+ 
 let img;
-let W;
-let H;
+let w = 80;
 
-let identityKernel = [
-    [  0,  0,  0 ],
-    [  0,  1,  0 ],
-    [  0,  0,  0 ]
-  ];
-
+// It's possible to convolve the image with many different 
+// matrices to produce different effects. This is a high-pass 
+// filter; it accentuates the edges. 
+const matrix = [ [ -1, -1, -1 ],
+                 [ -1,  9, -1 ],
+                 [ -1, -1, -1 ] ]; 
 
 function preload() {
-    img = loadImage('/images/test.jpeg');
+  img = loadImage('/images/moonwalk.jpg');
 }
 
 function setup() {
-    img.resize(windowWidth, 0);
-    createCanvas(img.width, img.height);
-    noLoop();
+  createCanvas(720, 400);
+  img.loadPixels();
 
-    img = applyFilter(img, identityKernel);
-    
-  }
-  
-  
-  function draw() {
-    image(img, 0,0);
-  }
-  
-  
-  function applyFilter(input, kernel) {
-    
-    // se crea una nueva imagen con las mismas dimensiones en blanco para trabajar con ella
-    let output = createImage(input.width, input.height);
-    
+  // pixelDensity(1) for not scaling pixel density to display density
+  // for more information, check the reference of pixelDensity()
+  pixelDensity(1);
+}
 
-    // Se empieza en 1 y termina en -1 para evitar acceder a un pixel que no existe 
-    // (debido a que se trabaja con los pixeles vecinos)
-    input.loadPixels();
-    output.loadPixels();
-    for (let y=1; y<input.height-1; y++) {
-      for (let x=1; x<input.width-1; x++) {
-  
-        // se establecen las sumas en 0 que usaremos para los valores RGB
-        // tanto del mismo pixel como de sus vecinos (ponderados por la matriz)
+function draw() {
+  // We're only going to process a portion of the image
+  // so let's set the whole image as the background first
+  background(img);
 
-        let sumR = 0;
-        let sumG = 0;
-        let sumB = 0;
-        
-        // Se recorren los vecinos
-        for (let offsetY=-1; offsetY<=1; offsetY++) {
-          for (let offsetX=-1; offsetX<=1; offsetX++) {
-            
-            // elige un pixel
-            let neighborIndex = ((y+offsetY) * input.width + (x+offsetX)) * 4;
-            let r = input.pixels[neighborIndex];
-            let g = input.pixels[neighborIndex+1];
-            let b = input.pixels[neighborIndex+2];
-            
+  // Calculate the small rectangle we will process
+  const xstart = constrain(mouseX - w/2, 0, img.width);
+  const ystart = constrain(mouseY - w/2, 0, img.height);
+  const xend = constrain(mouseX + w/2, 0, img.width);
+  const yend = constrain(mouseY + w/2, 0, img.height);
+  const matrixsize = 3;
 
-            // se aplica la matriz y se añade a la suma teniendo en cuenta el valor de cada offset
-            // para poder acceder a los valores de la matriz de convolución.
-            sumR += kernel[offsetY+1][offsetX+1] * r;
-            sumG += kernel[offsetY+1][offsetX+1] * g;
-            sumB += kernel[offsetY+1][offsetX+1] * b;
-          }
-        }
-        
-    
-        // despues de visitar todos los vecinos
-        // se asegura de que los valores estan restringidos en el rango RGB (0-255)
-        sumR = constrain(sumR, 0,255);
-        sumG = constrain(sumG, 0,255);
-        sumB = constrain(sumB, 0,255);
-        
-        // cambia el pixel de la imagen nueva.
-        let index = (y * input.width + x) * 4;
-        output.pixels[index] =   sumR;
-        output.pixels[index+1] = sumG;
-        output.pixels[index+2] = sumB;
-        output.pixels[index+3] = 255;
-      }
+  loadPixels();
+  // Begin our loop for every pixel in the smaller image
+  for (let x = xstart; x < xend; x++) {
+    for (let y = ystart; y < yend; y++ ) {
+      let c = convolution(x, y, matrix, matrixsize, img);
+      
+      // retrieve the RGBA values from c and update pixels()
+      let loc = (x + y*img.width) * 4;
+      pixels[loc] = red(c);
+      pixels[loc + 1] = green(c);
+      pixels[loc + 2] = blue(c);
+      pixels[loc + 3] = alpha(c);
     }
-    
-    // devuelve la imagen
-    output.updatePixels();
-    return output;
   }
+  updatePixels();
+}
 
+function convolution(x, y, matrix, matrixsize, img) {
+  let rtotal = 0.0;
+  let gtotal = 0.0;
+  let btotal = 0.0;
+  const offset = Math.floor(matrixsize / 2);
+  for (let i = 0; i < matrixsize; i++){
+    for (let j = 0; j < matrixsize; j++){
+      
+      // What pixel are we testing
+      const xloc = (x + i - offset);
+      const yloc = (y + j - offset);
+      let loc = (xloc + img.width * yloc) * 4;
+
+      // Make sure we haven't walked off our image, we could do better here
+      loc = constrain(loc, 0 , img.pixels.length - 1);
+
+      // Calculate the convolution
+      // retrieve RGB values
+      rtotal += (img.pixels[loc]) * matrix[i][j];
+      gtotal += (img.pixels[loc + 1]) * matrix[i][j];
+      btotal += (img.pixels[loc + 2]) * matrix[i][j];
+    }
+  }
+  // Make sure RGB is within range
+  rtotal = constrain(rtotal, 0, 255);
+  gtotal = constrain(gtotal, 0, 255);
+  btotal = constrain(btotal, 0, 255);
+  
+  // Return the resulting color
+  return color(rtotal, gtotal, btotal);
+} 
 {{< /p5-global-iframe >}}
