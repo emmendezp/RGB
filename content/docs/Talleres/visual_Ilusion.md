@@ -99,7 +99,7 @@ For example, if we have two three-by-three matrices, the first a kernel, and the
 
 ### Example
 
-{{< p5-global-iframe id="breath" width="1000" height="750" >}}
+{{< p5-global-iframe id="breath" width="700" height="450" >}}
 
 
 let img;
@@ -117,7 +117,7 @@ function preload() {
 }
 
 function setup() {
-  createCanvas(720, 400);
+  createCanvas(709, 399);
   img.loadPixels();
 
   // pixelDensity(1) for not scaling pixel density to display density
