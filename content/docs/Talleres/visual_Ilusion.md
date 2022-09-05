@@ -24,8 +24,6 @@ function setup() {
 
 function draw() {
     background(255);
-
-    // lines
     strokeWeight(linew);
     for (let i = 0; i < 1.5 * width / space; i++) {
         if (i % 2 == 0) {
@@ -33,14 +31,12 @@ function draw() {
         } else {
             stroke(0, 0, 255);
         }
-
         let xoff = i * space + frameCount % (2 * space);
         line(-width / 2 + xoff,
             height / 4,
             xoff,
             3 * height / 4);
     }
-
     // hiding blocks
     if (!mouseIsPressed) {
         noStroke();
