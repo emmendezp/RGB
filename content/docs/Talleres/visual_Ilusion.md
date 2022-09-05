@@ -117,7 +117,7 @@ function preload() {
 // setup() runs after preload, once()
 function setup() {
   // create canvas
-  createCanvas(1920, 1080);
+  createCanvas(710, 400);
   // noLoop() makes draw() run only once, not in a loop
   noLoop();
 }
