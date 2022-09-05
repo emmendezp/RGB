@@ -111,7 +111,7 @@ const matrix = [ [ -1, -1, -1 ],
                  [ -1, -1, -1 ] ]; 
 
 function preload() {
-  img = loadImage('/images/657987.png');
+  img = loadImage('../Talleres/657987.png');
 }
 
 function setup() {
