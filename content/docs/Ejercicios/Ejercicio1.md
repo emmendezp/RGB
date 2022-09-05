@@ -40,7 +40,7 @@ RGB1 * RGB2 = R(0*1)+G(1*0)+B(1*1) = (0,0,1)*255 -> (0,0,255)
 let r, g,b,r1, g1, b1 ;
 
 function setup() {
-  createCanvas(720, 400);
+  createCanvas(450, 400);
   // colores aleatorios
   r = random(255);
   g = random(255);
@@ -89,7 +89,7 @@ function changeColor() {
 let r, g,b,r1, g1, b1 ;
 
 function setup() {
-  createCanvas(720, 400);
+  createCanvas(450, 400);
   // colores aleatorios
   r = random(255);
   g = random(255);
