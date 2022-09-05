@@ -85,7 +85,7 @@ function changeColor() {
 {{< /highlight >}}
 {{< /details >}}
 
-{{< p5-global-iframe id="breath" width="410" height="450" >}}
+{{< p5-global-iframe id="breath" width="470" height="450" >}}
 let r, g,b,r1, g1, b1 ;
 
 function setup() {
