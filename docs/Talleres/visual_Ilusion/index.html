@@ -1,6 +1,6 @@
 <!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Tallere 2 : Visual Illusions # Problem statement # Identify, implement, and discuss possible applications of some known optical illussions on the design and development of computer graphics.
 Máscaras de convolución # Explicación visual : # In mathematics (in particular, functional analysis), convolution is a mathematical operation on two functions (f and g) that produces a third function (f * g) that expresses how the shape of one is modified by the other."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content><meta property="og:description" content="Tallere 2 : Visual Illusions # Problem statement # Identify, implement, and discuss possible applications of some known optical illussions on the design and development of computer graphics.
-Máscaras de convolución # Explicación visual : # In mathematics (in particular, functional analysis), convolution is a mathematical operation on two functions (f and g) that produces a third function (f * g) that expresses how the shape of one is modified by the other."><meta property="og:type" content="article"><meta property="og:url" content="https://emmendezp.github.io/RGB/docs/Talleres/visual_Ilusion/"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2022-09-04T20:44:25-05:00"><title>Visual Ilusion | Computacion Visual 2022-2 RGB</title><link rel=manifest href=/RGB/manifest.json><link rel=icon href=/RGB/favicon.png type=image/x-icon><link rel=stylesheet href=/RGB/book.min.ab46de3e725a6415339a37bba23a0067534a37289b063c9f8d011515a63097a8.css integrity="sha256-q0bePnJaZBUzmje7ojoAZ1NKNyibBjyfjQEVFaYwl6g=" crossorigin=anonymous><script defer src=/RGB/flexsearch.min.js></script>
+Máscaras de convolución # Explicación visual : # In mathematics (in particular, functional analysis), convolution is a mathematical operation on two functions (f and g) that produces a third function (f * g) that expresses how the shape of one is modified by the other."><meta property="og:type" content="article"><meta property="og:url" content="https://emmendezp.github.io/RGB/docs/Talleres/visual_Ilusion/"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2022-09-04T20:47:00-05:00"><title>Visual Ilusion | Computacion Visual 2022-2 RGB</title><link rel=manifest href=/RGB/manifest.json><link rel=icon href=/RGB/favicon.png type=image/x-icon><link rel=stylesheet href=/RGB/book.min.ab46de3e725a6415339a37bba23a0067534a37289b063c9f8d011515a63097a8.css integrity="sha256-q0bePnJaZBUzmje7ojoAZ1NKNyibBjyfjQEVFaYwl6g=" crossorigin=anonymous><script defer src=/RGB/flexsearch.min.js></script>
 <script defer src=/RGB/en.search.min.08073547c4430d49bf346c9394672796fead2276e4d721f879c751714cca3089.js integrity="sha256-CAc1R8RDDUm/NGyTlGcnlv6tInbk1yH4ecdRcUzKMIk=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
 <input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/RGB/><span>Computacion Visual 2022-2 RGB</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li><input type=checkbox id=section-bab8b9365022340ebec5653746d3d735 class=toggle>
 <label for=section-bab8b9365022340ebec5653746d3d735 class="flex justify-between"><a href=/RGB/docs/Ejercicios/>Ejercicios</a></label><ul><li><a href=/RGB/docs/Ejercicios/Ejercicio1/>Ejercicio1</a></li></ul></li><li><input type=checkbox id=section-9370f1a5d0248572ac505e0c6d4ad190 class=toggle>
@@ -25,50 +25,83 @@ Máscaras de convolución # Explicación visual : # In mathematics (in particula
             
             <script>
               
-var linew = 20;
-var lineoffset = 30;
-var space = linew + lineoffset;
+
+// this class describes the structure
+// and movents of the brick
+class Brick{
+  constructor(bc, y){
+    this.brickColor = bc;
+    this.yPos = y;
+    this.xPos = 0;
+  }
+
+  // this function creates the brick
+  createBrick(){
+    fill(this.brickColor);
+    rect(this.xPos, this.yPos, 100, 50);
+  }
+
+  // this function sets the speed
+  // of movement of the brick to 1
+  setSpeed(){
+    this.xSpeed = 1;
+  }
+
+  // this function set the bricks in motion
+  moveBrick(){
+    this.xPos+=this.xSpeed;
+    if(this.xPos+100 >= width || this.xPos <= 0){
+      this.xSpeed*=-1;
+    }
+  }
+}
 
 function setup() {
-    var canvas = createCanvas(400, 400);
-    canvas.parent('sketch-div');
-    strokeCap(PROJECT);
+  createCanvas(720, 400);
+  createP(&#34;Keep the mouse clicked&#34;).style('color','#ffffff');
+  createP(&#34;to check whether the bricks&#34;).style('color','#ffffff');
+  createP(&#34;are moving at same speed or not&#34;).style('color','#ffffff');
 }
 
-function draw() {
-    background(255);
-    strokeWeight(linew);
-    for (let i = 0; i < 1.5 * width / space; i++) {
-        if (i % 2 == 0) {
-            stroke(255, 0, 0);
-        } else {
-            stroke(0, 0, 255);
-        }
-        let xoff = i * space + frameCount % (2 * space);
-        line(-width / 2 + xoff,
-            height / 4,
-            xoff,
-            3 * height / 4);
-    }
-    // hiding blocks
-    if (!mouseIsPressed) {
-        noStroke();
-        fill(255);
-        rect(0, 0, width, height / 4);
-        rect(0, 3 * height / 4, width, height / 4);
-        rect(0, 0, 2 * width / 5, height);
-        rect(3 * width / 5, 0, 2 * width / 5, height);
-    }
-    strokeWeight(1);
-    stroke(0);
-    noFill();
-    rect(2 * width / 5, height / 4, width / 5, height / 2);
+// creating two bricks of
+// colors white and black
+let brick1 = new Brick(&#34;white&#34;,100);
+let brick2 = new Brick(&#34;black&#34;,250);
+
+//
+brick1.setSpeed();
+brick2.setSpeed();
+
+function draw () {
+  background(0);
+  if(mouseIsPressed){
+    background(50);
+  }
+  brick1.createBrick();
+  brick1.moveBrick();
+  if(!mouseIsPressed){
+    createBars();
+  }
+  brick2.createBrick();
+  brick2.moveBrick();
 }
+
+// this function creates the black and
+// white bars across the screen
+function createBars() {
+  let len = 12;
+  for(let i = 0;i<width/len;i++){
+    fill(&#34;white&#34;);
+    if(i%2 == 0)
+    rect(i*len,height,len,-height);
+  }
+}
+
 
             </script>
           </head>
           <body>
           </body>
         </html>
-      "></iframe></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/emmendezp/RGB/commit/6f7a1c757948452fe4a98092cf490af3e3cb7fa2 title='Last modified by emmendezp | September 5, 2022' target=_blank rel=noopener><img src=/RGB/svg/calendar.svg class=book-icon alt=Calendar>
+      "></iframe></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/emmendezp/RGB/commit/6ff779cf0e5eba4b63ebd64cecdf56e6d2533a64 title='Last modified by emmendezp | September 5, 2022' target=_blank rel=noopener><img src=/RGB/svg/calendar.svg class=book-icon alt=Calendar>
 <span>September 5, 2022</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#tallere-2--visual-illusions>Tallere 2 : Visual Illusions</a><ul><li><a href=#problem-statement>Problem statement</a></li><li><a href=#máscaras-de-convolución>Máscaras de convolución</a><ul><li><a href=#explicación-visual->Explicación visual :</a></li></ul></li></ul></li></ul></nav></div></aside></main></body></html>
