@@ -32,11 +32,11 @@ RGB1 * RGB2 = R(0*1)+G(1*0)+B(1*1) = (0,0,1)*255 -> (0,0,255)
 ~~~
 <img src="https://imgur.com/2tSAa0P.png" alt="Colors Multiply" style="width: 50%;"/>
 
-## Code (solution) & results
+#Código
 
 {{< details title="p5-global-iframe markdown" open=false >}}
 {{< highlight html >}}
-{{</* p5-global-iframe id="breath" width="410" height="450" >}}
+{{</* p5-global-iframe id="breath" width="470" height="450" >}}
 let r, g,b,r1, g1, b1 ;
 
 function setup() {
