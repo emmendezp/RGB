@@ -1,6 +1,6 @@
 <!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Tallere 2 : Visual Illusions # Problem statement # Identify, implement, and discuss possible applications of some known optical illussions on the design and development of computer graphics.
 Máscaras de convolución # Explicación visual : # In mathematics (in particular, functional analysis), convolution is a mathematical operation on two functions (f and g) that produces a third function (f * g) that expresses how the shape of one is modified by the other."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content><meta property="og:description" content="Tallere 2 : Visual Illusions # Problem statement # Identify, implement, and discuss possible applications of some known optical illussions on the design and development of computer graphics.
-Máscaras de convolución # Explicación visual : # In mathematics (in particular, functional analysis), convolution is a mathematical operation on two functions (f and g) that produces a third function (f * g) that expresses how the shape of one is modified by the other."><meta property="og:type" content="article"><meta property="og:url" content="https://emmendezp.github.io/RGB/docs/Talleres/visual_Ilusion/"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2022-09-04T22:20:51-05:00"><title>Visual Ilusion | Computacion Visual 2022-2 RGB</title><link rel=manifest href=/RGB/manifest.json><link rel=icon href=/RGB/favicon.png type=image/x-icon><link rel=stylesheet href=/RGB/book.min.ab46de3e725a6415339a37bba23a0067534a37289b063c9f8d011515a63097a8.css integrity="sha256-q0bePnJaZBUzmje7ojoAZ1NKNyibBjyfjQEVFaYwl6g=" crossorigin=anonymous><script defer src=/RGB/flexsearch.min.js></script>
+Máscaras de convolución # Explicación visual : # In mathematics (in particular, functional analysis), convolution is a mathematical operation on two functions (f and g) that produces a third function (f * g) that expresses how the shape of one is modified by the other."><meta property="og:type" content="article"><meta property="og:url" content="https://emmendezp.github.io/RGB/docs/Talleres/visual_Ilusion/"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2022-09-04T22:31:48-05:00"><title>Visual Ilusion | Computacion Visual 2022-2 RGB</title><link rel=manifest href=/RGB/manifest.json><link rel=icon href=/RGB/favicon.png type=image/x-icon><link rel=stylesheet href=/RGB/book.min.ab46de3e725a6415339a37bba23a0067534a37289b063c9f8d011515a63097a8.css integrity="sha256-q0bePnJaZBUzmje7ojoAZ1NKNyibBjyfjQEVFaYwl6g=" crossorigin=anonymous><script defer src=/RGB/flexsearch.min.js></script>
 <script defer src=/RGB/en.search.min.991caaba1049772dd900abbd5ae0d9628a19c046d9db7d7fd1f985db888ff692.js integrity="sha256-mRyquhBJdy3ZAKu9WuDZYooZwEbZ231/0fmF24iP9pI=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
 <input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/RGB/><span>Computacion Visual 2022-2 RGB</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li><input type=checkbox id=section-bab8b9365022340ebec5653746d3d735 class=toggle>
 <label for=section-bab8b9365022340ebec5653746d3d735 class="flex justify-between"><a href=/RGB/docs/Ejercicios/>Ejercicios</a></label><ul><li><a href=/RGB/docs/Ejercicios/Ejercicio1/>Ejercicio1</a></li></ul></li><li><input type=checkbox id=section-9370f1a5d0248572ac505e0c6d4ad190 class=toggle>
@@ -107,7 +107,7 @@ function createBars() {
       "></iframe><h2 id=image-kernel>Image Kernel
 <a class=anchor href=#image-kernel>#</a></h2><p>In image processing, a kernel, convolution matrix, or mask is a small matrix used for blurring, sharpening, embossing, edge detection, and more. This is accomplished by doing a convolution between the kernel and an image.</p><h3 id=convolution->Convolution :
 <a class=anchor href=#convolution->#</a></h3><p>Convolution is the process of adding each element of the image to its local neighbors, weighted by the kernel. This is related to a form of mathematical convolution. The matrix operation being performed—convolution—is not traditional matrix multiplication, despite being similarly denoted by *.</p><p>For example, if we have two three-by-three matrices, the first a kernel, and the second an image piece, convolution is the process of flipping both the rows and columns of the kernel and multiplying locally similar entries and summing. The element at coordinates [2, 2] (that is, the central element) of the resulting image would be a weighted combination of all the entries of the image matrix, with weights given by the kernel:</p><p><a href=https://imgur.com/WKClpxS><img src=https://i.imgur.com/WKClpxS.gif title="source: imgur.com"></a></p><h3 id=example-1>Example
-<a class=anchor href=#example-1>#</a></h3><iframe id=breath style=width:700px;height:450px srcdoc="
+<a class=anchor href=#example-1>#</a></h3><iframe id=breath style=width:700px;height:450px srcdoc='
         <!DOCTYPE html>
         <html>
           <head>
@@ -120,101 +120,102 @@ function createBars() {
             
             <script>
               
+/*
+ * @name Convolution
+ * @description Applies a convolution matrix to a portion of an image. Move mouse to apply filter to different parts of the image. This example is a port of  <a href="https://processing.org/examples/convolution.html" target="blank">Dan Shiffman&#39;s example</a> for Processing. Original comments written by Dan unless otherwise specified.
+ * <p><em><span class="small"> To run this example locally, you will need an
+ * image file, and a running <a href="https://github.com/processing/p5.js/wiki/Local-server">
+ * local server</a>.</span></em></p>
+ */
+ 
 let img;
-let W;
-let H;
+let w = 80;
 
-let identityKernel = [
-    [  0,  0,  0 ],
-    [  0,  1,  0 ],
-    [  0,  0,  0 ]
-  ];
-
+// It&#39;s possible to convolve the image with many different 
+// matrices to produce different effects. This is a high-pass 
+// filter; it accentuates the edges. 
+const matrix = [ [ -1, -1, -1 ],
+                 [ -1,  9, -1 ],
+                 [ -1, -1, -1 ] ]; 
 
 function preload() {
-    img = loadImage('/images/test.jpeg');
+  img = loadImage(&#39;/images/moonwalk.jpg&#39;);
 }
 
 function setup() {
-    img.resize(windowWidth, 0);
-    createCanvas(img.width, img.height);
-    noLoop();
+  createCanvas(720, 400);
+  img.loadPixels();
 
-    img = applyFilter(img, identityKernel);
-    
-  }
-  
-  
-  function draw() {
-    image(img, 0,0);
-  }
-  
-  
-  function applyFilter(input, kernel) {
-    
-    // se crea una nueva imagen con las mismas dimensiones en blanco para trabajar con ella
-    let output = createImage(input.width, input.height);
-    
+  // pixelDensity(1) for not scaling pixel density to display density
+  // for more information, check the reference of pixelDensity()
+  pixelDensity(1);
+}
 
-    // Se empieza en 1 y termina en -1 para evitar acceder a un pixel que no existe 
-    // (debido a que se trabaja con los pixeles vecinos)
-    input.loadPixels();
-    output.loadPixels();
-    for (let y=1; y<input.height-1; y++) {
-      for (let x=1; x<input.width-1; x++) {
-  
-        // se establecen las sumas en 0 que usaremos para los valores RGB
-        // tanto del mismo pixel como de sus vecinos (ponderados por la matriz)
+function draw() {
+  // We&#39;re only going to process a portion of the image
+  // so let&#39;s set the whole image as the background first
+  background(img);
 
-        let sumR = 0;
-        let sumG = 0;
-        let sumB = 0;
-        
-        // Se recorren los vecinos
-        for (let offsetY=-1; offsetY<=1; offsetY++) {
-          for (let offsetX=-1; offsetX<=1; offsetX++) {
-            
-            // elige un pixel
-            let neighborIndex = ((y+offsetY) * input.width + (x+offsetX)) * 4;
-            let r = input.pixels[neighborIndex];
-            let g = input.pixels[neighborIndex+1];
-            let b = input.pixels[neighborIndex+2];
-            
+  // Calculate the small rectangle we will process
+  const xstart = constrain(mouseX - w/2, 0, img.width);
+  const ystart = constrain(mouseY - w/2, 0, img.height);
+  const xend = constrain(mouseX + w/2, 0, img.width);
+  const yend = constrain(mouseY + w/2, 0, img.height);
+  const matrixsize = 3;
 
-            // se aplica la matriz y se añade a la suma teniendo en cuenta el valor de cada offset
-            // para poder acceder a los valores de la matriz de convolución.
-            sumR += kernel[offsetY+1][offsetX+1] * r;
-            sumG += kernel[offsetY+1][offsetX+1] * g;
-            sumB += kernel[offsetY+1][offsetX+1] * b;
-          }
-        }
-        
-    
-        // despues de visitar todos los vecinos
-        // se asegura de que los valores estan restringidos en el rango RGB (0-255)
-        sumR = constrain(sumR, 0,255);
-        sumG = constrain(sumG, 0,255);
-        sumB = constrain(sumB, 0,255);
-        
-        // cambia el pixel de la imagen nueva.
-        let index = (y * input.width + x) * 4;
-        output.pixels[index] =   sumR;
-        output.pixels[index+1] = sumG;
-        output.pixels[index+2] = sumB;
-        output.pixels[index+3] = 255;
-      }
+  loadPixels();
+  // Begin our loop for every pixel in the smaller image
+  for (let x = xstart; x < xend; x++) {
+    for (let y = ystart; y < yend; y++ ) {
+      let c = convolution(x, y, matrix, matrixsize, img);
+      
+      // retrieve the RGBA values from c and update pixels()
+      let loc = (x + y*img.width) * 4;
+      pixels[loc] = red(c);
+      pixels[loc + 1] = green(c);
+      pixels[loc + 2] = blue(c);
+      pixels[loc + 3] = alpha(c);
     }
-    
-    // devuelve la imagen
-    output.updatePixels();
-    return output;
   }
+  updatePixels();
+}
 
+function convolution(x, y, matrix, matrixsize, img) {
+  let rtotal = 0.0;
+  let gtotal = 0.0;
+  let btotal = 0.0;
+  const offset = Math.floor(matrixsize / 2);
+  for (let i = 0; i < matrixsize; i++){
+    for (let j = 0; j < matrixsize; j++){
+      
+      // What pixel are we testing
+      const xloc = (x + i - offset);
+      const yloc = (y + j - offset);
+      let loc = (xloc + img.width * yloc) * 4;
+
+      // Make sure we haven&#39;t walked off our image, we could do better here
+      loc = constrain(loc, 0 , img.pixels.length - 1);
+
+      // Calculate the convolution
+      // retrieve RGB values
+      rtotal += (img.pixels[loc]) * matrix[i][j];
+      gtotal += (img.pixels[loc + 1]) * matrix[i][j];
+      btotal += (img.pixels[loc + 2]) * matrix[i][j];
+    }
+  }
+  // Make sure RGB is within range
+  rtotal = constrain(rtotal, 0, 255);
+  gtotal = constrain(gtotal, 0, 255);
+  btotal = constrain(btotal, 0, 255);
+  
+  // Return the resulting color
+  return color(rtotal, gtotal, btotal);
+} 
 
             </script>
           </head>
           <body>
           </body>
         </html>
-      "></iframe></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/emmendezp/RGB/commit/c05db929da52be133b521524de183492d09d8648 title='Last modified by emmendezp | September 5, 2022' target=_blank rel=noopener><img src=/RGB/svg/calendar.svg class=book-icon alt=Calendar>
+      '></iframe></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/emmendezp/RGB/commit/5b9e1dc5145fe23e4718827513a72f6037c9f72e title='Last modified by emmendezp | September 5, 2022' target=_blank rel=noopener><img src=/RGB/svg/calendar.svg class=book-icon alt=Calendar>
 <span>September 5, 2022</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#tallere-2--visual-illusions>Tallere 2 : Visual Illusions</a><ul><li><a href=#problem-statement>Problem statement</a></li><li><a href=#máscaras-de-convolución>Máscaras de convolución</a><ul><li><a href=#explicación-visual->Explicación visual :</a></li><li><a href=#example>Example</a></li></ul></li><li><a href=#image-kernel>Image Kernel</a><ul><li><a href=#convolution->Convolution :</a></li><li><a href=#example-1>Example</a></li></ul></li></ul></li></ul></nav></div></aside></main></body></html>
