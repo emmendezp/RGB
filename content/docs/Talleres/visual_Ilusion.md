@@ -99,7 +99,7 @@ For example, if we have two three-by-three matrices, the first a kernel, and the
 
 ### Example
 
-{{< p5-global-iframe id="breath" width="700" height="450" >}}
+{{< p5-global-iframe id="breath" width="1000" height="750" >}}
 
 let kernel = [[-1, -1, -1 ], [ -1,  9, -1 ], [-1, -1, -1 ]]; 
 
@@ -117,7 +117,7 @@ function preload() {
 // setup() runs after preload, once()
 function setup() {
   // create canvas
-  createCanvas(710, 400);
+  createCanvas(1710, 600);
   // noLoop() makes draw() run only once, not in a loop
   noLoop();
 }
