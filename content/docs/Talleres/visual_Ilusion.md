@@ -12,43 +12,76 @@ In mathematics (in particular, functional analysis), convolution is a mathematic
 
 
 {{< p5-global-iframe id="breath" width="500" height="450" >}}
-var linew = 20;
-var lineoffset = 30;
-var space = linew + lineoffset;
+
+// this class describes the structure
+// and movents of the brick
+class Brick{
+  constructor(bc, y){
+    this.brickColor = bc;
+    this.yPos = y;
+    this.xPos = 0;
+  }
+
+  // this function creates the brick
+  createBrick(){
+    fill(this.brickColor);
+    rect(this.xPos, this.yPos, 100, 50);
+  }
+
+  // this function sets the speed
+  // of movement of the brick to 1
+  setSpeed(){
+    this.xSpeed = 1;
+  }
+
+  // this function set the bricks in motion
+  moveBrick(){
+    this.xPos+=this.xSpeed;
+    if(this.xPos+100 >= width || this.xPos <= 0){
+      this.xSpeed*=-1;
+    }
+  }
+}
 
 function setup() {
-    var canvas = createCanvas(400, 400);
-    canvas.parent('sketch-div');
-    strokeCap(PROJECT);
+  createCanvas(720, 400);
+  createP("Keep the mouse clicked").style('color','#ffffff');
+  createP("to check whether the bricks").style('color','#ffffff');
+  createP("are moving at same speed or not").style('color','#ffffff');
 }
 
-function draw() {
-    background(255);
-    strokeWeight(linew);
-    for (let i = 0; i < 1.5 * width / space; i++) {
-        if (i % 2 == 0) {
-            stroke(255, 0, 0);
-        } else {
-            stroke(0, 0, 255);
-        }
-        let xoff = i * space + frameCount % (2 * space);
-        line(-width / 2 + xoff,
-            height / 4,
-            xoff,
-            3 * height / 4);
-    }
-    // hiding blocks
-    if (!mouseIsPressed) {
-        noStroke();
-        fill(255);
-        rect(0, 0, width, height / 4);
-        rect(0, 3 * height / 4, width, height / 4);
-        rect(0, 0, 2 * width / 5, height);
-        rect(3 * width / 5, 0, 2 * width / 5, height);
-    }
-    strokeWeight(1);
-    stroke(0);
-    noFill();
-    rect(2 * width / 5, height / 4, width / 5, height / 2);
+// creating two bricks of
+// colors white and black
+let brick1 = new Brick("white",100);
+let brick2 = new Brick("black",250);
+
+//
+brick1.setSpeed();
+brick2.setSpeed();
+
+function draw () {
+  background(0);
+  if(mouseIsPressed){
+    background(50);
+  }
+  brick1.createBrick();
+  brick1.moveBrick();
+  if(!mouseIsPressed){
+    createBars();
+  }
+  brick2.createBrick();
+  brick2.moveBrick();
 }
+
+// this function creates the black and
+// white bars across the screen
+function createBars() {
+  let len = 12;
+  for(let i = 0;i<width/len;i++){
+    fill("white");
+    if(i%2 == 0)
+    rect(i*len,height,len,-height);
+  }
+}
+
 {{< /p5-global-iframe >}}
