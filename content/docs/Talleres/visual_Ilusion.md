@@ -101,13 +101,6 @@ For example, if we have two three-by-three matrices, the first a kernel, and the
 
 {{< p5-global-iframe id="breath" width="700" height="450" >}}
 
-/*
- * @name Convolution
- * @description Applies a convolution matrix to a portion of an image. Move mouse to apply filter to different parts of the image. This example is a port of  <a href="https://processing.org/examples/convolution.html" target="blank">Dan Shiffman's example</a> for Processing. Original comments written by Dan unless otherwise specified.
- * <p><em><span class="small"> To run this example locally, you will need an
- * image file, and a running <a href="https://github.com/processing/p5.js/wiki/Local-server">
- * local server</a>.</span></em></p>
- */
  
 let img;
 let w = 80;
@@ -120,7 +113,7 @@ const matrix = [ [ -1, -1, -1 ],
                  [ -1, -1, -1 ] ]; 
 
 function preload() {
-  img = loadImage('https://i.imgur.com/EaPxK9w.png');
+  img = loadImage('https://i.imgur.com/XpZYlsV.png);
 }
 
 function setup() {
