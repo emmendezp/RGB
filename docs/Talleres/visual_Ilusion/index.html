@@ -1,6 +1,6 @@
 <!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Tallere 2 : Visual Illusions # Problem statement # Identify, implement, and discuss possible applications of some known optical illussions on the design and development of computer graphics.
 Máscaras de convolución # Explicación visual : # In mathematics (in particular, functional analysis), convolution is a mathematical operation on two functions (f and g) that produces a third function (f * g) that expresses how the shape of one is modified by the other."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content><meta property="og:description" content="Tallere 2 : Visual Illusions # Problem statement # Identify, implement, and discuss possible applications of some known optical illussions on the design and development of computer graphics.
-Máscaras de convolución # Explicación visual : # In mathematics (in particular, functional analysis), convolution is a mathematical operation on two functions (f and g) that produces a third function (f * g) that expresses how the shape of one is modified by the other."><meta property="og:type" content="article"><meta property="og:url" content="https://emmendezp.github.io/RGB/docs/Talleres/visual_Ilusion/"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2022-09-04T21:35:55-05:00"><title>Visual Ilusion | Computacion Visual 2022-2 RGB</title><link rel=manifest href=/RGB/manifest.json><link rel=icon href=/RGB/favicon.png type=image/x-icon><link rel=stylesheet href=/RGB/book.min.ab46de3e725a6415339a37bba23a0067534a37289b063c9f8d011515a63097a8.css integrity="sha256-q0bePnJaZBUzmje7ojoAZ1NKNyibBjyfjQEVFaYwl6g=" crossorigin=anonymous><script defer src=/RGB/flexsearch.min.js></script>
+Máscaras de convolución # Explicación visual : # In mathematics (in particular, functional analysis), convolution is a mathematical operation on two functions (f and g) that produces a third function (f * g) that expresses how the shape of one is modified by the other."><meta property="og:type" content="article"><meta property="og:url" content="https://emmendezp.github.io/RGB/docs/Talleres/visual_Ilusion/"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2022-09-04T21:45:11-05:00"><title>Visual Ilusion | Computacion Visual 2022-2 RGB</title><link rel=manifest href=/RGB/manifest.json><link rel=icon href=/RGB/favicon.png type=image/x-icon><link rel=stylesheet href=/RGB/book.min.ab46de3e725a6415339a37bba23a0067534a37289b063c9f8d011515a63097a8.css integrity="sha256-q0bePnJaZBUzmje7ojoAZ1NKNyibBjyfjQEVFaYwl6g=" crossorigin=anonymous><script defer src=/RGB/flexsearch.min.js></script>
 <script defer src=/RGB/en.search.min.991caaba1049772dd900abbd5ae0d9628a19c046d9db7d7fd1f985db888ff692.js integrity="sha256-mRyquhBJdy3ZAKu9WuDZYooZwEbZ231/0fmF24iP9pI=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
 <input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/RGB/><span>Computacion Visual 2022-2 RGB</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li><input type=checkbox id=section-bab8b9365022340ebec5653746d3d735 class=toggle>
 <label for=section-bab8b9365022340ebec5653746d3d735 class="flex justify-between"><a href=/RGB/docs/Ejercicios/>Ejercicios</a></label><ul><li><a href=/RGB/docs/Ejercicios/Ejercicio1/>Ejercicio1</a></li></ul></li><li><input type=checkbox id=section-9370f1a5d0248572ac505e0c6d4ad190 class=toggle>
@@ -107,7 +107,7 @@ function createBars() {
       "></iframe><h2 id=image-kernel>Image Kernel
 <a class=anchor href=#image-kernel>#</a></h2><p>In image processing, a kernel, convolution matrix, or mask is a small matrix used for blurring, sharpening, embossing, edge detection, and more. This is accomplished by doing a convolution between the kernel and an image.</p><h3 id=convolution->Convolution :
 <a class=anchor href=#convolution->#</a></h3><p>Convolution is the process of adding each element of the image to its local neighbors, weighted by the kernel. This is related to a form of mathematical convolution. The matrix operation being performed—convolution—is not traditional matrix multiplication, despite being similarly denoted by *.</p><p>For example, if we have two three-by-three matrices, the first a kernel, and the second an image piece, convolution is the process of flipping both the rows and columns of the kernel and multiplying locally similar entries and summing. The element at coordinates [2, 2] (that is, the central element) of the resulting image would be a weighted combination of all the entries of the image matrix, with weights given by the kernel:</p><p><a href=https://imgur.com/WKClpxS><img src=https://i.imgur.com/WKClpxS.gif title="source: imgur.com"></a></p><h3 id=example-1>Example
-<a class=anchor href=#example-1>#</a></h3><iframe id=breath style=width:1000px;height:750px srcdoc='
+<a class=anchor href=#example-1>#</a></h3><iframe id=breath style=width:1000px;height:750px srcdoc="
         <!DOCTYPE html>
         <html>
           <head>
@@ -121,86 +121,90 @@ function createBars() {
             <script>
               
 
-let kernel = [[-1, -1, -1 ], [ -1,  9, -1 ], [-1, -1, -1 ]]; 
 
-// preload() runs once, before setup()
-// loadImage() needs to occur here instead of setup()
-// if loadImage() is called in setup(), the image won&#39;t appear 
-// since noLoop() restricts draw() to execute only once
-// (one execution of draw() is not enough time for the image to load),
-// preload() makes sure image is loaded before anything else occurs
+let img;
+let w = 80;
+
+// It's possible to convolve the image with many different 
+// matrices to produce different effects. This is a high-pass 
+// filter; it accentuates the edges. 
+const matrix = [ [ -1, -1, -1 ],
+                 [ -1,  9, -1 ],
+                 [ -1, -1, -1 ] ]; 
+
 function preload() {
-  // load the original image
-  img = loadImage("/images/657987.png"); 
+  img = loadImage('/images/657987.png');
 }
 
-// setup() runs after preload, once()
 function setup() {
-  // create canvas
-  createCanvas(1710, 600);
-  // noLoop() makes draw() run only once, not in a loop
-  noLoop();
+  createCanvas(720, 400);
+  img.loadPixels();
+
+  // pixelDensity(1) for not scaling pixel density to display density
+  // for more information, check the reference of pixelDensity()
+  pixelDensity(1);
 }
 
-// draw() runs after setup(), normally on a loop
-// in this case it runs only once, because of noDraw()
 function draw() {
-  
-  // place the original image on the upper left corner
-  image(img, 0, 0);
+  // We're only going to process a portion of the image
+  // so let's set the whole image as the background first
+  background(img);
 
-  // create a new image, same dimensions as img
-  edgeImg = createImage(img.width, img.height);
-  
-  // load its pixels
-  edgeImg.loadPixels();
+  // Calculate the small rectangle we will process
+  const xstart = constrain(mouseX - w/2, 0, img.width);
+  const ystart = constrain(mouseY - w/2, 0, img.height);
+  const xend = constrain(mouseX + w/2, 0, img.width);
+  const yend = constrain(mouseY + w/2, 0, img.height);
+  const matrixsize = 3;
 
-  
-  // two for() loops, to iterate in x axis and y axis
-  // since the kernel assumes that the pixel
-  // has pixels above, under, left, and right
-  // we need to skip the first and last column and row
-  // x then goes from 1 to width - 1
-  // y then goes from 1 to height - 1
-
-  for (let x = 1; x < img.width - 1; x++) {
-    for (let y = 1; y < img.height - 1; y++) {
-      // kernel sum for the current pixel starts as 0
-      let sum = 0; 
+  loadPixels();
+  // Begin our loop for every pixel in the smaller image
+  for (let x = xstart; x < xend; x++) {
+    for (let y = ystart; y < yend; y++ ) {
+      let c = convolution(x, y, matrix, matrixsize, img);
       
-      // kx, ky variables for iterating over the kernel
-      // kx, ky have three different values: -1, 0, 1
-      for (kx = -1; kx <= 1; kx++) {
-        for (ky = -1; ky <= 1; ky++) {
-          
-          let xpos = x + kx;
-          let ypos = y + ky;
-          let pos = (y + ky)*img.width + (x + kx);
-          // since our image is grayscale, 
-          // RGB values are identical
-          // we retrieve the red value for this example
-          let val = red(img.get(xpos, ypos));
-          // accumulate the  kernel sum
-          // kernel is a 3x3 matrix
-          // kx and ky have values -1, 0, 1
-          // if we add 1 to kx and ky, we get 0, 1, 2
-          // with that we can use it to iterate over kernel
-          // and calculate the accumulated sum
-          sum += kernel[ky+1][kx+1] * val;
-        }
-      }
-      
-      // set the pixel value of the edgeImg 
-      edgeImg.set(x, y, color(sum, sum, sum));
+      // retrieve the RGBA values from c and update pixels()
+      let loc = (x + y*img.width) * 4;
+      pixels[loc] = red(c);
+      pixels[loc + 1] = green(c);
+      pixels[loc + 2] = blue(c);
+      pixels[loc + 3] = alpha(c);
     }
   }
-  
-  // updatePixels() to write the changes on edgeImg
-  edgeImg.updatePixels();
-  
-  // draw edgeImg at the right of the original image
-  image(edgeImg, img.width, 0);
+  updatePixels();
 }
+
+function convolution(x, y, matrix, matrixsize, img) {
+  let rtotal = 0.0;
+  let gtotal = 0.0;
+  let btotal = 0.0;
+  const offset = Math.floor(matrixsize / 2);
+  for (let i = 0; i < matrixsize; i++){
+    for (let j = 0; j < matrixsize; j++){
+      
+      // What pixel are we testing
+      const xloc = (x + i - offset);
+      const yloc = (y + j - offset);
+      let loc = (xloc + img.width * yloc) * 4;
+
+      // Make sure we haven't walked off our image, we could do better here
+      loc = constrain(loc, 0 , img.pixels.length - 1);
+
+      // Calculate the convolution
+      // retrieve RGB values
+      rtotal += (img.pixels[loc]) * matrix[i][j];
+      gtotal += (img.pixels[loc + 1]) * matrix[i][j];
+      btotal += (img.pixels[loc + 2]) * matrix[i][j];
+    }
+  }
+  // Make sure RGB is within range
+  rtotal = constrain(rtotal, 0, 255);
+  gtotal = constrain(gtotal, 0, 255);
+  btotal = constrain(btotal, 0, 255);
+  
+  // Return the resulting color
+  return color(rtotal, gtotal, btotal);
+} 
 
 
             </script>
@@ -208,5 +212,5 @@ function draw() {
           <body>
           </body>
         </html>
-      '></iframe></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/emmendezp/RGB/commit/5d5c5da79a4fab583ffb5171ed5f492df74bcebe title='Last modified by emmendezp | September 5, 2022' target=_blank rel=noopener><img src=/RGB/svg/calendar.svg class=book-icon alt=Calendar>
+      "></iframe></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/emmendezp/RGB/commit/77b82a53a2f5e600460c7353df71a448e5068e2d title='Last modified by emmendezp | September 5, 2022' target=_blank rel=noopener><img src=/RGB/svg/calendar.svg class=book-icon alt=Calendar>
 <span>September 5, 2022</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#tallere-2--visual-illusions>Tallere 2 : Visual Illusions</a><ul><li><a href=#problem-statement>Problem statement</a></li><li><a href=#máscaras-de-convolución>Máscaras de convolución</a><ul><li><a href=#explicación-visual->Explicación visual :</a></li><li><a href=#example>Example</a></li></ul></li><li><a href=#image-kernel>Image Kernel</a><ul><li><a href=#convolution->Convolution :</a></li><li><a href=#example-1>Example</a></li></ul></li></ul></li></ul></nav></div></aside></main></body></html>
