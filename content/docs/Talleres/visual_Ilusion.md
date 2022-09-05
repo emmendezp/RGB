@@ -111,7 +111,7 @@ let kernel = [[-1, -1, -1 ], [ -1,  9, -1 ], [-1, -1, -1 ]];
 // preload() makes sure image is loaded before anything else occurs
 function preload() {
   // load the original image
-  img = loadImage("assets/rover.png"); 
+  img = loadImage("/images/657987.jpg"); 
 }
 
 // setup() runs after preload, once()
