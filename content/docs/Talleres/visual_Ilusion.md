@@ -113,7 +113,7 @@ const matrix = [ [ -1, -1, -1 ],
                  [ -1, -1, -1 ] ]; 
 
 function preload() {
-  img = loadImage('/images/657987 (1).jpg');
+  img = loadImage('/images/test.jpeg');
 }
 
 function setup() {
