@@ -274,5 +274,12 @@ function backgroundCheckbox() {
 Con un contraste reducido de la rejilla, la equilibración de los bordes y la rejilla ya no está presente, por lo que el efecto desaparece.
 El movimiento “similar a un gusano” para un número impar de barras por pie también se explica automáticamente.
 
+# Bibliografía:
+* Waterfall illusion. (s/f). The Illusions Index. Recuperado el 6 de septiembre de 2022, de https://www-illusionsindex-org.translate.goog/ir/waterfall-illusion?_x_tr_sl=auto&_x_tr_tl=es&_x_tr_hl=es-419
+
+* Bach, M. (s/f). “Stepping feet” motion illusion. Michaelbach.de. Recuperado el 6 de septiembre de 2022, de https://michaelbach.de/ot/mot-feetLin/
+
+* Michael's   Visual Phenomena & Optical Illusions. Recuperado el 6 de septiembre de 2022, de 
+ https://michaelbach.de/ot/lum-lazyShadow/7
 
 
