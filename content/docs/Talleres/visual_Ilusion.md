@@ -1,6 +1,6 @@
-# Tallere 2 : Visual Illusions
-## Problem statement
-Identify, implement, and discuss possible applications of some known optical illussions on the design and development of computer graphics.
+# Taller 2 : Visual Masking
+## Planteamiento del problema 
+Identificar, implementar y discutir posibles aplicaciones de algunas ilusiones ópticas conocidas en el diseño y desarrollo de gráficos por computadora.
 
 ## Máscaras de convolución 
 ### Explicación visual : 
@@ -8,9 +8,8 @@ Identify, implement, and discuss possible applications of some known optical ill
 
 <a href="https://imgur.com/cH0Iyea"><img src="https://i.imgur.com/cH0Iyea.gif" title="source: imgur.com" /></a>
 
-In mathematics (in particular, functional analysis), convolution is a mathematical operation on two functions (f and g) that produces a third function (f * g) that expresses how the shape of one is modified by the other. The term convolution refers to both the result function and to the process of computing it. It is defined as the integral of the product of the two functions after one is reflected about the y-axis and shifted. The choice of which function is reflected and shifted before the integral does not change the integral result (see commutativity). The integral is evaluated for all values of shift, producing the convolution function.
-
-### Example
+En matemáticas (en particular, análisis funcional), la convolución es una operación matemática sobre dos funciones (f y g) que produce una tercera función (f * g) que expresa cómo la forma de una es modificada por la otra. El término convolución se refiere tanto a la función de resultado como al proceso de calcularla. Se define como la integral del producto de las dos funciones después de que una se refleja sobre el eje y y se desplaza. La elección de qué función se refleja y desplaza antes de la integral no cambia el resultado de la integral (ver conmutatividad). La integral se evalúa para todos los valores de desplazamiento, produciendo la función de convolución.
+### Ejemplo
 {{< p5-global-iframe id="breath" width="700" height="450" >}}
 
 // this class describes the structure
@@ -88,11 +87,11 @@ function createBars() {
 
 
 ## Image Kernel
-In image processing, a kernel, convolution matrix, or mask is a small matrix used for blurring, sharpening, embossing, edge detection, and more. This is accomplished by doing a convolution between the kernel and an image.
+En el procesamiento de imágenes, un núcleo, una matriz de convolución o una máscara es una matriz pequeña que se utiliza para desenfocar, agudizar, grabar, detectar bordes y más. Esto se logra haciendo una convolución entre el kernel y una imagen.
 ### Convolution : 
-Convolution is the process of adding each element of the image to its local neighbors, weighted by the kernel. This is related to a form of mathematical convolution. The matrix operation being performed—convolution—is not traditional matrix multiplication, despite being similarly denoted by *.
+La convolución es el proceso de agregar cada elemento de la imagen a sus vecinos locales, ponderados por el kernel. Esto está relacionado con una forma de convolución matemática. La operación de matriz que se está realizando, la convolución, no es una multiplicación de matriz tradicional, a pesar de que se indica de manera similar con *.
 
-For example, if we have two three-by-three matrices, the first a kernel, and the second an image piece, convolution is the process of flipping both the rows and columns of the kernel and multiplying locally similar entries and summing. The element at coordinates [2, 2] (that is, the central element) of the resulting image would be a weighted combination of all the entries of the image matrix, with weights given by the kernel:
+Por ejemplo, si tenemos dos matrices de tres por tres, la primera es un kernel y la segunda una pieza de imagen, la convolución es el proceso de invertir tanto las filas como las columnas del kernel y multiplicar localmente entradas y sumas similares. El elemento en las coordenadas [2, 2] (es decir, el elemento central) de la imagen resultante sería una combinación ponderada de todas las entradas de la matriz de la imagen, con pesos dados por el kernel:
 
 
 <a href="https://imgur.com/WKClpxS"><img src="https://i.imgur.com/WKClpxS.gif" title="source: imgur.com" /></a>
@@ -188,10 +187,10 @@ function convolution(x, y, matrix, matrixsize, img) {
 {{< /p5-global-iframe >}}
 
 # The coffee shop wall illusion
-This coffee shop wall illusion has repeatedly jumped out of the geometric plane and into the real world in different coffee shops or locations, thanks to the visual appeal it represents.
+Esta ilusión de pared de cafetería ha saltado repetidamente del plano geométrico al mundo real en diferentes cafeterías o ubicaciones, gracias al atractivo visual que representa.
 
-In fact, one of the most consulted books by lovers of optical illusions has been written by Gregory and is entitled The eye and the brain , in which, in addition to the neurological contributions, it also addresses issues of perception, an issue that has disturbed the author throughout his professional career.
+De hecho, uno de los libros más consultados por los amantes de las ilusiones ópticas ha sido escrito por Gregory y se titula El ojo y el cerebro, en el que, además de las aportaciones neurológicas, también aborda cuestiones de percepción, tema que ha inquietado. el autor a lo largo de su carrera profesional.
 
-In this illusion of the cafeteria wall, all sections are straight, although the impression is the opposite , since the contrast between the tones does not allow the dividing lines between the rows to be clearly visualized. That is why the paintings create the illusion of widening towards the ends.
+En esta ilusión de la pared de la cafetería todos los tramos son rectos, aunque la impresión es la contraria, ya que el contraste entre los tonos no permite visualizar claramente las líneas divisorias entre las filas. Por eso las pinturas crean la ilusión de ensancharse hacia los extremos.
 
 <a href="https://imgur.com/AdnD2na"><img src="https://i.imgur.com/AdnD2na.jpg" title="source: imgur.com" /></a>
