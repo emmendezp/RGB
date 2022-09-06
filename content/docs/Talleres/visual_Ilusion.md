@@ -8,7 +8,7 @@ Identificar, implementar y discutir posibles aplicaciones de algunas ilusiones �
 
 <a href="https://imgur.com/cH0Iyea"><img src="https://i.imgur.com/cH0Iyea.gif" title="source: imgur.com" /></a>
 
-En matemáticas (en particular, análisis funcional), la convolución es una operación matemática sobre dos funciones (f y g) que produce una tercera función (f * g) que expresa cómo la forma de una es modificada por la otra. El término convolución se refiere tanto a la función de resultado como al proceso de calcularla. Se define como la integral del producto de las dos funciones después de que una se refleja sobre el eje y y se desplaza. La elección de qué función se refleja y desplaza antes de la integral no cambia el resultado de la integral (ver conmutatividad). La integral se evalúa para todos los valores de desplazamiento, produciendo la función de convolución.
+En matemáticas (en particular, análisis funcional), la convolución es una operación matemática sobre dos funciones (f y g) que produce una tercera función (f * g) que expresa cómo la forma de una es modificada por la otra. El término conv  olución se refiere tanto a la función de resultado como al proceso de calcularla. Se define como la integral del producto de las dos funciones después de que una se refleja sobre el eje y y se desplaza. La elección de qué función se refleja y desplaza antes de la integral no cambia el resultado de la integral (ver conmutatividad). La integral se evalúa para todos los valores de desplazamiento, produciendo la función de convolución.
 ### Ejemplo
 {{< p5-global-iframe id="breath" width="700" height="450" >}}
 
@@ -112,7 +112,7 @@ const matrix = [ [ -1, -1, -1 ],
                  [ -1, -1, -1 ] ]; 
 
 function preload() {
-  img = loadImage('https://i.imgur.com/XpZYlsV.png');
+  img = loadImage('https://i.imgur.com/drZGUWw.png');
 }
 
 function setup() {
