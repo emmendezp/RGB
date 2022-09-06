@@ -38,9 +38,9 @@ RGB1 * RGB2 = R(0*1)+G(1*0)+B(1*1) = (0,0,1)*255 -> (0,0,255)
 
 # Código
 
-{{< details title="p5-global-iframe markdown" open=false >}}
-{{< highlight html >}}
-{{</* p5-global-iframe id="breath" width="470" height="450" >}}
+{{< details title="Colors Multiply"" open=false >}}
+{{< highlight javascript >}}
+
 let r, g,b,r1, g1, b1 ;
 
 function setup() {
@@ -85,7 +85,7 @@ function changeColor() {
     b1 = random(255);
   
   }
-{{< /p5-global-iframe */>}}
+
 {{< /highlight >}}
 {{< /details >}}
 
