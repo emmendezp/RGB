@@ -376,7 +376,7 @@ function backgroundCheckbox() {
 ```
 
 {{</details>}}
-{{< p5-global-iframe id="breath" width="700" height="300" >}}
+{{< p5-global-iframe id="breath" width="710" height="310" >}}
 let checkbox;
 
 var barsColor;
