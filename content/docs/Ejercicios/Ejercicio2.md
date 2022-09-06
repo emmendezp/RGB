@@ -14,9 +14,9 @@ es una función matemática que utiliza interpolación entre un gran número de 
 
 # Código
 
-{{< details title="p5-global-iframe markdown" open=false >}}
-{{< highlight html >}}
-{{</* p5-global-iframe id="breath" width="470" height="450" >}}
+{{< details title="terrain visualization" open=false >}}
+{{< highlight javascript >}}
+
 var cols, rows;
 var scl = 20;
 var w = 1200;
@@ -59,11 +59,11 @@ function draw() {
   zoff += zinc;
   start += startInc;
 }
-{{< /p5-global-iframe */>}}
+
 {{< /highlight >}}
 {{< /details >}}
 
-{{< p5-global-iframe id="breath" width="420" height="400" >}}
+{{< p5-global-iframe id="breath" width="610" height="400" >}}
 var cols, rows;
 var scl = 20;
 var w = 1200;
@@ -77,7 +77,7 @@ var maxVal = 50;
 var startInc = 0;
 
 function setup() {
-  createCanvas(410, 350, WEBGL);
+  createCanvas(600, 350, WEBGL);
   cols = w / scl;
   rows = h / scl;
 }
@@ -109,7 +109,7 @@ function draw() {
 {{< /p5-global-iframe >}}
 
 
-{{< p5-global-iframe id="breath" width="420" height="400" >}}
+{{< p5-global-iframe id="breath" width="610" height="400" >}}
 "use strict";
 
 // ----- vars ----- //
