@@ -63,7 +63,7 @@ function draw() {
 {{< /highlight >}}
 {{< /details >}}
 
-{{< p5-global-iframe id="breath" width="810" height="450" >}}
+{{< p5-global-iframe id="breath" width="610" height="450" >}}
 var cols, rows;
 var scl = 20;
 var w = 1200;
@@ -77,7 +77,7 @@ var maxVal = 50;
 var startInc = 0;
 
 function setup() {
-  createCanvas(800, 350, WEBGL);
+  createCanvas(600, 350, WEBGL);
   cols = w / scl;
   rows = h / scl;
 }
