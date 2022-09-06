@@ -63,7 +63,7 @@ function draw() {
 {{< /highlight >}}
 {{< /details >}}
 
-{{< p5-global-iframe id="breath" width="610" height="450" >}}
+{{< p5-global-iframe id="breath" width="420" height="400" >}}
 var cols, rows;
 var scl = 20;
 var w = 1200;
@@ -77,7 +77,7 @@ var maxVal = 50;
 var startInc = 0;
 
 function setup() {
-  createCanvas(600, 350, WEBGL);
+  createCanvas(410, 350, WEBGL);
   cols = w / scl;
   rows = h / scl;
 }
@@ -105,5 +105,93 @@ function draw() {
   }
   zoff += zinc;
   start += startInc;
+}
+{{< /p5-global-iframe >}}
+
+
+{{< p5-global-iframe id="breath" width="420" height="400" >}}
+"use strict";
+
+// ----- vars ----- //
+let canvas;
+let rows, columns, terrain;
+let scale = 15;
+let heightOffset = 100;
+let yStart = 0;
+let noiseOffset = 0.1;
+
+
+// ----- setup ----- //
+function setup() {
+
+   // create and style canvas 
+   canvas = createCanvas(windowWidth, windowHeight, WEBGL);
+   canvas.style('display: block;');
+
+   // get number of rows and columns 
+   columns = Math.floor(width * 2 / scale);
+   rows = Math.floor(height * 2 / scale);
+
+   terrain = generateTerrain(rows, columns, heightOffset, noiseOffset, yStart);
+}
+
+// ----- resize ----- // 
+function windowResized() {
+   resizeCanvas(windowWidth, windowHeight);
+   columns = Math.floor(width * 2 / scale);
+   rows = Math.floor(height * 2 / scale);
+}
+
+// ----- draw ----- // 
+function draw() {
+   background(255);
+   yStart -= noiseOffset * 3;
+   terrain = generateTerrain(rows, columns, heightOffset, noiseOffset, yStart);
+   drawMesh(terrain);
+}
+
+// ----- generate terrain ----- // 
+function generateTerrain(rows, columns, heightOffset, noiseOffset, yStart) {
+
+   // create 2d array
+   let terrain = new Array(rows);
+   for (let i = 0; i < terrain.length; i++) {
+      terrain[i] = new Array(columns);
+   }
+
+   // generate perlin noise
+   let yOffset = yStart;
+   for (let y = 0; y < rows; y++) {
+
+      let xOffset = 0;
+      for (let x = 0; x < columns; x++) {
+         terrain[y][x] = map(noise(xOffset, yOffset), 0, 1, -heightOffset, heightOffset);
+         xOffset += noiseOffset;
+      }
+      yOffset += noiseOffset;
+   }
+
+   return terrain;
+}
+
+// ----- create grid ----- // 
+function drawMesh(terrain) {
+
+   // setup
+   stroke(0);
+   fill("brown");
+   rotateX(PI / 3);
+   translate(-width, -height * 1.2, 0);
+
+   // draw triangle strips
+   for (let y = 0; y < rows - 1; y++) {
+
+      beginShape(TRIANGLE_STRIP);
+      for (let x = 0; x < columns; x++) {
+         vertex(x * scale, y * scale, terrain[y][x]);
+         vertex(x * scale, (y + 1) * scale, terrain[y + 1][x]);
+      }
+      endShape();
+   }
 }
 {{< /p5-global-iframe >}}
