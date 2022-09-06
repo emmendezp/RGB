@@ -8,9 +8,9 @@ Develop a terrain visualization application
 
 Las bandas de Mach son una ilusión óptica que parte de una imagen con dos bandas, una iluminada y la otra oscura, separadas por una estrecha banda central coloreada con un gradiente de iluminado a oscuro. El ojo humano percibe dos estrechas bandas de diferente luminosidad, que no están presentes en la imagen verdadera, a cada lado del gradiente. Esta ilusión se denomina así debido a Ernst Mach.
 
-~~~
+
 ![ilusión óptica](https://upload.wikimedia.org/wikipedia/commons/e/e8/Mach_bands_-_animation.gif "Animación que muestra que tan pronto como se ponen en contacto bandas de tonos ligeramente diferentes de gris, aparece un contraste que exagera los bordes de las bandas")
-~~~
+
 
 # ¿Qué es Perlin Noise?
 
