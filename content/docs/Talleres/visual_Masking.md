@@ -198,7 +198,7 @@ En esta ilusión de la pared de la cafetería todos los tramos son rectos, aunqu
 # Image Histragram
 
 Un histograma de imagen es un tipo de histograma que actúa como una representación gráfica de la distribución tonal en una imagen digital. Traza el número de píxeles para cada valor tonal. Al mirar el histograma de una imagen específica, un espectador podrá juzgar la distribución tonal completa de un vistazo
-{{< p5-global-iframe id="breath" width="650" height="750" >}}
+{{< p5-global-iframe id="breath" width="600" height="600" >}}
 
 
 function preload() {
