@@ -14,7 +14,7 @@ es una función matemática que utiliza interpolación entre un gran número de 
 
 # Código
 
-{{< details title="terrain visualization" open=false >}}
+{{< details title="terrain visualization 1" open=false >}}
 {{< highlight javascript >}}
 
 var cols, rows;
@@ -107,6 +107,9 @@ function draw() {
   zoff += zinc;
   start += startInc;
 }
+
+
+
 {{< /p5-global-iframe >}}
 {{< details title="terrain visualization 2" open=false >}}
 {{< highlight javascript >}}
