@@ -149,7 +149,7 @@ Observa el movimiento de los “pies” azules y amarillos. Los pies parecen cam
 En realidad su movimiento es siempre simultáneo. Encuentro este fenómeno particularmente lindo. La naturaleza de su movimiento es evidente: se mueven de manera constante y conjunta. Esta ilusión fue demostrada originalmente por Stuart Anstis en 2003. La causa real de esta ilusión todavía se está debatiendo.
 
 ## Código y su Solución:
-{{< p5-global-iframe id="breath" width="700" height="700" >}}
+{{< p5-global-iframe id="breath" width="700" height="300" >}}
 let checkbox;
 
 var barsColor;
