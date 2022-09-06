@@ -1,0 +1,304 @@
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Taller # 1 # Visual illusions workshop # Estudiar, implementar y discutir posibles aplicaciones de algunos fenómenos visuales conocidos e ilusiones ópticas.
+Planteamiento del Problema # Identificar, implementar y discutir posibles aplicaciones de algunas ilusiones ópticas conocidas en el diseño y desarrollo de gráficos por computadora.
+Background # Una ilusión visual es una imagen que engaña al sistema visual, desde el ojo al cerebro, y lo lleva a percibir la realidad de forma distorsionada."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content><meta property="og:description" content="Taller # 1 # Visual illusions workshop # Estudiar, implementar y discutir posibles aplicaciones de algunos fenómenos visuales conocidos e ilusiones ópticas.
+Planteamiento del Problema # Identificar, implementar y discutir posibles aplicaciones de algunas ilusiones ópticas conocidas en el diseño y desarrollo de gráficos por computadora.
+Background # Una ilusión visual es una imagen que engaña al sistema visual, desde el ojo al cerebro, y lo lleva a percibir la realidad de forma distorsionada."><meta property="og:type" content="article"><meta property="og:url" content="https://emmendezp.github.io/RGB/docs/Talleres/visual_ilusions/"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2022-09-06T10:39:54-05:00"><title>Visual Ilusions | Computacion Visual 2022-2 RGB</title><link rel=manifest href=/RGB/manifest.json><link rel=icon href=/RGB/favicon.png type=image/x-icon><link rel=stylesheet href=/RGB/book.min.ab46de3e725a6415339a37bba23a0067534a37289b063c9f8d011515a63097a8.css integrity="sha256-q0bePnJaZBUzmje7ojoAZ1NKNyibBjyfjQEVFaYwl6g=" crossorigin=anonymous><script defer src=/RGB/flexsearch.min.js></script>
+<script defer src=/RGB/en.search.min.40c79df5316a81ce33442a329ac84a3e97685851d7968f8487f6a9c966c1b799.js integrity="sha256-QMed9TFqgc4zRCoymshKPpdoWFHXlo+Eh/apyWbBt5k=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/RGB/><span>Computacion Visual 2022-2 RGB</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li><input type=checkbox id=section-bab8b9365022340ebec5653746d3d735 class=toggle>
+<label for=section-bab8b9365022340ebec5653746d3d735 class="flex justify-between"><a href=/RGB/docs/Ejercicios/>Ejercicios</a></label><ul><li><a href=/RGB/docs/Ejercicios/Ejercicio1/>Ejercicio1</a></li><li><a href=/RGB/docs/Ejercicios/Ejercicio2/>Ejercicio2</a></li></ul></li><li><input type=checkbox id=section-9370f1a5d0248572ac505e0c6d4ad190 class=toggle>
+<label for=section-9370f1a5d0248572ac505e0c6d4ad190 class="flex justify-between"><a href=/RGB/docs/shortcodes/>Shortcodes</a></label><ul><li><a href=/RGB/docs/shortcodes/buttons/>Buttons</a></li><li><a href=/RGB/docs/shortcodes/columns/>Columns</a></li><li><a href=/RGB/docs/shortcodes/details/>Details</a></li><li><a href=/RGB/docs/shortcodes/hints/>Hints</a></li><li><a href=/RGB/docs/shortcodes/katex/>Katex</a></li><li><a href=/RGB/docs/shortcodes/mermaid/>Mermaid</a></li><li><input type=checkbox id=section-ec67a64aba70b9df3d2a9acd6c92e3bc class=toggle>
+<label for=section-ec67a64aba70b9df3d2a9acd6c92e3bc class="flex justify-between"><a href=/RGB/docs/shortcodes/p5/>P5</a></label><ul><li><a href=/RGB/docs/shortcodes/p5/div/>Div</a></li><li><a href=/RGB/docs/shortcodes/p5/iframe/>Iframe</a></li></ul></li><li><a href=/RGB/docs/shortcodes/tabs/>Tabs</a></li></ul></li><li><input type=checkbox id=section-042d3f228c0d48b7873225f7fc71e929 class=toggle checked>
+<label for=section-042d3f228c0d48b7873225f7fc71e929 class="flex justify-between"><a href=/RGB/docs/Talleres/>Talleres</a></label><ul><li><a href=/RGB/docs/Talleres/visual_ilusions/ class=active>Visual Ilusions</a></li><li><a href=/RGB/docs/Talleres/visual_Masking/>Visual Masking</a></li></ul></li></ul><ul><li><a href=/RGB/posts/>Blog</a></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/RGB/svg/menu.svg class=book-icon alt=Menu></label>
+<strong>Visual Ilusions</strong>
+<label for=toc-control><img src=/RGB/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#taller--1>Taller # 1</a><ul><li><a href=#visual-illusions-workshop>Visual illusions workshop</a></li><li><a href=#planteamiento-del-problema>Planteamiento del Problema</a></li><li><a href=#background>Background</a></li></ul></li><li><a href=#implementación>Implementación</a><ul><li><a href=#se-implementaran-algunas-ilusiones-ópticas-como-ejemplos>Se implementaran algunas ilusiones ópticas como ejemplos</a></li></ul></li><li><a href=#ilussion-2>Ilussion #2</a><ul><li><a href=#ilusión-de-cascada>Ilusión de Cascada</a></li><li><a href=#código-y-su-respectiva-solución>Código y su respectiva Solución:</a></li></ul></li><li><a href=#ilusion-3>Ilusion 3</a><ul><li><a href=#stepping-feet>Stepping Feet:</a></li><li><a href=#código-y-su-solución>Código y su Solución:</a></li></ul></li><li><a href=#conclusiones>Conclusiones:</a></li></ul></nav></aside></header><article class=markdown><h1 id=taller--1>Taller # 1
+<a class=anchor href=#taller--1>#</a></h1><h2 id=visual-illusions-workshop>Visual illusions workshop
+<a class=anchor href=#visual-illusions-workshop>#</a></h2><p>Estudiar, implementar y discutir posibles aplicaciones de algunos fenómenos visuales conocidos e ilusiones ópticas.</p><h2 id=planteamiento-del-problema>Planteamiento del Problema
+<a class=anchor href=#planteamiento-del-problema>#</a></h2><p>Identificar, implementar y discutir posibles aplicaciones de algunas ilusiones ópticas conocidas en el diseño y desarrollo de gráficos por computadora.</p><h2 id=background>Background
+<a class=anchor href=#background>#</a></h2><p>Una ilusión visual es una imagen que engaña al sistema visual, desde el ojo al cerebro, y lo lleva a percibir la realidad de forma distorsionada.
+Las ilusiones visuales pueden suceder de manera natural o ser creadas por efectos visuales específicos. Este es el resultado del análisis de la información que se recibe del sistema visual. Este puede hacer que se perciba un objeto que no está presente, dando una imagen distorsionada de la realidad.
+Estas se producen cuando se presentan varias formas en una imagen única y nuestro cerebro entra en conflicto.</p><h1 id=implementación>Implementación
+<a class=anchor href=#implementaci%c3%b3n>#</a></h1><h2 id=se-implementaran-algunas-ilusiones-ópticas-como-ejemplos>Se implementaran algunas ilusiones ópticas como ejemplos
+<a class=anchor href=#se-implementaran-algunas-ilusiones-%c3%b3pticas-como-ejemplos>#</a></h2><p>Frisén’s Lazy Shadow
+Este fenómeno se percibe mejor en condiciones de iluminación algo tenues.
+Observe rectángulo brillante giratorio
+Observe el &ldquo;rectángulo de sombra&rdquo; azul oscuro más grande, que también gira, detrás de él.
+Ambos giran con la misma velocidad, pero ¿están completamente alineados? [En el par de pentágonos de muestra a la derecha, solo el par izquierdo está &lsquo;alineado&rsquo;.]
+Con el control deslizante puede ajustar la alineación relativa. Debajo del control deslizante, se proporciona el ángulo de alineación, para mí alrededor de -2.5 ° parece alineado.
+Una vez que esté satisfecho con la coincidencia, presione &rsquo; Detener &rsquo; o marque la casilla de verificación &rsquo; fondo claro</p><iframe id=breath style=width:500px;height:500px srcdoc="
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js></script>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/addons/p5.sound.min.js></script>
+            
+            
+            
+            
+            
+            <script>
+              
+
+let angulo;
+let speed;
+let rot;
+let stopButton;
+let startButton;
+let speedSlider;
+let rotSlider;
+let lightBackground;
+
+function stop() {
+    speedSlider.value(0);
+}
+
+function start() {
+    speedSlider.value(0.05);
+}
+
+function preload() {
+
+  img = loadImage(&#34;https://cdn-icons-png.flaticon.com/512/748/748113.png&#34;); 
+}
+
+function setup() {
+  createCanvas(500, 500);
+  noStroke();
+  startButton = createButton('Start');
+  startButton.position(0, 0);
+  startButton.size(100, 30);
+  startButton.mousePressed(start);
+  stopButton = createButton('Stop');
+  stopButton.position(0, 35);
+  stopButton.size(100, 30);
+  stopButton.mousePressed(stop);
+  speedSlider = createSlider(0, 0.5, 0.1, 0.01);
+  speedSlider.position(0, 85);
+  speedSlider.size(100, 30);
+  rotSlider = createSlider(-0.1, 0.1, 0, 0.01);
+  rotSlider.position(0, 130);
+  rotSlider.size(100, 30);
+  lightBackground = createCheckbox('Light Background', false);
+  lightBackground.position(0, 180);
+  lightBackground.style('color', '#fff');
+  lightBackground.size(150, 30);
+  angulo = 0;
+  rectMode(CENTER);
+}
+
+function draw() {
+  background(0);
+  if (lightBackground.checked()) {
+    fill(&#34;rgb(160,250,174)&#34;);
+    circle(250, 250, 300);
+  } 
+  speed = speedSlider.value();
+  rot = rotSlider.value();
+  angulo = angulo + speed % TWO_PI;
+  translate(width / 2, height / 2);
+  rotate(angulo);
+  fill(0,0,255);
+  rect(0, 0, 130, 130);
+  rotate(rot);
+  fill(255);
+  rect(0, 0, 110, 110);
+  fill(200,200,200);
+  rotate(-angulo-rot);
+  text(&#34;Speed&#34;, -225, -170);
+  text(&#34;Compensate&#34;, -240, -125);
+  rotate(PI/4);
+  image(img, -3, -3, 6, 6);
+}
+
+
+
+            </script>
+          </head>
+          <body>
+          </body>
+        </html>
+      "></iframe><h1 id=ilussion-2>Ilussion #2
+<a class=anchor href=#ilussion-2>#</a></h1><h2 id=ilusión-de-cascada>Ilusión de Cascada
+<a class=anchor href=#ilusi%c3%b3n-de-cascada>#</a></h2><p>La ilusión de cascada, o el efecto secundario del movimiento, es una ilusión de movimiento. Se experimenta después de ver un estímulo que se mueve en una dirección durante algún tiempo y luego mirar una escena estacionaria. La escena estacionaria parece tener movimiento (en la dirección opuesta al estímulo en movimiento que uno vio previamente). Esto se llama la &ldquo;ilusión de la cascada&rdquo;, ya que se puede experimentar después de observar el movimiento del agua en una cascada y luego prestar atención a una escena estacionaria, estas ilusiones de este tipo se conocían mucho antes del siglo XIX. De hecho, el filósofo griego Aristóteles (384 – 322 a. C.) informó sobre tales ilusiones más de 2000 años antes de Addams: “cuando las personas dejan de mirar objetos en movimiento, por ejemplo, ríos, y especialmente aquellos que fluyen muy rápidamente, descubren que el los estímulos visuales todavía se presentan, porque las cosas que realmente están en reposo se ven luego en movimiento”.</p><h2 id=código-y-su-respectiva-solución>Código y su respectiva Solución:
+<a class=anchor href=#c%c3%b3digo-y-su-respectiva-soluci%c3%b3n>#</a></h2><iframe id=breath style=width:700px;height:700px srcdoc="
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js></script>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/addons/p5.sound.min.js></script>
+            
+            
+            
+            
+            
+            <script>
+              
+
+let angle = 0;
+function setup() {
+  createCanvas(700, 700);
+  strokeWeight(4)
+}
+
+function draw() {
+  background(50);
+  noStroke();
+  fill(255,0,0)
+  ellipse(width/2, height/2, 10,10)
+  
+  for(let i = 15; i< 5000; i+=15)
+  {
+    push()
+    translate(width/2,height/2)
+    rotate(i+ angle * 2)
+    noFill()
+    stroke(20 , i * 100, i -100)
+    ellipse(0, 0, i + 15 , i )
+    
+    pop()
+    
+    angle += 0.0003
+  }
+  
+  
+}
+
+            </script>
+          </head>
+          <body>
+          </body>
+        </html>
+      "></iframe><h1 id=ilusion-3>Ilusion 3
+<a class=anchor href=#ilusion-3>#</a></h1><h2 id=stepping-feet>Stepping Feet:
+<a class=anchor href=#stepping-feet>#</a></h2><p>Observa el movimiento de los “pies” azules y amarillos. Los pies parecen caminar alternativamente, como pies diminutos haciendo tip-tap-tip-tap… Esto es más pronunciado si no miras directamente a los pies, sino entre ellos.</p><p>En realidad su movimiento es siempre simultáneo. Encuentro este fenómeno particularmente lindo. La naturaleza de su movimiento es evidente: se mueven de manera constante y conjunta. Esta ilusión fue demostrada originalmente por Stuart Anstis en 2003. La causa real de esta ilusión todavía se está debatiendo.</p><h2 id=código-y-su-solución>Código y su Solución:
+<a class=anchor href=#c%c3%b3digo-y-su-soluci%c3%b3n>#</a></h2><iframe id=breath style=width:700px;height:700px srcdoc="
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js></script>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/addons/p5.sound.min.js></script>
+            
+            
+            
+            
+            
+            <script>
+              
+let checkbox;
+
+var barsColor;
+
+
+
+var start, speedSlider, direction;
+
+const feetHeight = 25, feetWidth = 80;
+
+
+
+function setup() {
+
+ createCanvas(700, 300);
+
+ start = 0;
+
+ noStroke();
+
+ // Checkbox to toggle the background.
+
+ checkbox = createCheckbox('background', true);
+
+ checkbox.changed(backgroundCheckbox);
+
+ // Start with the bars being drawn.
+
+ barsColor = color('black');
+
+ direction = 1;
+
+ // Slider for the feet speed.
+
+ speedSlider = createSlider(0, 100, 25);
+
+ speedSlider.position(10, height + 20);
+
+ speedSlider.style('width', '80px');
+
+}
+
+
+
+function draw() {
+
+ background(220);
+
+ const number_of_bars = 40;
+
+ // Draw the bars using the color from the checkbox.
+
+ for( var i = 0 ; i < number_of_bars ; i ++ ){
+
+   if( i%2 == 0 ) fill(barsColor);
+
+   else fill('white');
+
+   var x = (width/number_of_bars) * i;
+
+   rect(x, 0, width/number_of_bars, height);
+
+ }
+
+ // Draw the feet.
+
+ fill('yellow');
+
+ rect(start, 100, feetWidth, feetHeight);
+
+ fill('blue');
+
+ rect(start, 200, feetWidth, feetHeight);
+
+ // Update the position of the feet.
+
+ var speed = speedSlider.value() / 100 * 2;
+
+ // Update the direction if necessary.
+
+ if( start + feetWidth + speed * direction > width || start + speed * direction < 0 )
+
+   direction *= -1;
+
+ start += speed * direction;
+
+}
+
+
+
+function backgroundCheckbox() {
+
+ // If the chack box is active, draw the black bars.
+
+ if (checkbox.checked()) {
+
+   barsColor = color('black');
+
+ } else {
+
+   barsColor = color('white');
+
+ }
+
+}
+
+
+
+
+            </script>
+          </head>
+          <body>
+          </body>
+        </html>
+      "></iframe><h1 id=conclusiones>Conclusiones:
+<a class=anchor href=#conclusiones>#</a></h1><ul><li><p>Frisén’s Lazy Shadow el cerebro intenta ajustar la sombra a la superficie, por lo que se logra obtener la ilusión óptica. para esto la velocidad del ajuste es muy importante,ya que si no es la adecuada, no podemos ajustar la sombra a la superficie y no observamos la ilusión</p></li><li><p>Ilusión de Cascada: En conclusión, la cuestión de cómo es someterse a la ilusión de la cascada aún no está resuelta. Podría implicar simplemente experimentar cosas moviéndose en la dirección opuesta al estímulo y cambiando de posición. Podría implicar experimentar cosas que se mueven en la dirección opuesta al estímulo y, sin embargo, no cambiar de posición. O podría implicar algo más complejo. Por ejemplo, podría implicar experimentar cosas que se mueven y cambian de posición fuera del centro del campo visual pero que no se mueven en el centro. O podría implicar experimentar cosas moviéndose y cambiando de posición, pero luego volver a saltar a la posición original antes de cambiar de posición nuevamente.</p></li><li><p>Stepping Feet: Anule la selección de la casilla de verificación " Color &ldquo;. Ahora se vuelve obvio que los bordes del &lsquo;pie&rsquo; claro se fusionan con las barras claras y solo son visibles cuando atraviesan las barras oscuras. Así que la mitad del tiempo realmente no hay señal de movimiento, y la percepción entra por defecto, es decir, no hay movimiento. Para el pie oscuro vale lo mismo, solo que en tiempos alternos.
+Con un contraste reducido de la rejilla, la equilibración de los bordes y la rejilla ya no está presente, por lo que el efecto desaparece.
+El movimiento “similar a un gusano” para un número impar de barras por pie también se explica automáticamente.</p></li></ul></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/emmendezp/RGB/commit/9279138dc0741a2fce5c68bdb1a3eca4cb7c0cc6 title='Last modified by emmendezp | September 6, 2022' target=_blank rel=noopener><img src=/RGB/svg/calendar.svg class=book-icon alt=Calendar>
+<span>September 6, 2022</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#taller--1>Taller # 1</a><ul><li><a href=#visual-illusions-workshop>Visual illusions workshop</a></li><li><a href=#planteamiento-del-problema>Planteamiento del Problema</a></li><li><a href=#background>Background</a></li></ul></li><li><a href=#implementación>Implementación</a><ul><li><a href=#se-implementaran-algunas-ilusiones-ópticas-como-ejemplos>Se implementaran algunas ilusiones ópticas como ejemplos</a></li></ul></li><li><a href=#ilussion-2>Ilussion #2</a><ul><li><a href=#ilusión-de-cascada>Ilusión de Cascada</a></li><li><a href=#código-y-su-respectiva-solución>Código y su respectiva Solución:</a></li></ul></li><li><a href=#ilusion-3>Ilusion 3</a><ul><li><a href=#stepping-feet>Stepping Feet:</a></li><li><a href=#código-y-su-solución>Código y su Solución:</a></li></ul></li><li><a href=#conclusiones>Conclusiones:</a></li></ul></nav></div></aside></main></body></html>
