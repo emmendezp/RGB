@@ -194,3 +194,57 @@ De hecho, uno de los libros más consultados por los amantes de las ilusiones ó
 En esta ilusión de la pared de la cafetería todos los tramos son rectos, aunque la impresión es la contraria, ya que el contraste entre los tonos no permite visualizar claramente las líneas divisorias entre las filas. Por eso las pinturas crean la ilusión de ensancharse hacia los extremos.
 
 <a href="https://imgur.com/AdnD2na"><img src="https://i.imgur.com/AdnD2na.jpg" title="source: imgur.com" /></a>
+
+# Image Histragram
+
+Un histograma de imagen es un tipo de histograma que actúa como una representación gráfica de la distribución tonal en una imagen digital. Traza el número de píxeles para cada valor tonal. Al mirar el histograma de una imagen específica, un espectador podrá juzgar la distribución tonal completa de un vistazo
+{{< p5-global-iframe id="breath" width="700" height="450" >}}
+
+
+function preload() {
+  img = loadImage("https://i.imgur.com/h016LEA.jpg"); // Load the image
+}
+
+function setup() {
+  createCanvas(600, 600);
+  background(255);
+  img.resize(0,400);
+  var maxRange = 256
+  colorMode(HSL, maxRange);
+  image(img, 0, 0);
+  var histogram = new Array(maxRange);
+  for (i = 0; i <= maxRange; i++) {
+    histogram[i] = 0
+  }
+
+  loadPixels();
+  
+  for (var x = 0; x < img.width; x+=5) {
+    for (var y = 0; y < img.height; y+=5) {
+      var loc = (x + y * img.width) * 4;
+      var h = pixels[loc];
+      var s = pixels[loc + 1];
+      var l = pixels[loc + 2];
+      var a = pixels[loc + 3];
+      b = int(l);
+      histogram[b]++
+    }
+  }
+  //img.filter(GRAY);
+  image(img, 0, 0);
+  stroke(300,100,80)
+  push()
+  translate(10,0)
+  for (x = 0; x <= maxRange; x++) {
+    index = histogram[x];
+
+    y1=int(map(index, 0, max(histogram), height, height-200));
+		y2 = height
+    xPos = map(x,0,maxRange,0, width-20)
+    line(xPos, y1, xPos, y2);
+  }
+  pop()
+}
+
+
+{{< /p5-global-iframe >}}
