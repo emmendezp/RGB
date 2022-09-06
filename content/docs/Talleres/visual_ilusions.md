@@ -24,6 +24,83 @@ Ambos giran con la misma velocidad, pero ¿están completamente alineados? [En e
 Con el control deslizante puede ajustar la alineación relativa. Debajo del control deslizante, se proporciona el ángulo de alineación, para mí alrededor de -2.5 ° parece alineado.
 Una vez que esté satisfecho con la coincidencia, presione ' Detener ' o marque la casilla de verificación ' fondo claro
 
+{{<details title="CODE" open=false >}}
+
+```js
+let angulo;
+let speed;
+let rot;
+let stopButton;
+let startButton;
+let speedSlider;
+let rotSlider;
+let lightBackground;
+
+function stop() {
+    speedSlider.value(0);
+}
+
+function start() {
+    speedSlider.value(0.05);
+}
+
+function preload() {
+
+  img = loadImage("https://cdn-icons-png.flaticon.com/512/748/748113.png"); 
+}
+
+function setup() {
+  createCanvas(500, 500);
+  noStroke();
+  startButton = createButton('Start');
+  startButton.position(0, 0);
+  startButton.size(100, 30);
+  startButton.mousePressed(start);
+  stopButton = createButton('Stop');
+  stopButton.position(0, 35);
+  stopButton.size(100, 30);
+  stopButton.mousePressed(stop);
+  speedSlider = createSlider(0, 0.5, 0.1, 0.01);
+  speedSlider.position(0, 85);
+  speedSlider.size(100, 30);
+  rotSlider = createSlider(-0.1, 0.1, 0, 0.01);
+  rotSlider.position(0, 130);
+  rotSlider.size(100, 30);
+  lightBackground = createCheckbox('Light Background', false);
+  lightBackground.position(0, 180);
+  lightBackground.style('color', '#fff');
+  lightBackground.size(150, 30);
+  angulo = 0;
+  rectMode(CENTER);
+}
+
+function draw() {
+  background(0);
+  if (lightBackground.checked()) {
+    fill("rgb(160,250,174)");
+    circle(250, 250, 300);
+  } 
+  speed = speedSlider.value();
+  rot = rotSlider.value();
+  angulo = angulo + speed % TWO_PI;
+  translate(width / 2, height / 2);
+  rotate(angulo);
+  fill(0,0,255);
+  rect(0, 0, 130, 130);
+  rotate(rot);
+  fill(255);
+  rect(0, 0, 110, 110);
+  fill(200,200,200);
+  rotate(-angulo-rot);
+  text("Speed", -225, -170);
+  text("Compensate", -240, -125);
+  rotate(PI/4);
+  image(img, -3, -3, 6, 6);
+}
+
+```
+
+{{</details>}}
 
 {{< p5-global-iframe id="breath" width="500" height="500" >}}
 
@@ -107,6 +184,42 @@ function draw() {
 La ilusión de cascada, o el efecto secundario del movimiento, es una ilusión de movimiento. Se experimenta después de ver un estímulo que se mueve en una dirección durante algún tiempo y luego mirar una escena estacionaria. La escena estacionaria parece tener movimiento (en la dirección opuesta al estímulo en movimiento que uno vio previamente). Esto se llama la "ilusión de la cascada", ya que se puede experimentar después de observar el movimiento del agua en una cascada y luego prestar atención a una escena estacionaria, estas ilusiones de este tipo se conocían mucho antes del siglo XIX. De hecho, el filósofo griego Aristóteles (384 – 322 a. C.) informó sobre tales ilusiones más de 2000 años antes de Addams: “cuando las personas dejan de mirar objetos en movimiento, por ejemplo, ríos, y especialmente aquellos que fluyen muy rápidamente, descubren que el los estímulos visuales todavía se presentan, porque las cosas que realmente están en reposo se ven luego en movimiento”.
 
 ## Código y su respectiva Solución:
+{{<details title="CODE" open=false >}}
+
+```js
+let angle = 0;
+function setup() {
+  createCanvas(700, 700);
+  strokeWeight(4)
+}
+
+function draw() {
+  background(50);
+  noStroke();
+  fill(255,0,0)
+  ellipse(width/2, height/2, 10,10)
+  
+  for(let i = 15; i< 5000; i+=15)
+  {
+    push()
+    translate(width/2,height/2)
+    rotate(i+ angle * 2)
+    noFill()
+    stroke(20 , i * 100, i -100)
+    ellipse(0, 0, i + 15 , i )
+    
+    pop()
+    
+    angle += 0.0003
+  }
+  
+  
+}
+
+```
+
+{{</details>}}
+
 
 {{< p5-global-iframe id="breath" width="700" height="700" >}}
 
@@ -149,6 +262,120 @@ Observa el movimiento de los “pies” azules y amarillos. Los pies parecen cam
 En realidad su movimiento es siempre simultáneo. Encuentro este fenómeno particularmente lindo. La naturaleza de su movimiento es evidente: se mueven de manera constante y conjunta. Esta ilusión fue demostrada originalmente por Stuart Anstis en 2003. La causa real de esta ilusión todavía se está debatiendo.
 
 ## Código y su Solución:
+
+{{<details title="CODE" open=false >}}
+
+```js
+let checkbox;
+
+var barsColor;
+
+
+
+var start, speedSlider, direction;
+
+const feetHeight = 25, feetWidth = 80;
+
+
+
+function setup() {
+
+ createCanvas(700, 300);
+
+ start = 0;
+
+ noStroke();
+
+ // Checkbox to toggle the background.
+
+ checkbox = createCheckbox('background', true);
+
+ checkbox.changed(backgroundCheckbox);
+
+ // Start with the bars being drawn.
+
+ barsColor = color('black');
+
+ direction = 1;
+
+ // Slider for the feet speed.
+
+ speedSlider = createSlider(0, 100, 25);
+
+ speedSlider.position(10, height + 20);
+
+ speedSlider.style('width', '80px');
+
+}
+
+
+
+function draw() {
+
+ background(220);
+
+ const number_of_bars = 40;
+
+ // Draw the bars using the color from the checkbox.
+
+ for( var i = 0 ; i < number_of_bars ; i ++ ){
+
+   if( i%2 == 0 ) fill(barsColor);
+
+   else fill('white');
+
+   var x = (width/number_of_bars) * i;
+
+   rect(x, 0, width/number_of_bars, height);
+
+ }
+
+ // Draw the feet.
+
+ fill('yellow');
+
+ rect(start, 100, feetWidth, feetHeight);
+
+ fill('blue');
+
+ rect(start, 200, feetWidth, feetHeight);
+
+ // Update the position of the feet.
+
+ var speed = speedSlider.value() / 100 * 2;
+
+ // Update the direction if necessary.
+
+ if( start + feetWidth + speed * direction > width || start + speed * direction < 0 )
+
+   direction *= -1;
+
+ start += speed * direction;
+
+}
+
+
+
+function backgroundCheckbox() {
+
+ // If the chack box is active, draw the black bars.
+
+ if (checkbox.checked()) {
+
+   barsColor = color('black');
+
+ } else {
+
+   barsColor = color('white');
+
+ }
+
+}
+
+
+```
+
+{{</details>}}
 {{< p5-global-iframe id="breath" width="700" height="300" >}}
 let checkbox;
 
