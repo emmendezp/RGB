@@ -135,3 +135,6 @@ function changeColor() {
   
   }
 {{< /p5-global-iframe >}}
+
+# Conclusión
+Es importante destacar la función blendMode() se usa para combinar dos píxeles de acuerdo con el modo de combinación dado. Los diferentes tipos de modos de fusión tienen diferentes métodos para mezclar los píxeles de origen con los presentes en la ventana de visualización, para producir el píxel resultante. Se descubrió que la multiplicación ambos colores da como resultado un color más oscuro.

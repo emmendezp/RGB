@@ -293,3 +293,12 @@ function drawMesh(terrain) {
    }
 }
 {{< /p5-global-iframe >}}
+
+# Conclusión
+Las funciones de ruido se han utilizado en una amplia gama de métodos de creación de contenidos procedimentales incluyendo la generación de terrenos. Perlin noise, diseñado originalmente para la generación de texturas por procedimientos de tipo natural, es quizás la implementación de ruido más conocida y más conocida y referenciada, y que todavía se utiliza ampliamente en la actualidad. 
+
+
+# Bibliografía
+
+* [Procedural Generation: Perlin Noise](https://www.cs.umd.edu/class/fall2018/cmsc425/Lects/lect14-perlin.pdf) por Dave Mount
+* [Noise Functions](https://www.cs.utexas.edu/~theshark/courses/cs354/lectures/cs354-21.pdf), CMSC 425
