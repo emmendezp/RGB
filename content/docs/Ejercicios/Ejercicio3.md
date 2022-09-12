@@ -137,98 +137,55 @@ function addError(img, factor, x, y, errR, errG, errB) {
 {{< /details >}}
 
 {{< p5-global-iframe id="breath" width="650" height="520" >}}
-let kitten;
+let black;
+let img;
+let s = 200; //image size
 
 function preload() {
-  kitten = loadImage("content/docs/Ejercicios/kitten.jpg");
+  img = loadImage('https://raw.githubusercontent.com/antiboredom/p5.riso/master/examples/Dither-test/data/rosa.jpg');
 }
 
 function setup() {
-  createCanvas(1024, 512);
-
-  image(kitten, 0, 0);
-  makeDithered(kitten, 1);
-  image(kitten, 512, 0);
-  // Apply gray filter to the whole canvas
-  filter(GRAY);
+  pixelDensity(1);
+  createCanvas(11 * 150, 8 * 150); //set for letter size paper
+  black = new Riso('black', 11 * 150, 8 * 150); //new riso object
 }
 
-function imageIndex(img, x, y) {
-  return 4 * (x + y * img.width);
-}
 
-function getColorAtindex(img, x, y) {
-  let idx = imageIndex(img, x, y);
-  let pix = img.pixels;
-  let red = pix[idx];
-  let green = pix[idx + 1];
-  let blue = pix[idx + 2];
-  let alpha = pix[idx + 3];
-  return color(red, green, blue, alpha);
-}
+function draw() {
 
-function setColorAtIndex(img, x, y, clr) {
-  let idx = imageIndex(img, x, y);
+  for (var x = 1; x < 5; x = x + 1) { //iterate through each image
+    for (var y = 0; y < 5; y = y + 1) {
+      ditherTypes(x); //custom function to set dither types for each column
+      let dithered = ditherImage(img, ditherType, y * 50); //dither image
+      black.image(dithered, x * s, (black.height - 300) - y * s, s, s); //place it on black riso object
+      if (x == 1) {  //draw numbers next to first column of images
+        black.text(y * 50, x * s - 25, (black.height - 300) - y * s + 100, s, s);
 
-  let pix = img.pixels;
-  pix[idx] = red(clr);
-  pix[idx + 1] = green(clr);
-  pix[idx + 2] = blue(clr);
-  pix[idx + 3] = alpha(clr);
-}
-
-// Finds the closest step for a given value
-// The step 0 is always included, so the number of steps
-// is actually steps + 1
-function closestStep(max, steps, value) {
-  return round(steps * value / 255) * floor(255 / steps);
-}
-
-function makeDithered(img, steps) {
-  img.loadPixels();
-
-  for (let y = 0; y < img.height; y++) {
-    for (let x = 0; x < img.width; x++) {
-      let clr = getColorAtindex(img, x, y);
-      let oldR = red(clr);
-      let oldG = green(clr);
-      let oldB = blue(clr);
-      let newR = closestStep(255, steps, oldR);
-      let newG = closestStep(255, steps, oldG);
-      let newB = closestStep(255, steps, oldB);
-
-      let newClr = color(newR, newG, newB);
-      setColorAtIndex(img, x, y, newClr);
-
-      let errR = oldR - newR;
-      let errG = oldG - newG;
-      let errB = oldB - newB;
-
-      distributeError(img, x, y, errR, errG, errB);
+      }
     }
   }
 
-  img.updatePixels();
+  //text labels
+  black.text('atkinson', 200, 90);
+  black.text('floydsteinberg', 400, 90);
+  black.text('bayer', 600, 90);
+  black.text('none', 800, 90);
+  
+  drawRiso(); 
+  noLoop();
 }
 
-function distributeError(img, x, y, errR, errG, errB) {
-  addError(img, 7 / 16.0, x + 1, y, errR, errG, errB);
-  addError(img, 3 / 16.0, x - 1, y + 1, errR, errG, errB);
-  addError(img, 5 / 16.0, x, y + 1, errR, errG, errB);
-  addError(img, 1 / 16.0, x + 1, y + 1, errR, errG, errB);
+function mouseClicked() {
+  exportRiso(); //export print files when mouse clicked
 }
 
-function addError(img, factor, x, y, errR, errG, errB) {
-  if (x < 0 || x >= img.width || y < 0 || y >= img.height) return;
-  let clr = getColorAtindex(img, x, y);
-  let r = red(clr);
-  let g = green(clr);
-  let b = blue(clr);
-  clr.setRed(r + errR * factor);
-  clr.setGreen(g + errG * factor);
-  clr.setBlue(b + errB * factor);
-
-  setColorAtIndex(img, x, y, clr);
+//custom function to set dither types with number
+function ditherTypes(x) { 
+  if (x == 1) ditherType = 'atkinson';
+  else if (x == 2) ditherType = 'floydsteinberg';
+  else if (x == 3) ditherType = 'bayer';
+  else if (x == 4) ditherType = 'none';
 }
 {{< /p5-global-iframe >}}
 
