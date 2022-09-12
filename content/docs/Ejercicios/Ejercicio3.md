@@ -147,7 +147,7 @@ function getIndex(x,y){
 
 
 ## Dithering
-{{< p5-global-iframe id="breath" width="800" height="800" >}}
+{{< p5-global-iframe id="breath" width="760" height="800" >}}
 let img;
 var factor=1; //If it is equal to 1 and there is a gray filter there will be only two colors. 
 var wd;
