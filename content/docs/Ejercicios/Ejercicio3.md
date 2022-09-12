@@ -34,8 +34,9 @@ Este tipo de proceso de dithering también se utiliza para la conversión de im�
 
 * El GIF puede considerarse como un vídeo de pequeño tamaño en el que las imágenes se encadenan para mostrar la variación en el cuadro. El Dithering resulta muy útil en la creación de gifs porque ayuda a reducir el tamaño de la imagen, lo que proporciona una velocidad adecuada a la variedad de imágenes en el marco y también es útil para gestionar la calidad de la imagen.
 
-{{< /p5-global-iframe >}}
-{{< details title="terrain visualization 2" open=false >}}
+# Código
+
+{{< details title="Dithering" open=false >}}
 {{< highlight javascript >}}
 // Modificado de https://editor.p5js.org/codingtrain/sketches
 
@@ -139,7 +140,7 @@ function addError(img, factor, x, y, errR, errG, errB) {
 let kitten;
 
 function preload() {
-  kitten = loadImage("https://149695847.v2.pressablecdn.com/wp-content/uploads/2021/12/image-72.png");
+  kitten = loadImage("kitten.jpg");
 }
 
 function setup() {
