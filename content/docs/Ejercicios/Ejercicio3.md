@@ -137,55 +137,105 @@ function addError(img, factor, x, y, errR, errG, errB) {
 {{< /details >}}
 
 {{< p5-global-iframe id="breath" width="650" height="520" >}}
-let black;
 let img;
-let s = 200; //image size
+var factor=1; //If it is equal to 1 and there is a gray filter there will be only two colors. 
+var wd;
+var d;
+
 
 function preload() {
-  img = loadImage('https://raw.githubusercontent.com/antiboredom/p5.riso/master/examples/Dither-test/data/rosa.jpg');
+    img = loadImage('kitten.jpg');
 }
 
 function setup() {
-  pixelDensity(1);
-  createCanvas(11 * 150, 8 * 150); //set for letter size paper
-  black = new Riso('black', 11 * 150, 8 * 150); //new riso object
-}
+    let c=createCanvas(img.width,img.height);
+    background(255, 255, 255);
+    pixelDensity(1);
+    image(img,0,0);
+    filter(GRAY);  
+    wd=img.width;
+    loadPixels();
+    d = pixelDensity();
+    for (let y = 0; y < height-1; y++) {
+        for (let x = 1; x < width-1; x++){
+
+            var index = getIndex(x,y);
+            
+            var r=  pixels[index];
+            var g=  pixels[index + 1];
+            var b=  pixels[index + 2];
+            var a=  pixels[index + 3];
+
+            var newR=find_closest_palette_color(r);
+            var newG=find_closest_palette_color(g);
+            var newB=find_closest_palette_color(b);
+            var newA=  find_closest_palette_color(a);
+
+            pixels[index] = newR;
+            pixels[index + 1] = newG;
+            pixels[index + 2] = newB;
+            pixels[index + 3] = newA;
 
 
-function draw() {
+            //Calculating quantization error of a pixel.
+            var quant_error_R=r-newR;
+            var quant_error_G=g-newG;
+            var quant_error_B=b-newB;
+            var quant_error_A=a-newA;
 
-  for (var x = 1; x < 5; x = x + 1) { //iterate through each image
-    for (var y = 0; y < 5; y = y + 1) {
-      ditherTypes(x); //custom function to set dither types for each column
-      let dithered = ditherImage(img, ditherType, y * 50); //dither image
-      black.image(dithered, x * s, (black.height - 300) - y * s, s, s); //place it on black riso object
-      if (x == 1) {  //draw numbers next to first column of images
-        black.text(y * 50, x * s - 25, (black.height - 300) - y * s + 100, s, s);
+            //
+            index = getIndex(x+1,y);
+            r=  pixels[index]+(quant_error_R*7/16.0);
+            g=  pixels[index + 1]+(quant_error_G*7/16.0);
+            b=  pixels[index + 2]+(quant_error_B*7/16.0);
+            a=  pixels[index + 3]+(quant_error_A*7/16.0);
+            pixels[index] = r;
+            pixels[index + 1] = g;
+            pixels[index + 2] = b;
+            pixels[index + 3] = a;
 
+            index = getIndex(x-1,y+1);
+            r=  pixels[index]+(quant_error_R*3/16.0);
+            g=  pixels[index + 1]+(quant_error_G*3/16.0);
+            b=  pixels[index + 2]+(quant_error_B*3/16.0);
+            a=  pixels[index + 3]+(quant_error_A*3/16.0);
+            pixels[index] = r;
+            pixels[index + 1] = g;
+            pixels[index + 2] = b;
+            pixels[index + 3] = a;
+
+            index = getIndex(x,y+1);
+            r=  pixels[index]+(quant_error_R*5/16.0);
+            g=  pixels[index + 1]+(quant_error_G*5/16.0);
+            b=  pixels[index + 2]+(quant_error_B*5/16.0);
+            a=  pixels[index + 3]+(quant_error_A*5/16.0);
+            pixels[index] = r;
+            pixels[index + 1] = g;
+            pixels[index + 2] = b;
+            pixels[index + 3] = a;
+
+            index = getIndex(x+1,y+1);
+            r=  pixels[index]+(quant_error_R*1/16.0);
+            g=  pixels[index + 1]+(quant_error_G*1/16.0);
+            b=  pixels[index + 2]+(quant_error_B*1/16.0);
+            a=  pixels[index + 3]+(quant_error_A*1/16.0);
+            pixels[index] = r;
+            pixels[index + 1] = g;
+            pixels[index + 2] = b;
+            pixels[index + 3] = a;
+        }
       }
-    }
-  }
-
-  //text labels
-  black.text('atkinson', 200, 90);
-  black.text('floydsteinberg', 400, 90);
-  black.text('bayer', 600, 90);
-  black.text('none', 800, 90);
-  
-  drawRiso(); 
-  noLoop();
+    updatePixels();
 }
 
-function mouseClicked() {
-  exportRiso(); //export print files when mouse clicked
+//Quantization operation. 
+function find_closest_palette_color(old){
+    return round(factor*old/255)*(255/factor)
 }
 
-//custom function to set dither types with number
-function ditherTypes(x) { 
-  if (x == 1) ditherType = 'atkinson';
-  else if (x == 2) ditherType = 'floydsteinberg';
-  else if (x == 3) ditherType = 'bayer';
-  else if (x == 4) ditherType = 'none';
+//Returns the initial index of a pixel located at (x,y). 
+function getIndex(x,y){
+    return (x+(y*wd))*4;
 }
 {{< /p5-global-iframe >}}
 
