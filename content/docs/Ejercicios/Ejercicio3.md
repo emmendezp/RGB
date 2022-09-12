@@ -36,112 +36,118 @@ Este tipo de proceso de dithering también se utiliza para la conversión de im�
 
 # Código
 
-{{< details title="Dithering" open=false >}}
+{{< details title="Implementation of the Floyd-Steinberg Dithering algorithm" open=false >}}
 {{< highlight javascript >}}
 // Modificado de https://editor.p5js.org/codingtrain/sketches
+let img;
+var factor=1; //If it is equal to 1 and there is a gray filter there will be only two colors. 
+var wd;
+var d;
 
-let kitten;
 
 function preload() {
-  kitten = loadImage("imagen");
+    img = loadImage('imagen');
 }
 
 function setup() {
-  createCanvas(1024, 512);
+    let c=createCanvas(img.width,img.height);
+    background(255, 255, 255);
+    pixelDensity(1);
+    image(img,0,0);
+    filter(GRAY);  
+    wd=img.width;
+    loadPixels();
+    d = pixelDensity();
+    for (let y = 0; y < height-1; y++) {
+        for (let x = 1; x < width-1; x++){
 
-  image(kitten, 0, 0);
-  makeDithered(kitten, 1);
-  image(kitten, 512, 0);
-  // Apply gray filter to the whole canvas
-  filter(GRAY);
+            var index = getIndex(x,y);
+            
+            var r=  pixels[index];
+            var g=  pixels[index + 1];
+            var b=  pixels[index + 2];
+            var a=  pixels[index + 3];
+
+            var newR=find_closest_palette_color(r);
+            var newG=find_closest_palette_color(g);
+            var newB=find_closest_palette_color(b);
+            var newA=  find_closest_palette_color(a);
+
+            pixels[index] = newR;
+            pixels[index + 1] = newG;
+            pixels[index + 2] = newB;
+            pixels[index + 3] = newA;
+
+
+            //Calculating quantization error of a pixel.
+            var quant_error_R=r-newR;
+            var quant_error_G=g-newG;
+            var quant_error_B=b-newB;
+            var quant_error_A=a-newA;
+
+            //
+            index = getIndex(x+1,y);
+            r=  pixels[index]+(quant_error_R*7/16.0);
+            g=  pixels[index + 1]+(quant_error_G*7/16.0);
+            b=  pixels[index + 2]+(quant_error_B*7/16.0);
+            a=  pixels[index + 3]+(quant_error_A*7/16.0);
+            pixels[index] = r;
+            pixels[index + 1] = g;
+            pixels[index + 2] = b;
+            pixels[index + 3] = a;
+
+            index = getIndex(x-1,y+1);
+            r=  pixels[index]+(quant_error_R*3/16.0);
+            g=  pixels[index + 1]+(quant_error_G*3/16.0);
+            b=  pixels[index + 2]+(quant_error_B*3/16.0);
+            a=  pixels[index + 3]+(quant_error_A*3/16.0);
+            pixels[index] = r;
+            pixels[index + 1] = g;
+            pixels[index + 2] = b;
+            pixels[index + 3] = a;
+
+            index = getIndex(x,y+1);
+            r=  pixels[index]+(quant_error_R*5/16.0);
+            g=  pixels[index + 1]+(quant_error_G*5/16.0);
+            b=  pixels[index + 2]+(quant_error_B*5/16.0);
+            a=  pixels[index + 3]+(quant_error_A*5/16.0);
+            pixels[index] = r;
+            pixels[index + 1] = g;
+            pixels[index + 2] = b;
+            pixels[index + 3] = a;
+
+            index = getIndex(x+1,y+1);
+            r=  pixels[index]+(quant_error_R*1/16.0);
+            g=  pixels[index + 1]+(quant_error_G*1/16.0);
+            b=  pixels[index + 2]+(quant_error_B*1/16.0);
+            a=  pixels[index + 3]+(quant_error_A*1/16.0);
+            pixels[index] = r;
+            pixels[index + 1] = g;
+            pixels[index + 2] = b;
+            pixels[index + 3] = a;
+        }
+      }
+    updatePixels();
 }
 
-function imageIndex(img, x, y) {
-  return 4 * (x + y * img.width);
+//Quantization operation. 
+function find_closest_palette_color(old){
+    return round(factor*old/255)*(255/factor)
 }
 
-function getColorAtindex(img, x, y) {
-  let idx = imageIndex(img, x, y);
-  let pix = img.pixels;
-  let red = pix[idx];
-  let green = pix[idx + 1];
-  let blue = pix[idx + 2];
-  let alpha = pix[idx + 3];
-  return color(red, green, blue, alpha);
-}
-
-function setColorAtIndex(img, x, y, clr) {
-  let idx = imageIndex(img, x, y);
-
-  let pix = img.pixels;
-  pix[idx] = red(clr);
-  pix[idx + 1] = green(clr);
-  pix[idx + 2] = blue(clr);
-  pix[idx + 3] = alpha(clr);
-}
-
-// Finds the closest step for a given value
-// The step 0 is always included, so the number of steps
-// is actually steps + 1
-function closestStep(max, steps, value) {
-  return round(steps * value / 255) * floor(255 / steps);
-}
-
-function makeDithered(img, steps) {
-  img.loadPixels();
-
-  for (let y = 0; y < img.height; y++) {
-    for (let x = 0; x < img.width; x++) {
-      let clr = getColorAtindex(img, x, y);
-      let oldR = red(clr);
-      let oldG = green(clr);
-      let oldB = blue(clr);
-      let newR = closestStep(255, steps, oldR);
-      let newG = closestStep(255, steps, oldG);
-      let newB = closestStep(255, steps, oldB);
-
-      let newClr = color(newR, newG, newB);
-      setColorAtIndex(img, x, y, newClr);
-
-      let errR = oldR - newR;
-      let errG = oldG - newG;
-      let errB = oldB - newB;
-
-      distributeError(img, x, y, errR, errG, errB);
-    }
-  }
-
-  img.updatePixels();
-}
-
-function distributeError(img, x, y, errR, errG, errB) {
-  addError(img, 7 / 16.0, x + 1, y, errR, errG, errB);
-  addError(img, 3 / 16.0, x - 1, y + 1, errR, errG, errB);
-  addError(img, 5 / 16.0, x, y + 1, errR, errG, errB);
-  addError(img, 1 / 16.0, x + 1, y + 1, errR, errG, errB);
-}
-
-function addError(img, factor, x, y, errR, errG, errB) {
-  if (x < 0 || x >= img.width || y < 0 || y >= img.height) return;
-  let clr = getColorAtindex(img, x, y);
-  let r = red(clr);
-  let g = green(clr);
-  let b = blue(clr);
-  clr.setRed(r + errR * factor);
-  clr.setGreen(g + errG * factor);
-  clr.setBlue(b + errB * factor);
-
-  setColorAtIndex(img, x, y, clr);
+//Returns the initial index of a pixel located at (x,y). 
+function getIndex(x,y){
+    return (x+(y*wd))*4;
 }
 {{< /highlight >}}
 {{< /details >}}
 
-
+## Imagen original
 ![Dithering](https://raw.githubusercontent.com/ineventhorizon/Floyd-Steinberg-Dithering-Javascript-p5js/master/images/cat.png "Imagen original")
 
 
-
-{{< p5-global-iframe id="breath" width="650" height="520" >}}
+## Dithering
+{{< p5-global-iframe id="breath" width="800" height="800" >}}
 let img;
 var factor=1; //If it is equal to 1 and there is a gray filter there will be only two colors. 
 var wd;
