@@ -136,11 +136,11 @@ function addError(img, factor, x, y, errR, errG, errB) {
 {{< /highlight >}}
 {{< /details >}}
 
-{{< p5-global-iframe id="breath" width="610" height="400" >}}
+{{< p5-global-iframe id="breath" width="650" height="520" >}}
 let kitten;
 
 function preload() {
-  kitten = loadImage("kitten.jpg");
+  kitten = loadImage("content/docs/Ejercicios/kitten.jpg");
 }
 
 function setup() {
