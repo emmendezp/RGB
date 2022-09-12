@@ -136,6 +136,11 @@ function addError(img, factor, x, y, errR, errG, errB) {
 {{< /highlight >}}
 {{< /details >}}
 
+
+![Dithering](https://raw.githubusercontent.com/ineventhorizon/Floyd-Steinberg-Dithering-Javascript-p5js/master/images/cat.png "Imagen original")
+
+
+
 {{< p5-global-iframe id="breath" width="650" height="520" >}}
 let img;
 var factor=1; //If it is equal to 1 and there is a gray filter there will be only two colors. 
@@ -144,7 +149,7 @@ var d;
 
 
 function preload() {
-    img = loadImage('kitten.jpg');
+    img = loadImage('https://raw.githubusercontent.com/ineventhorizon/Floyd-Steinberg-Dithering-Javascript-p5js/master/images/cat.png');
 }
 
 function setup() {
