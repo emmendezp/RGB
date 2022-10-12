@@ -38,7 +38,7 @@ RGB1 * RGB2 = R(0*1)+G(1*0)+B(1*1) = (0,0,1)*255 -> (0,0,255)
 
 # Código
 
-{{< details title="p5-global-iframe markdown" open=false >}}
+{{< details title="Multiplicación de colores" open=false >}}
 {{< highlight html >}}
 {{</* p5-global-iframe id="breath" width="470" height="450" >}}
 let r, g,b,r1, g1, b1 ;
@@ -135,3 +135,6 @@ function changeColor() {
   
   }
 {{< /p5-global-iframe >}}
+
+# Conclusión
+Es importante destacar la función blendMode() se usa para combinar dos píxeles de acuerdo con el modo de combinación dado. Los diferentes tipos de modos de fusión tienen diferentes métodos para mezclar los píxeles de origen con los presentes en la ventana de visualización, para producir el píxel resultante. Se descubrió que la multiplicación ambos colores da como resultado un color más oscuro.
