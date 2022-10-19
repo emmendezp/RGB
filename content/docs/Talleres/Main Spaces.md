@@ -35,83 +35,92 @@ La coordenada cartesiana 0,0 (x,y) se encuentra en la esquina superior izquierda
 <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Euler2.gif/300px-Euler2.gif"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Euler2.gif/300px-Euler2.gif" title="source: From Wikimedia Commons, the free media repository" /></a>
 
 
-# Código y Resultado:
+## Código y Resultado:
 
+### Inicialización del script<br>
+<img src="https://imgur.com/21UNy3u.png" title="Inicialización del script" />
 
+### Función Preload
+Nos permite cargar nuestras imágenes a utilizar, como sé observa en las líneas de código son especificas que imagenes utiliza nuestro proyecto.<br>
+<img src="https://imgur.com/IPEeysZ.png" title="Función Preload" />
+
+### Create Canvas
+la cual en estas líneas está representada la luz con él respectivo eje de rotación permitiendo una visualización de sombra que sé ve reflejada en él planeta tierra.<br>
+<img src="https://imgur.com/YRqWe2N.png" title="Create Canvas" />
+
+### Rotate
+Esta función nos permite utilizar la rotación y dar una perspectiva de movimiento donde la tierra gira en su propio eje y la luna alrededor de la tierra, aun así la luna gira gira en su propio eje, no obstante cabe aclarar que utilizamos push y pop como funciones.<br>
+<img src="https://imgur.com/mutxY4g.png" title="Rotate" />
+
+## Resultado
+Se puede observar una imagen, la cual representa la implementación en 3D de la tierra y la luna con un fondo de estrellas, la cual simula la respectiva rotación.<br>
+<img src="https://imgur.com/eW3Ipti.png" title="Resultado" />
 
 {{<details title="CODE" open=false >}}
 
 ```js
-// this class describes the structure
-// and movents of the brick
-class Brick{
-  constructor(bc, y){
-    this.brickColor = bc;
-    this.yPos = y;
-    this.xPos = 0;
-  }
+Code Earth and Moon
+<!DOCTYPE html>
+<html lang="en">
 
-  // this function creates the brick
-  createBrick(){
-    fill(this.brickColor);
-    rect(this.xPos, this.yPos, 100, 50);
-  }
+<head>
+     <title>Tierra y Luna</title>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
+</head>
 
-  // this function sets the speed
-  // of movement of the brick to 1
-  setSpeed(){
-    this.xSpeed = 1;
-  }
+<body>
 
-  // this function set the bricks in motion
-  moveBrick(){
-    this.xPos+=this.xSpeed;
-    if(this.xPos+100 >= width || this.xPos <= 0){
-      this.xSpeed*=-1;
-    }
-  }
-}
+     <script>
 
-function setup() {
-  createCanvas(720, 400);
-  createP("Keep the mouse clicked").style('color','#ffffff');
-  createP("to check whether the bricks").style('color','#ffffff');
-  createP("are moving at same speed or not").style('color','#ffffff');
-}
+          function preload() {
+               textura_tierra = loadImage('https://i.ibb.co/PD4LyP5/planeta.jpg');
+               textura_luna = loadImage('https://i.ibb.co/WPvVybx/luna.jpg');
+               textura_fondo_estrellas = loadImage("https://i.ibb.co/NNTFKmL/nocheHD.jpg")
+          }
 
-// creating two bricks of
-// colors white and black
-let brick1 = new Brick("white",100);
-let brick2 = new Brick("black",250);
+          function setup() {
+               createCanvas(800, 450, WEBGL);
+          }
 
-//
-brick1.setSpeed();
-brick2.setSpeed();
+          function draw() {
+               background("black")
+               
+               noStroke() //No dibujar la malla de las esferas
+               
+               texture(textura_fondo_estrellas)
+               sphere(800)
 
-function draw () {
-  background(0);
-  if(mouseIsPressed){
-    background(50);
-  }
-  brick1.createBrick();
-  brick1.moveBrick();
-  if(!mouseIsPressed){
-    createBars();
-  }
-  brick2.createBrick();
-  brick2.moveBrick();
-}
+               for (let i = 0; i < 3; i++) {
+                    directionalLight(
+                         255, 255, 255 - i * 25,//Color
+                         -1, 1, -1 //Dirección
+                    );
+               }
 
-// this function creates the black and
-// white bars across the screen
-function createBars() {
-  let len = 12;
-  for(let i = 0;i< width/len;i++){
-    fill("white");
-    if(i%2 == 0)
-    rect(i*len,height,len,-height);
-  }
-}
+               orbitControl() //Controlar con el mouse la cámara
+
+               rotateZ(-0.3) //Inclinación de la tierra
+
+               push()
+               rotateY(frameCount * 0.01); //rotación de la tierra sobre su propio eje
+               texture(textura_tierra); 
+               sphere(100);
+               pop()
+
+               push()
+               rotateY(-frameCount * 0.05 / 10);//Traslación de la luna alrededor de la tierra
+               translate(0, 0, 170)//Distancia del centro de la luna al centro de la tierra
+               rotateY(-frameCount * 0.05);//Rotación de la luna sobre su propio eje
+               texture(textura_luna);
+               sphere(25);
+               pop()
+          }
+
+     </script>
+
+</body>
+
+</html>
 
 
 ```
@@ -119,76 +128,69 @@ function createBars() {
 {{</details>}}
 {{< p5-global-iframe id="breath" width="700" height="450" >}}
 
-// this class describes the structure
-// and movents of the brick
-class Brick{
-  constructor(bc, y){
-    this.brickColor = bc;
-    this.yPos = y;
-    this.xPos = 0;
-  }
+Code Earth and Moon
+<!DOCTYPE html>
+<html lang="en">
 
-  // this function creates the brick
-  createBrick(){
-    fill(this.brickColor);
-    rect(this.xPos, this.yPos, 100, 50);
-  }
+<head>
+     <title>Tierra y Luna</title>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
+</head>
 
-  // this function sets the speed
-  // of movement of the brick to 1
-  setSpeed(){
-    this.xSpeed = 1;
-  }
+<body>
 
-  // this function set the bricks in motion
-  moveBrick(){
-    this.xPos+=this.xSpeed;
-    if(this.xPos+100 >= width || this.xPos <= 0){
-      this.xSpeed*=-1;
-    }
-  }
-}
+     <script>
 
-function setup() {
-  createCanvas(720, 400);
-  createP("Keep the mouse clicked").style('color','#ffffff');
-  createP("to check whether the bricks").style('color','#ffffff');
-  createP("are moving at same speed or not").style('color','#ffffff');
-}
+          function preload() {
+               textura_tierra = loadImage('https://i.ibb.co/PD4LyP5/planeta.jpg');
+               textura_luna = loadImage('https://i.ibb.co/WPvVybx/luna.jpg');
+               textura_fondo_estrellas = loadImage("https://i.ibb.co/NNTFKmL/nocheHD.jpg")
+          }
 
-// creating two bricks of
-// colors white and black
-let brick1 = new Brick("white",100);
-let brick2 = new Brick("black",250);
+          function setup() {
+               createCanvas(800, 450, WEBGL);
+          }
 
-//
-brick1.setSpeed();
-brick2.setSpeed();
+          function draw() {
+               background("black")
+               
+               noStroke() //No dibujar la malla de las esferas
+               
+               texture(textura_fondo_estrellas)
+               sphere(800)
 
-function draw () {
-  background(0);
-  if(mouseIsPressed){
-    background(50);
-  }
-  brick1.createBrick();
-  brick1.moveBrick();
-  if(!mouseIsPressed){
-    createBars();
-  }
-  brick2.createBrick();
-  brick2.moveBrick();
-}
+               for (let i = 0; i < 3; i++) {
+                    directionalLight(
+                         255, 255, 255 - i * 25,//Color
+                         -1, 1, -1 //Dirección
+                    );
+               }
 
-// this function creates the black and
-// white bars across the screen
-function createBars() {
-  let len = 12;
-  for(let i = 0;i< width/len;i++){
-    fill("white");
-    if(i%2 == 0)
-    rect(i*len,height,len,-height);
-  }
-}
+               orbitControl() //Controlar con el mouse la cámara
+
+               rotateZ(-0.3) //Inclinación de la tierra
+
+               push()
+               rotateY(frameCount * 0.01); //rotación de la tierra sobre su propio eje
+               texture(textura_tierra); 
+               sphere(100);
+               pop()
+
+               push()
+               rotateY(-frameCount * 0.05 / 10);//Traslación de la luna alrededor de la tierra
+               translate(0, 0, 170)//Distancia del centro de la luna al centro de la tierra
+               rotateY(-frameCount * 0.05);//Rotación de la luna sobre su propio eje
+               texture(textura_luna);
+               sphere(25);
+               pop()
+          }
+
+     </script>
+
+</body>
+
+</html>
+
 
 {{< /p5-global-iframe >}}
 
