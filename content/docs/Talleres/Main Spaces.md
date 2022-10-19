@@ -7,7 +7,7 @@ Implementación de  una aplicación webgl 3d. a través de la utilización de p5
 
 <a href="https://commons.wikimedia.org/wiki/File:Moon_Earth_Comparison.png"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f6/Moon_Earth_Comparison.png" title="source: From Wikimedia Commons, the free media repository" /></a>
 
-La luna es para él planeta tierra eje fundamental de estaciones y mareas pero como sé formo está Los científicos creen que un objeto del tamaño de Marte colisionó con la Tierra hace 4.500 millones de años. La fuerza de esta colisión fue tan impresionante que desprendió materiales de la Tierra y del objeto con el que colisionó y los envió hacia el espacio. Parte de estos escombros se juntó para formar la Luna.
+La luna es para el planeta tierra eje fundamental de estaciones y mareas, los científicos creen que un objeto del tamaño de Marte colisionó con la Tierra hace 4.500 millones de años. La fuerza de esta colisión fue tan impresionante que desprendió materiales de la Tierra y del objeto con el que colisionó y los envió hacia el espacio. Parte de estos escombros se juntó para formar la Luna.
 
 La Luna no solo se formó principalmente con materiales de la Tierra, sino que probablemente una gran cantidad de escombros de la Tierra aterrizaron en la Luna en el período posterior a su formación. Podría haber más indicios sobre la composición de la Tierra primordial ocultos entre las capas de polvo lunar.
 
@@ -41,11 +41,11 @@ La coordenada cartesiana 0,0 (x,y) se encuentra en la esquina superior izquierda
 <img src="https://imgur.com/21UNy3u.png" title="Inicialización del script" />
 
 ### Función Preload
-Nos permite cargar nuestras imágenes a utilizar, como sé observa en las líneas de código son especificas que imagenes utiliza nuestro proyecto.<br>
+Nos permite cargar nuestras imágenes a utilizar, como se observa en las líneas de código son especificas que imagenes utiliza nuestro proyecto.<br>
 <img src="https://imgur.com/IPEeysZ.png" title="Función Preload" />
 
 ### Create Canvas
-la cual en estas líneas está representada la luz con él respectivo eje de rotación permitiendo una visualización de sombra que sé ve reflejada en él planeta tierra.<br>
+la cual en estas líneas está representada la luz con el respectivo eje de rotación permitiendo una visualización de sombra que se ve reflejada en el planeta tierra.<br>
 <img src="https://imgur.com/YRqWe2N.png" title="Create Canvas" />
 
 ### Rotate
@@ -196,7 +196,7 @@ Code Earth and Moon
 
 
 ## Aplicaciones
-Está herramienta desarrollada permite aplicaciones en él ambito escolar y científico dando una imagen más clara de cómo es él comportamiento de nuestro satélite.
+Esta herramienta desarrollada permite aplicaciones en el ambito escolar y científico dando una imagen más clara de cómo es el comportamiento de nuestro satelite.
 
 De manera general el modelado 3D tiene funciones que van más allá del diseño de una figura de acción para una película de animación. Con esta técnica también se ha beneficiado el campo de la medicina, representando modelos tridimensionales de la anatomía humana.
 
