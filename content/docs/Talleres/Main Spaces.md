@@ -5,7 +5,7 @@ Implementación de  una aplicación webgl 3d. a través de la utilización de p5
 ## Main spaces  
 ## Sistema Tierra-Luna : 
 
-<a href="https://commons.wikimedia.org/wiki/File:Moon_Earth_Comparison.png"><img src="https://commons.wikimedia.org/wiki/File:Moon_Earth_Comparison.png" title="source: From Wikimedia Commons, the free media repository" /></a>
+<a href="https://commons.wikimedia.org/wiki/File:Moon_Earth_Comparison.png"><img src="https://upload.wikimedia.org/wikipedia/commons/f/f6/Moon_Earth_Comparison.png" title="source: From Wikimedia Commons, the free media repository" /></a>
 
 La luna es para él planeta tierra eje fundamental de estaciones y mareas pero como sé formo está Los científicos creen que un objeto del tamaño de Marte colisionó con la Tierra hace 4.500 millones de años. La fuerza de esta colisión fue tan impresionante que desprendió materiales de la Tierra y del objeto con el que colisionó y los envió hacia el espacio. Parte de estos escombros se juntó para formar la Luna.
 
@@ -23,14 +23,14 @@ Uno de los dos modos de renderizado en p5.js: P2D (renderizador predeterminado) 
 
 Es una especificación estándar que define una API implementada en JavaScript para la renderización de gráficos en 3D dentro de cualquier navegador web. No precisa del uso de plug-ins adicionales en cualquier plataforma que soporte OpenGL 2.0 u OpenGL ES 2.0. WebGL está integrada completamente en todos los estándares web del navegador, permitiendo la aceleración hardware (física) de la GPU y el procesamiento de imágenes y efectos como parte del lienzo o "canvas" de la página web. Los elementos de WebGL se pueden combinar con otros elementos HTML y estar compuestos con otras partes de la página o del fondo (background) de la página.
 
-sintaxis WEBGL:
+sintaxis WEBGL:<br>
 <a href=#><img src="https://imgur.com/2KlDlVU.png" title="source: From imgur" /></a>
 
 ## Sistema de coordenadas 3D
 
 La coordenada cartesiana 0,0 (x,y) se encuentra en la esquina superior izquierda del lienzo de dibujo. En el modo WEBGL introducimos una tercera dimensión: Z. La dimensión z es el eje que apunta hacia usted desde la pantalla. 
 
-<a href="https://commons.wikimedia.org/wiki/File:3D_coordinate_system.svg"><img src="https://commons.wikimedia.org/wiki/File:3D_coordinate_system.svg" title="source: From Wikimedia Commons, the free media repository" /></a>
+<a href="https://commons.wikimedia.org/wiki/File:3D_coordinate_system.svg"><img src="https://upload.wikimedia.org/wikipedia/commons/2/2c/3D_coordinate_system.svg" title="source: From Wikimedia Commons, the free media repository" /></a>
 
 <a href="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Euler2.gif/300px-Euler2.gif"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Euler2.gif/300px-Euler2.gif" title="source: From Wikimedia Commons, the free media repository" /></a>
 
