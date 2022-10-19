@@ -1,92 +1,88 @@
 <!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Taller 2 : 3D Webgl Application # Planteamiento del problema # Implementación de una aplicación webgl 3d. a través de la utilización de p5.treegl o otra librería.
 Main spaces # Sistema Tierra-Luna : # La luna es para él planeta tierra eje fundamental de estaciones y mareas pero como sé formo está Los científicos creen que un objeto del tamaño de Marte colisionó con la Tierra hace 4.500 millones de años."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content><meta property="og:description" content="Taller 2 : 3D Webgl Application # Planteamiento del problema # Implementación de una aplicación webgl 3d. a través de la utilización de p5.treegl o otra librería.
-Main spaces # Sistema Tierra-Luna : # La luna es para él planeta tierra eje fundamental de estaciones y mareas pero como sé formo está Los científicos creen que un objeto del tamaño de Marte colisionó con la Tierra hace 4.500 millones de años."><meta property="og:type" content="article"><meta property="og:url" content="https://emmendezp.github.io/RGB/docs/Talleres/Main-Spaces/"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2022-10-19T06:21:56-05:00"><title>Main Spaces | Computacion Visual 2022-2 RGB</title><link rel=manifest href=/RGB/manifest.json><link rel=icon href=/RGB/favicon.png type=image/x-icon><link rel=stylesheet href=/RGB/book.min.ab46de3e725a6415339a37bba23a0067534a37289b063c9f8d011515a63097a8.css integrity="sha256-q0bePnJaZBUzmje7ojoAZ1NKNyibBjyfjQEVFaYwl6g=" crossorigin=anonymous><script defer src=/RGB/flexsearch.min.js></script>
-<script defer src=/RGB/en.search.min.0e3433e05dabf9d32370e61371d7f867bff263dd7486fe40a9106a40e2929c80.js integrity="sha256-DjQz4F2r+dMjcOYTcdf4Z7/yY910hv5AqRBqQOKSnIA=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+Main spaces # Sistema Tierra-Luna : # La luna es para él planeta tierra eje fundamental de estaciones y mareas pero como sé formo está Los científicos creen que un objeto del tamaño de Marte colisionó con la Tierra hace 4.500 millones de años."><meta property="og:type" content="article"><meta property="og:url" content="https://emmendezp.github.io/RGB/docs/Talleres/Main-Spaces/"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2022-10-19T06:36:43-05:00"><title>Main Spaces | Computacion Visual 2022-2 RGB</title><link rel=manifest href=/RGB/manifest.json><link rel=icon href=/RGB/favicon.png type=image/x-icon><link rel=stylesheet href=/RGB/book.min.ab46de3e725a6415339a37bba23a0067534a37289b063c9f8d011515a63097a8.css integrity="sha256-q0bePnJaZBUzmje7ojoAZ1NKNyibBjyfjQEVFaYwl6g=" crossorigin=anonymous><script defer src=/RGB/flexsearch.min.js></script>
+<script defer src=/RGB/en.search.min.ca295307a06747aa29bb2cfd3377064041fb8fbd2f8770729b139d5076a9427f.js integrity="sha256-yilTB6BnR6opuyz9M3cGQEH7j70vh3BymxOdUHapQn8=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
 <input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/RGB/><span>Computacion Visual 2022-2 RGB</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li><input type=checkbox id=section-bab8b9365022340ebec5653746d3d735 class=toggle>
 <label for=section-bab8b9365022340ebec5653746d3d735 class="flex justify-between"><a href=/RGB/docs/Ejercicios/>Ejercicios</a></label><ul><li><a href=/RGB/docs/Ejercicios/Ejercicio1/>Ejercicio1</a></li><li><a href=/RGB/docs/Ejercicios/Ejercicio2/>Ejercicio2</a></li><li><a href=/RGB/docs/Ejercicios/Ejercicio3/>Ejercicio3</a></li></ul></li><li><input type=checkbox id=section-9370f1a5d0248572ac505e0c6d4ad190 class=toggle>
 <label for=section-9370f1a5d0248572ac505e0c6d4ad190 class="flex justify-between"><a href=/RGB/docs/shortcodes/>Shortcodes</a></label><ul><li><a href=/RGB/docs/shortcodes/buttons/>Buttons</a></li><li><a href=/RGB/docs/shortcodes/columns/>Columns</a></li><li><a href=/RGB/docs/shortcodes/details/>Details</a></li><li><a href=/RGB/docs/shortcodes/hints/>Hints</a></li><li><a href=/RGB/docs/shortcodes/katex/>Katex</a></li><li><a href=/RGB/docs/shortcodes/mermaid/>Mermaid</a></li><li><input type=checkbox id=section-ec67a64aba70b9df3d2a9acd6c92e3bc class=toggle>
 <label for=section-ec67a64aba70b9df3d2a9acd6c92e3bc class="flex justify-between"><a href=/RGB/docs/shortcodes/p5/>P5</a></label><ul><li><a href=/RGB/docs/shortcodes/p5/div/>Div</a></li><li><a href=/RGB/docs/shortcodes/p5/iframe/>Iframe</a></li></ul></li><li><a href=/RGB/docs/shortcodes/tabs/>Tabs</a></li></ul></li><li><input type=checkbox id=section-042d3f228c0d48b7873225f7fc71e929 class=toggle checked>
 <label for=section-042d3f228c0d48b7873225f7fc71e929 class="flex justify-between"><a href=/RGB/docs/Talleres/>Talleres</a></label><ul><li><a href=/RGB/docs/Talleres/Main-Spaces/ class=active>Main Spaces</a></li><li><a href=/RGB/docs/Talleres/visual_ilusions/>Visual Ilusions</a></li><li><a href=/RGB/docs/Talleres/visual_Masking/>Visual Masking</a></li></ul></li></ul><ul><li><a href=/RGB/posts/>Blog</a></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/RGB/svg/menu.svg class=book-icon alt=Menu></label>
 <strong>Main Spaces</strong>
-<label for=toc-control><img src=/RGB/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#taller-2---3d-webgl-application>Taller 2 : 3D Webgl Application</a><ul><li><a href=#planteamiento-del-problema>Planteamiento del problema</a></li><li><a href=#main-spaces>Main spaces</a></li><li><a href=#sistema-tierra-luna->Sistema Tierra-Luna :</a></li><li><a href=#herramientas-a-utilizar>Herramientas a utilizar:</a></li><li><a href=#webgl-web-graphics-library>WEBGL (Web Graphics Library)</a></li><li><a href=#sistema-de-coordenadas-3d>Sistema de coordenadas 3D</a></li></ul></li><li><a href=#código-y-resultado>Código y Resultado:</a><ul><li><a href=#image-kernel>Image Kernel</a><ul><li><a href=#convolution->Convolution :</a></li></ul></li><li><a href=#código-y-su-solución>Código y su Solución:</a></li></ul></li><li><a href=#the-coffee-shop-wall-illusion>The coffee shop wall illusion</a></li><li><a href=#image-histragram>Image Histragram</a><ul><li><a href=#código-y-su-solución-1>Código y su Solución:</a></li></ul></li></ul></nav></aside></header><article class=markdown><h1 id=taller-2---3d-webgl-application>Taller 2 : 3D Webgl Application
+<label for=toc-control><img src=/RGB/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#taller-2---3d-webgl-application>Taller 2 : 3D Webgl Application</a><ul><li><a href=#planteamiento-del-problema>Planteamiento del problema</a></li><li><a href=#main-spaces>Main spaces</a></li><li><a href=#sistema-tierra-luna->Sistema Tierra-Luna :</a></li><li><a href=#herramientas-a-utilizar>Herramientas a utilizar:</a></li><li><a href=#webgl-web-graphics-library>WEBGL (Web Graphics Library)</a></li><li><a href=#sistema-de-coordenadas-3d>Sistema de coordenadas 3D</a></li><li><a href=#código-y-resultado>Código y Resultado:</a><ul><li><a href=#inicialización-del-scriptbr>Inicialización del script<br></a></li><li><a href=#función-preload>Función Preload</a></li><li><a href=#create-canvas>Create Canvas</a></li><li><a href=#rotate>Rotate</a></li></ul></li><li><a href=#resultado>Resultado</a></li><li><a href=#image-kernel>Image Kernel</a><ul><li><a href=#convolution->Convolution :</a></li></ul></li><li><a href=#código-y-su-solución>Código y su Solución:</a></li></ul></li><li><a href=#the-coffee-shop-wall-illusion>The coffee shop wall illusion</a></li><li><a href=#image-histragram>Image Histragram</a><ul><li><a href=#código-y-su-solución-1>Código y su Solución:</a></li></ul></li></ul></nav></aside></header><article class=markdown><h1 id=taller-2---3d-webgl-application>Taller 2 : 3D Webgl Application
 <a class=anchor href=#taller-2---3d-webgl-application>#</a></h1><h2 id=planteamiento-del-problema>Planteamiento del problema
 <a class=anchor href=#planteamiento-del-problema>#</a></h2><p>Implementación de una aplicación webgl 3d. a través de la utilización de p5.treegl o otra librería.</p><h2 id=main-spaces>Main spaces
 <a class=anchor href=#main-spaces>#</a></h2><h2 id=sistema-tierra-luna->Sistema Tierra-Luna :
 <a class=anchor href=#sistema-tierra-luna->#</a></h2><p><a href=https://commons.wikimedia.org/wiki/File:Moon_Earth_Comparison.png><img src=https://upload.wikimedia.org/wikipedia/commons/f/f6/Moon_Earth_Comparison.png title="source: From Wikimedia Commons, the free media repository"></a></p><p>La luna es para él planeta tierra eje fundamental de estaciones y mareas pero como sé formo está Los científicos creen que un objeto del tamaño de Marte colisionó con la Tierra hace 4.500 millones de años. La fuerza de esta colisión fue tan impresionante que desprendió materiales de la Tierra y del objeto con el que colisionó y los envió hacia el espacio. Parte de estos escombros se juntó para formar la Luna.</p><p>La Luna no solo se formó principalmente con materiales de la Tierra, sino que probablemente una gran cantidad de escombros de la Tierra aterrizaron en la Luna en el período posterior a su formación. Podría haber más indicios sobre la composición de la Tierra primordial ocultos entre las capas de polvo lunar.</p><p>Sin la gravedad de la Luna, la Tierra se tambalearía más violentamente sobre su eje, alterando así drásticamente el clima. Además de mantener la estabilidad del clima, la Luna marca el ritmo de la Tierra (las subidas y las bajadas de las mareas), lo que afecta la variedad de maneras en que usamos el océano para alimentarnos, viajar y recrearnos.</p><p>El modelado 3D consiste en utilizar software para crear una representación matemática de un objeto o forma tridimensional. El objeto creado se denomina modelo 3D y se utiliza en distintas industrias. Se puede visualizar como una imagen bidimensional mediante un proceso llamado renderizado 3D o utilizar en una simulación por computadora de fenómenos físicos.</p><h2 id=herramientas-a-utilizar>Herramientas a utilizar:
 <a class=anchor href=#herramientas-a-utilizar>#</a></h2><p>Uno de los dos modos de renderizado en p5.js: P2D (renderizador predeterminado) y WEBGL Habilita el renderizado 3D introduciendo la tercera dimensión: Z. Ambos modos de representación utilizan el elemento de lienzo html; sin embargo, al habilitar el &ldquo;contexto&rdquo; WEBGL en el lienzo, ahora podemos dibujar tanto en 2D como en 3D.</p><h2 id=webgl-web-graphics-library>WEBGL (Web Graphics Library)
 <a class=anchor href=#webgl-web-graphics-library>#</a></h2><p>Es una especificación estándar que define una API implementada en JavaScript para la renderización de gráficos en 3D dentro de cualquier navegador web. No precisa del uso de plug-ins adicionales en cualquier plataforma que soporte OpenGL 2.0 u OpenGL ES 2.0. WebGL está integrada completamente en todos los estándares web del navegador, permitiendo la aceleración hardware (física) de la GPU y el procesamiento de imágenes y efectos como parte del lienzo o &ldquo;canvas&rdquo; de la página web. Los elementos de WebGL se pueden combinar con otros elementos HTML y estar compuestos con otras partes de la página o del fondo (background) de la página.</p><p>sintaxis WEBGL:<br><a href=#><img src=https://imgur.com/2KlDlVU.png title="source: From imgur"></a></p><h2 id=sistema-de-coordenadas-3d>Sistema de coordenadas 3D
-<a class=anchor href=#sistema-de-coordenadas-3d>#</a></h2><p>La coordenada cartesiana 0,0 (x,y) se encuentra en la esquina superior izquierda del lienzo de dibujo. En el modo WEBGL introducimos una tercera dimensión: Z. La dimensión z es el eje que apunta hacia usted desde la pantalla.</p><p><a href=https://commons.wikimedia.org/wiki/File:3D_coordinate_system.svg><img src=https://upload.wikimedia.org/wikipedia/commons/2/2c/3D_coordinate_system.svg title="source: From Wikimedia Commons, the free media repository"></a></p><p><a href=https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Euler2.gif/300px-Euler2.gif><img src=https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Euler2.gif/300px-Euler2.gif title="source: From Wikimedia Commons, the free media repository"></a></p><h1 id=código-y-resultado>Código y Resultado:
-<a class=anchor href=#c%c3%b3digo-y-resultado>#</a></h1><p><details><summary>CODE</summary><div class=markdown-inner><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=display:flex><span><span style=color:#75715e>// this class describes the structure
-</span></span></span><span style=display:flex><span><span style=color:#75715e>// and movents of the brick
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Brick</span>{
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>constructor</span>(<span style=color:#a6e22e>bc</span>, <span style=color:#a6e22e>y</span>){
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>brickColor</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>bc</span>;
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>yPos</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>y</span>;
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>xPos</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
-</span></span><span style=display:flex><span>  }
+<a class=anchor href=#sistema-de-coordenadas-3d>#</a></h2><p>La coordenada cartesiana 0,0 (x,y) se encuentra en la esquina superior izquierda del lienzo de dibujo. En el modo WEBGL introducimos una tercera dimensión: Z. La dimensión z es el eje que apunta hacia usted desde la pantalla.</p><p><a href=https://commons.wikimedia.org/wiki/File:3D_coordinate_system.svg><img src=https://upload.wikimedia.org/wikipedia/commons/2/2c/3D_coordinate_system.svg title="source: From Wikimedia Commons, the free media repository"></a></p><p><a href=https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Euler2.gif/300px-Euler2.gif><img src=https://upload.wikimedia.org/wikipedia/commons/thumb/c/c5/Euler2.gif/300px-Euler2.gif title="source: From Wikimedia Commons, the free media repository"></a></p><h2 id=código-y-resultado>Código y Resultado:
+<a class=anchor href=#c%c3%b3digo-y-resultado>#</a></h2><h3 id=inicialización-del-scriptbr>Inicialización del script<br><a class=anchor href=#inicializaci%c3%b3n-del-scriptbr>#</a></h3><img src=https://imgur.com/21UNy3u.png title="Inicialización del script"><h3 id=función-preload>Función Preload
+<a class=anchor href=#funci%c3%b3n-preload>#</a></h3><p>Nos permite cargar nuestras imágenes a utilizar, como sé observa en las líneas de código son especificas que imagenes utiliza nuestro proyecto.<br><img src=https://imgur.com/IPEeysZ.png title="Función Preload"></p><h3 id=create-canvas>Create Canvas
+<a class=anchor href=#create-canvas>#</a></h3><p>la cual en estas líneas está representada la luz con él respectivo eje de rotación permitiendo una visualización de sombra que sé ve reflejada en él planeta tierra.<br><img src=https://imgur.com/YRqWe2N.png title="Create Canvas"></p><h3 id=rotate>Rotate
+<a class=anchor href=#rotate>#</a></h3><p>Esta función nos permite utilizar la rotación y dar una perspectiva de movimiento donde la tierra gira en su propio eje y la luna alrededor de la tierra, aun así la luna gira gira en su propio eje, no obstante cabe aclarar que utilizamos push y pop como funciones.<br><img src=https://imgur.com/mutxY4g.png title=Rotate></p><h2 id=resultado>Resultado
+<a class=anchor href=#resultado>#</a></h2><p>Se puede observar una imagen, la cual representa la implementación en 3D de la tierra y la luna con un fondo de estrellas, la cual simula la respectiva rotación.<br><img src=https://imgur.com/eW3Ipti.png title=Resultado></p><p><details><summary>CODE</summary><div class=markdown-inner><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=display:flex><span><span style=color:#a6e22e>Code</span> <span style=color:#a6e22e>Earth</span> <span style=color:#a6e22e>and</span> <span style=color:#a6e22e>Moon</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;!</span><span style=color:#a6e22e>DOCTYPE</span> <span style=color:#a6e22e>html</span><span style=color:#f92672>&gt;</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;</span><span style=color:#a6e22e>html</span> <span style=color:#a6e22e>lang</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;en&#34;</span><span style=color:#f92672>&gt;</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>  <span style=color:#75715e>// this function creates the brick
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>createBrick</span>(){
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>fill</span>(<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>brickColor</span>);
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>rect</span>(<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>xPos</span>, <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>yPos</span>, <span style=color:#ae81ff>100</span>, <span style=color:#ae81ff>50</span>);
-</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;</span><span style=color:#a6e22e>head</span><span style=color:#f92672>&gt;</span>
+</span></span><span style=display:flex><span>     <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>title</span><span style=color:#f92672>&gt;</span><span style=color:#a6e22e>Tierra</span> <span style=color:#a6e22e>y</span> <span style=color:#a6e22e>Luna</span><span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/title&gt;</span>
+</span></span><span style=display:flex><span>     <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>script</span> <span style=color:#a6e22e>src</span><span style=color:#f92672>=</span><span style=color:#e6db74>&#34;https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js&#34;</span><span style=color:#f92672>&gt;&lt;</span><span style=color:#960050;background-color:#1e0010>/script&gt;</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/head&gt;</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>  <span style=color:#75715e>// this function sets the speed
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#75715e>// of movement of the brick to 1
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>setSpeed</span>(){
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>xSpeed</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>1</span>;
-</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;</span><span style=color:#a6e22e>body</span><span style=color:#f92672>&gt;</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>  <span style=color:#75715e>// this function set the bricks in motion
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#a6e22e>moveBrick</span>(){
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>xPos</span><span style=color:#f92672>+=</span><span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>xSpeed</span>;
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span>(<span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>xPos</span><span style=color:#f92672>+</span><span style=color:#ae81ff>100</span> <span style=color:#f92672>&gt;=</span> <span style=color:#a6e22e>width</span> <span style=color:#f92672>||</span> <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>xPos</span> <span style=color:#f92672>&lt;=</span> <span style=color:#ae81ff>0</span>){
-</span></span><span style=display:flex><span>      <span style=color:#66d9ef>this</span>.<span style=color:#a6e22e>xSpeed</span><span style=color:#f92672>*=-</span><span style=color:#ae81ff>1</span>;
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>  }
-</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>     <span style=color:#f92672>&lt;</span><span style=color:#a6e22e>script</span><span style=color:#f92672>&gt;</span>
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>setup</span>() {
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>createCanvas</span>(<span style=color:#ae81ff>720</span>, <span style=color:#ae81ff>400</span>);
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>createP</span>(<span style=color:#e6db74>&#34;Keep the mouse clicked&#34;</span>).<span style=color:#a6e22e>style</span>(<span style=color:#e6db74>&#39;color&#39;</span>,<span style=color:#e6db74>&#39;#ffffff&#39;</span>);
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>createP</span>(<span style=color:#e6db74>&#34;to check whether the bricks&#34;</span>).<span style=color:#a6e22e>style</span>(<span style=color:#e6db74>&#39;color&#39;</span>,<span style=color:#e6db74>&#39;#ffffff&#39;</span>);
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>createP</span>(<span style=color:#e6db74>&#34;are moving at same speed or not&#34;</span>).<span style=color:#a6e22e>style</span>(<span style=color:#e6db74>&#39;color&#39;</span>,<span style=color:#e6db74>&#39;#ffffff&#39;</span>);
-</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>          <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>preload</span>() {
+</span></span><span style=display:flex><span>               <span style=color:#a6e22e>textura_tierra</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>loadImage</span>(<span style=color:#e6db74>&#39;https://i.ibb.co/PD4LyP5/planeta.jpg&#39;</span>);
+</span></span><span style=display:flex><span>               <span style=color:#a6e22e>textura_luna</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>loadImage</span>(<span style=color:#e6db74>&#39;https://i.ibb.co/WPvVybx/luna.jpg&#39;</span>);
+</span></span><span style=display:flex><span>               <span style=color:#a6e22e>textura_fondo_estrellas</span> <span style=color:#f92672>=</span> <span style=color:#a6e22e>loadImage</span>(<span style=color:#e6db74>&#34;https://i.ibb.co/NNTFKmL/nocheHD.jpg&#34;</span>)
+</span></span><span style=display:flex><span>          }
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e>// creating two bricks of
-</span></span></span><span style=display:flex><span><span style=color:#75715e>// colors white and black
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>brick1</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Brick</span>(<span style=color:#e6db74>&#34;white&#34;</span>,<span style=color:#ae81ff>100</span>);
-</span></span><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>brick2</span> <span style=color:#f92672>=</span> <span style=color:#66d9ef>new</span> <span style=color:#a6e22e>Brick</span>(<span style=color:#e6db74>&#34;black&#34;</span>,<span style=color:#ae81ff>250</span>);
+</span></span><span style=display:flex><span>          <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>setup</span>() {
+</span></span><span style=display:flex><span>               <span style=color:#a6e22e>createCanvas</span>(<span style=color:#ae81ff>800</span>, <span style=color:#ae81ff>450</span>, <span style=color:#a6e22e>WEBGL</span>);
+</span></span><span style=display:flex><span>          }
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e>//
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#a6e22e>brick1</span>.<span style=color:#a6e22e>setSpeed</span>();
-</span></span><span style=display:flex><span><span style=color:#a6e22e>brick2</span>.<span style=color:#a6e22e>setSpeed</span>();
+</span></span><span style=display:flex><span>          <span style=color:#66d9ef>function</span> <span style=color:#a6e22e>draw</span>() {
+</span></span><span style=display:flex><span>               <span style=color:#a6e22e>background</span>(<span style=color:#e6db74>&#34;black&#34;</span>)
+</span></span><span style=display:flex><span>               
+</span></span><span style=display:flex><span>               <span style=color:#a6e22e>noStroke</span>() <span style=color:#75715e>//No dibujar la malla de las esferas
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>               
+</span></span><span style=display:flex><span>               <span style=color:#a6e22e>texture</span>(<span style=color:#a6e22e>textura_fondo_estrellas</span>)
+</span></span><span style=display:flex><span>               <span style=color:#a6e22e>sphere</span>(<span style=color:#ae81ff>800</span>)
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>draw</span> () {
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>background</span>(<span style=color:#ae81ff>0</span>);
-</span></span><span style=display:flex><span>  <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>mouseIsPressed</span>){
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>background</span>(<span style=color:#ae81ff>50</span>);
-</span></span><span style=display:flex><span>  }
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>brick1</span>.<span style=color:#a6e22e>createBrick</span>();
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>brick1</span>.<span style=color:#a6e22e>moveBrick</span>();
-</span></span><span style=display:flex><span>  <span style=color:#66d9ef>if</span>(<span style=color:#f92672>!</span><span style=color:#a6e22e>mouseIsPressed</span>){
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>createBars</span>();
-</span></span><span style=display:flex><span>  }
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>brick2</span>.<span style=color:#a6e22e>createBrick</span>();
-</span></span><span style=display:flex><span>  <span style=color:#a6e22e>brick2</span>.<span style=color:#a6e22e>moveBrick</span>();
-</span></span><span style=display:flex><span>}
+</span></span><span style=display:flex><span>               <span style=color:#66d9ef>for</span> (<span style=color:#66d9ef>let</span> <span style=color:#a6e22e>i</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>; <span style=color:#a6e22e>i</span> <span style=color:#f92672>&lt;</span> <span style=color:#ae81ff>3</span>; <span style=color:#a6e22e>i</span><span style=color:#f92672>++</span>) {
+</span></span><span style=display:flex><span>                    <span style=color:#a6e22e>directionalLight</span>(
+</span></span><span style=display:flex><span>                         <span style=color:#ae81ff>255</span>, <span style=color:#ae81ff>255</span>, <span style=color:#ae81ff>255</span> <span style=color:#f92672>-</span> <span style=color:#a6e22e>i</span> <span style=color:#f92672>*</span> <span style=color:#ae81ff>25</span>,<span style=color:#75715e>//Color
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>                         <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>, <span style=color:#ae81ff>1</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span> <span style=color:#75715e>//Dirección
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>                    );
+</span></span><span style=display:flex><span>               }
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e>// this function creates the black and
-</span></span></span><span style=display:flex><span><span style=color:#75715e>// white bars across the screen
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>function</span> <span style=color:#a6e22e>createBars</span>() {
-</span></span><span style=display:flex><span>  <span style=color:#66d9ef>let</span> <span style=color:#a6e22e>len</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>12</span>;
-</span></span><span style=display:flex><span>  <span style=color:#66d9ef>for</span>(<span style=color:#66d9ef>let</span> <span style=color:#a6e22e>i</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;<span style=color:#a6e22e>i</span><span style=color:#f92672>&lt;</span> <span style=color:#a6e22e>width</span><span style=color:#f92672>/</span><span style=color:#a6e22e>len</span>;<span style=color:#a6e22e>i</span><span style=color:#f92672>++</span>){
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>fill</span>(<span style=color:#e6db74>&#34;white&#34;</span>);
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span>(<span style=color:#a6e22e>i</span><span style=color:#f92672>%</span><span style=color:#ae81ff>2</span> <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>)
-</span></span><span style=display:flex><span>    <span style=color:#a6e22e>rect</span>(<span style=color:#a6e22e>i</span><span style=color:#f92672>*</span><span style=color:#a6e22e>len</span>,<span style=color:#a6e22e>height</span>,<span style=color:#a6e22e>len</span>,<span style=color:#f92672>-</span><span style=color:#a6e22e>height</span>);
-</span></span><span style=display:flex><span>  }
-</span></span><span style=display:flex><span>}
-</span></span></code></pre></div></div></details><iframe id=breath style=width:700px;height:450px srcdoc="
+</span></span><span style=display:flex><span>               <span style=color:#a6e22e>orbitControl</span>() <span style=color:#75715e>//Controlar con el mouse la cámara
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span>               <span style=color:#a6e22e>rotateZ</span>(<span style=color:#f92672>-</span><span style=color:#ae81ff>0.3</span>) <span style=color:#75715e>//Inclinación de la tierra
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>
+</span></span><span style=display:flex><span>               <span style=color:#a6e22e>push</span>()
+</span></span><span style=display:flex><span>               <span style=color:#a6e22e>rotateY</span>(<span style=color:#a6e22e>frameCount</span> <span style=color:#f92672>*</span> <span style=color:#ae81ff>0.01</span>); <span style=color:#75715e>//rotación de la tierra sobre su propio eje
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>               <span style=color:#a6e22e>texture</span>(<span style=color:#a6e22e>textura_tierra</span>); 
+</span></span><span style=display:flex><span>               <span style=color:#a6e22e>sphere</span>(<span style=color:#ae81ff>100</span>);
+</span></span><span style=display:flex><span>               <span style=color:#a6e22e>pop</span>()
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>               <span style=color:#a6e22e>push</span>()
+</span></span><span style=display:flex><span>               <span style=color:#a6e22e>rotateY</span>(<span style=color:#f92672>-</span><span style=color:#a6e22e>frameCount</span> <span style=color:#f92672>*</span> <span style=color:#ae81ff>0.05</span> <span style=color:#f92672>/</span> <span style=color:#ae81ff>10</span>);<span style=color:#75715e>//Traslación de la luna alrededor de la tierra
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>               <span style=color:#a6e22e>translate</span>(<span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>170</span>)<span style=color:#75715e>//Distancia del centro de la luna al centro de la tierra
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>               <span style=color:#a6e22e>rotateY</span>(<span style=color:#f92672>-</span><span style=color:#a6e22e>frameCount</span> <span style=color:#f92672>*</span> <span style=color:#ae81ff>0.05</span>);<span style=color:#75715e>//Rotación de la luna sobre su propio eje
+</span></span></span><span style=display:flex><span><span style=color:#75715e></span>               <span style=color:#a6e22e>texture</span>(<span style=color:#a6e22e>textura_luna</span>);
+</span></span><span style=display:flex><span>               <span style=color:#a6e22e>sphere</span>(<span style=color:#ae81ff>25</span>);
+</span></span><span style=display:flex><span>               <span style=color:#a6e22e>pop</span>()
+</span></span><span style=display:flex><span>          }
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>     <span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/script&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/body&gt;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>&lt;</span><span style=color:#960050;background-color:#1e0010>/html&gt;</span>
+</span></span></code></pre></div></div></details><iframe id=breath style=width:700px;height:450px srcdoc='
         <!DOCTYPE html>
         <html>
           <head>
@@ -100,76 +96,69 @@ Main spaces # Sistema Tierra-Luna : # La luna es para él planeta tierra eje fun
             <script>
               
 
-// this class describes the structure
-// and movents of the brick
-class Brick{
-  constructor(bc, y){
-    this.brickColor = bc;
-    this.yPos = y;
-    this.xPos = 0;
-  }
+Code Earth and Moon
+<!DOCTYPE html>
+<html lang="en">
 
-  // this function creates the brick
-  createBrick(){
-    fill(this.brickColor);
-    rect(this.xPos, this.yPos, 100, 50);
-  }
+<head>
+     <title>Tierra y Luna</title>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
+</head>
 
-  // this function sets the speed
-  // of movement of the brick to 1
-  setSpeed(){
-    this.xSpeed = 1;
-  }
+<body>
 
-  // this function set the bricks in motion
-  moveBrick(){
-    this.xPos+=this.xSpeed;
-    if(this.xPos+100 >= width || this.xPos <= 0){
-      this.xSpeed*=-1;
-    }
-  }
-}
+     <script>
 
-function setup() {
-  createCanvas(720, 400);
-  createP(&#34;Keep the mouse clicked&#34;).style('color','#ffffff');
-  createP(&#34;to check whether the bricks&#34;).style('color','#ffffff');
-  createP(&#34;are moving at same speed or not&#34;).style('color','#ffffff');
-}
+          function preload() {
+               textura_tierra = loadImage(&#39;https://i.ibb.co/PD4LyP5/planeta.jpg&#39;);
+               textura_luna = loadImage(&#39;https://i.ibb.co/WPvVybx/luna.jpg&#39;);
+               textura_fondo_estrellas = loadImage("https://i.ibb.co/NNTFKmL/nocheHD.jpg")
+          }
 
-// creating two bricks of
-// colors white and black
-let brick1 = new Brick(&#34;white&#34;,100);
-let brick2 = new Brick(&#34;black&#34;,250);
+          function setup() {
+               createCanvas(800, 450, WEBGL);
+          }
 
-//
-brick1.setSpeed();
-brick2.setSpeed();
+          function draw() {
+               background("black")
+               
+               noStroke() //No dibujar la malla de las esferas
+               
+               texture(textura_fondo_estrellas)
+               sphere(800)
 
-function draw () {
-  background(0);
-  if(mouseIsPressed){
-    background(50);
-  }
-  brick1.createBrick();
-  brick1.moveBrick();
-  if(!mouseIsPressed){
-    createBars();
-  }
-  brick2.createBrick();
-  brick2.moveBrick();
-}
+               for (let i = 0; i < 3; i++) {
+                    directionalLight(
+                         255, 255, 255 - i * 25,//Color
+                         -1, 1, -1 //Dirección
+                    );
+               }
 
-// this function creates the black and
-// white bars across the screen
-function createBars() {
-  let len = 12;
-  for(let i = 0;i< width/len;i++){
-    fill(&#34;white&#34;);
-    if(i%2 == 0)
-    rect(i*len,height,len,-height);
-  }
-}
+               orbitControl() //Controlar con el mouse la cámara
+
+               rotateZ(-0.3) //Inclinación de la tierra
+
+               push()
+               rotateY(frameCount * 0.01); //rotación de la tierra sobre su propio eje
+               texture(textura_tierra); 
+               sphere(100);
+               pop()
+
+               push()
+               rotateY(-frameCount * 0.05 / 10);//Traslación de la luna alrededor de la tierra
+               translate(0, 0, 170)//Distancia del centro de la luna al centro de la tierra
+               rotateY(-frameCount * 0.05);//Rotación de la luna sobre su propio eje
+               texture(textura_luna);
+               sphere(25);
+               pop()
+          }
+
+     </script>
+
+</body>
+
+</html>
+
 
 
             </script>
@@ -177,7 +166,7 @@ function createBars() {
           <body>
           </body>
         </html>
-      "></iframe></p><h2 id=image-kernel>Image Kernel
+      '></iframe></p><h2 id=image-kernel>Image Kernel
 <a class=anchor href=#image-kernel>#</a></h2><p>En el procesamiento de imágenes, un núcleo, una matriz de convolución o una máscara es una matriz pequeña que se utiliza para desenfocar, agudizar, grabar, detectar bordes y más. Esto se logra haciendo una convolución entre el kernel y una imagen.</p><h3 id=convolution->Convolution :
 <a class=anchor href=#convolution->#</a></h3><p>La convolución es el proceso de agregar cada elemento de la imagen a sus vecinos locales, ponderados por el kernel. Esto está relacionado con una forma de convolución matemática. La operación de matriz que se está realizando, la convolución, no es una multiplicación de matriz tradicional, a pesar de que se indica de manera similar con *.</p><p>Por ejemplo, si tenemos dos matrices de tres por tres, la primera es un kernel y la segunda una pieza de imagen, la convolución es el proceso de invertir tanto las filas como las columnas del kernel y multiplicar localmente entradas y sumas similares. El elemento en las coordenadas [2, 2] (es decir, el elemento central) de la imagen resultante sería una combinación ponderada de todas las entradas de la matriz de la imagen, con pesos dados por el kernel:</p><p><a href=https://commons.wikimedia.org/wiki/File:Moon_Earth_Comparison.png><img src=https://commons.wikimedia.org/wiki/File:Moon_Earth_Comparison.png title="source: From Wikimedia Commons, the free media repository"></a></p><h2 id=código-y-su-solución>Código y su Solución:
 <a class=anchor href=#c%c3%b3digo-y-su-soluci%c3%b3n>#</a></h2><details><summary>CODE</summary><div class=markdown-inner><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-js data-lang=js><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#a6e22e>img</span>;
@@ -481,5 +470,5 @@ function setup() {
           <body>
           </body>
         </html>
-      '></iframe></p></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/emmendezp/RGB/commit/6dffc82f417c22b93631952b46c6a1487dae9567 title='Last modified by jjmunozq | October 19, 2022' target=_blank rel=noopener><img src=/RGB/svg/calendar.svg class=book-icon alt=Calendar>
-<span>October 19, 2022</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#taller-2---3d-webgl-application>Taller 2 : 3D Webgl Application</a><ul><li><a href=#planteamiento-del-problema>Planteamiento del problema</a></li><li><a href=#main-spaces>Main spaces</a></li><li><a href=#sistema-tierra-luna->Sistema Tierra-Luna :</a></li><li><a href=#herramientas-a-utilizar>Herramientas a utilizar:</a></li><li><a href=#webgl-web-graphics-library>WEBGL (Web Graphics Library)</a></li><li><a href=#sistema-de-coordenadas-3d>Sistema de coordenadas 3D</a></li></ul></li><li><a href=#código-y-resultado>Código y Resultado:</a><ul><li><a href=#image-kernel>Image Kernel</a><ul><li><a href=#convolution->Convolution :</a></li></ul></li><li><a href=#código-y-su-solución>Código y su Solución:</a></li></ul></li><li><a href=#the-coffee-shop-wall-illusion>The coffee shop wall illusion</a></li><li><a href=#image-histragram>Image Histragram</a><ul><li><a href=#código-y-su-solución-1>Código y su Solución:</a></li></ul></li></ul></nav></div></aside></main></body></html>
+      '></iframe></p></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/emmendezp/RGB/commit/d7177891b516af96b59ec5626a985d338d5fe166 title='Last modified by jjmunozq | October 19, 2022' target=_blank rel=noopener><img src=/RGB/svg/calendar.svg class=book-icon alt=Calendar>
+<span>October 19, 2022</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#taller-2---3d-webgl-application>Taller 2 : 3D Webgl Application</a><ul><li><a href=#planteamiento-del-problema>Planteamiento del problema</a></li><li><a href=#main-spaces>Main spaces</a></li><li><a href=#sistema-tierra-luna->Sistema Tierra-Luna :</a></li><li><a href=#herramientas-a-utilizar>Herramientas a utilizar:</a></li><li><a href=#webgl-web-graphics-library>WEBGL (Web Graphics Library)</a></li><li><a href=#sistema-de-coordenadas-3d>Sistema de coordenadas 3D</a></li><li><a href=#código-y-resultado>Código y Resultado:</a><ul><li><a href=#inicialización-del-scriptbr>Inicialización del script<br></a></li><li><a href=#función-preload>Función Preload</a></li><li><a href=#create-canvas>Create Canvas</a></li><li><a href=#rotate>Rotate</a></li></ul></li><li><a href=#resultado>Resultado</a></li><li><a href=#image-kernel>Image Kernel</a><ul><li><a href=#convolution->Convolution :</a></li></ul></li><li><a href=#código-y-su-solución>Código y su Solución:</a></li></ul></li><li><a href=#the-coffee-shop-wall-illusion>The coffee shop wall illusion</a></li><li><a href=#image-histragram>Image Histragram</a><ul><li><a href=#código-y-su-solución-1>Código y su Solución:</a></li></ul></li></ul></nav></div></aside></main></body></html>
