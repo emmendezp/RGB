@@ -126,7 +126,7 @@ Code Earth and Moon
 ```
 
 {{</details>}}
-{{< p5-global-iframe id="breath" width="750" height="550" >}}
+{{< p5-global-iframe id="breath" width="720" height="450" >}}
 
 Code Earth and Moon
 <!DOCTYPE html>
