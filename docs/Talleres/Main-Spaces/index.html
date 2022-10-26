@@ -1,6 +1,6 @@
 <!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Taller 2 : 3D Webgl Application # Planteamiento del problema # Implementación de una aplicación webgl 3d. a través de la utilización de p5.treegl o otra librería.
 Main spaces # Sistema Tierra-Luna : # La luna es para el planeta tierra eje fundamental de estaciones y mareas, los científicos creen que un objeto del tamaño de Marte colisionó con la Tierra hace 4.500 millones de años. La fuerza de esta colisión fue tan impresionante que desprendió materiales de la Tierra y del objeto con el que colisionó y los envió hacia el espacio."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content><meta property="og:description" content="Taller 2 : 3D Webgl Application # Planteamiento del problema # Implementación de una aplicación webgl 3d. a través de la utilización de p5.treegl o otra librería.
-Main spaces # Sistema Tierra-Luna : # La luna es para el planeta tierra eje fundamental de estaciones y mareas, los científicos creen que un objeto del tamaño de Marte colisionó con la Tierra hace 4.500 millones de años. La fuerza de esta colisión fue tan impresionante que desprendió materiales de la Tierra y del objeto con el que colisionó y los envió hacia el espacio."><meta property="og:type" content="article"><meta property="og:url" content="https://emmendezp.github.io/RGB/docs/Talleres/Main-Spaces/"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2022-10-26T08:02:02-05:00"><title>Main Spaces | Computacion Visual 2022-2 RGB</title><link rel=manifest href=/RGB/manifest.json><link rel=icon href=/RGB/favicon.png type=image/x-icon><link rel=stylesheet href=/RGB/book.min.ab46de3e725a6415339a37bba23a0067534a37289b063c9f8d011515a63097a8.css integrity="sha256-q0bePnJaZBUzmje7ojoAZ1NKNyibBjyfjQEVFaYwl6g=" crossorigin=anonymous><script defer src=/RGB/flexsearch.min.js></script>
+Main spaces # Sistema Tierra-Luna : # La luna es para el planeta tierra eje fundamental de estaciones y mareas, los científicos creen que un objeto del tamaño de Marte colisionó con la Tierra hace 4.500 millones de años. La fuerza de esta colisión fue tan impresionante que desprendió materiales de la Tierra y del objeto con el que colisionó y los envió hacia el espacio."><meta property="og:type" content="article"><meta property="og:url" content="https://emmendezp.github.io/RGB/docs/Talleres/Main-Spaces/"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2022-10-26T08:09:04-05:00"><title>Main Spaces | Computacion Visual 2022-2 RGB</title><link rel=manifest href=/RGB/manifest.json><link rel=icon href=/RGB/favicon.png type=image/x-icon><link rel=stylesheet href=/RGB/book.min.ab46de3e725a6415339a37bba23a0067534a37289b063c9f8d011515a63097a8.css integrity="sha256-q0bePnJaZBUzmje7ojoAZ1NKNyibBjyfjQEVFaYwl6g=" crossorigin=anonymous><script defer src=/RGB/flexsearch.min.js></script>
 <script defer src=/RGB/en.search.min.8b0f9a4d41d8f12b8e54b9b3938cfdc3e76269a4430ee17922c6ba5b49bd88de.js integrity="sha256-iw+aTUHY8SuOVLmzk4z9w+diaaRDDuF5Isa6W0m9iN4=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
 <input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/RGB/><span>Computacion Visual 2022-2 RGB</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li><input type=checkbox id=section-bab8b9365022340ebec5653746d3d735 class=toggle>
 <label for=section-bab8b9365022340ebec5653746d3d735 class="flex justify-between"><a href=/RGB/docs/Ejercicios/>Ejercicios</a></label><ul><li><a href=/RGB/docs/Ejercicios/Ejercicio1/>Ejercicio1</a></li><li><a href=/RGB/docs/Ejercicios/Ejercicio2/>Ejercicio2</a></li><li><a href=/RGB/docs/Ejercicios/Ejercicio3/>Ejercicio3</a></li></ul></li><li><input type=checkbox id=section-9370f1a5d0248572ac505e0c6d4ad190 class=toggle>
@@ -583,20 +583,411 @@ Code Earth and Moon
             
             <script>
               
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raycasting</title>
-    <link rel="stylesheet" href="./style.css">
-</head>
-<body>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
-    <script src="./sketch.js"></script>
-   
-</body>
-</html>
+const TILE_SIZE = 64;
+const MAP_NUM_ROWS = 10;
+const MAP_NUM_COLS = 16;
+const WINDOW_WIDTH = MAP_NUM_COLS * TILE_SIZE;
+const WINDOW_HEIGHT = MAP_NUM_ROWS * TILE_SIZE;
+const MINIMAP_SCALE_FACTOR = 0.2;
+// const VISION_ANGLE = 2*Math.PI ;
+const VISION_ANGLE = Math.PI / 3;
+const RAY_WIDTH = 2; // can be increased for optimization
+const NUM_RAYS = WINDOW_WIDTH / RAY_WIDTH;
+class Map {
+    constructor() {
+        this.grid = [
+            [1, 3, 3, 3, 3, 3, 3, 3, 1, 1, 1, 1, 1, 1, 1, 1],
+            [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+            [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+            [1, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+            [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+            [1, 0, 0, 0, 0, 0, 0, 0, 0, 2, 2, 2, 2, 2, 2, 1],
+            [2, 0, 0, 0, 3, 3, 3, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+            [2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1],
+            [2, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 1],
+            [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1]
+        ];
+        this.width = WINDOW_WIDTH;
+        this.height = WINDOW_HEIGHT;
+    }
+    hasWallAt(x, y) {
+        if (x <= 0 || y <= 0 || x > WINDOW_WIDTH || y > WINDOW_HEIGHT) return true;
+        var i = Math.floor(x / TILE_SIZE)
+        var j = Math.floor(y / TILE_SIZE)
+        return this.grid[j][i];
+    }
+
+    render() {
+        for (var i = 0; i < MAP_NUM_ROWS; i++) {
+            for (var j = 0; j < MAP_NUM_COLS; j++) {
+                var tileX = j * TILE_SIZE;
+                var tileY = i * TILE_SIZE;
+                var tileColor = this.grid[i][j] == 0 ? "#fff" : "#000"; // colores minimapa
+                stroke("#222");
+                fill(tileColor);
+                rect(
+                    MINIMAP_SCALE_FACTOR * tileX,
+                    MINIMAP_SCALE_FACTOR * tileY,
+                    MINIMAP_SCALE_FACTOR * TILE_SIZE,
+                    MINIMAP_SCALE_FACTOR * TILE_SIZE
+                );
+            }
+        }
+    }
+}
+
+class Player {
+    constructor() {
+        this.x = 100;
+        this.y = 570;
+        this.radius = 4;
+        this.turnDirection = 0;      //-1 for left , 1 for right
+        this.walkDirection = 0;      //-1 for back , 1 for front
+        this.strafeDirection = 0;      //-1 for back , 1 for front
+        this.rotationAngle =  -Math.PI / 2;
+        this.moveSpeed = 5.0;
+        this.rotationSpeed = 3 * (Math.PI / 180)
+
+    }
+    update() {
+        this.rotationAngle += this.turnDirection * this.rotationSpeed;
+        // this.rotationAngle = normalizeAngle(this.rotationAngle)
+        var moveStep = this.walkDirection * this.moveSpeed;
+
+        var newPlayerX = this.x + Math.cos(this.rotationAngle) * moveStep;
+        var newPlayerY = this.y + Math.sin(this.rotationAngle) * moveStep;
+
+        if (grid.hasWallAt(newPlayerX, newPlayerY) == 0) {
+            this.x = newPlayerX;
+            this.y = newPlayerY;
+            // console.log(this);
+        }
+        if (this.strafeDirection) {
+
+            var newX = this.x + this.strafeDirection * this.moveSpeed * Math.sin(this.rotationAngle);
+            var newY = this.y + this.strafeDirection * this.moveSpeed * Math.cos(this.rotationAngle);
+            if (grid.hasWallAt(newX, newY) !== 0) {
+                this.x = newX;
+                this.y = newY;
+            }
+        }
+    }
+    render() {
+        noStroke();
+        fill("blue");
+        circle(
+            MINIMAP_SCALE_FACTOR * this.x,
+            MINIMAP_SCALE_FACTOR * this.y,
+            MINIMAP_SCALE_FACTOR * this.radius
+        );
+        stroke("blue");
+        line(
+            MINIMAP_SCALE_FACTOR * this.x,
+            MINIMAP_SCALE_FACTOR * this.y,
+            MINIMAP_SCALE_FACTOR * (this.x + Math.cos(this.rotationAngle) * 30),
+            MINIMAP_SCALE_FACTOR * (this.y + Math.sin(this.rotationAngle) * 30)
+        );
+    }
+}
+
+class Ray {
+    constructor(rayAngle) {
+        this.rayAngle = normalizeAngle(rayAngle);
+        this.wallHitX = 0;
+        this.wallHitY = 0;
+        this.distance = 0;
+        this.wasHitVertical = false;
+        this.wallColor = 0;
+        this.isRayFacingDown = this.rayAngle > 0 && this.rayAngle < Math.PI;
+        this.isRayFacingUp = !this.isRayFacingDown;
+
+        this.isRayFacingRight = this.rayAngle < 0.5 * Math.PI || this.rayAngle > 1.5 * Math.PI;
+        this.isRayFacingLeft = !this.isRayFacingRight;
+    }
+    cast() {
+        var xintercept, yintercept;
+        var xstep, ystep;
+
+        ///////////////////////////////////////////
+        // HORIZONTAL RAY-GRID INTERSECTION CODE
+        ///////////////////////////////////////////
+        var foundHorzWallHit = false;
+        var horzWallHitX = 0;
+        var horzWallHitY = 0;
+        var horWallColor = 0
+
+        // Find the y-coordinate of the closest horizontal grid intersenction
+        yintercept = Math.floor(player.y / TILE_SIZE) * TILE_SIZE;
+        yintercept += this.isRayFacingDown ? TILE_SIZE : 0;
+
+        // Find the x-coordinate of the closest horizontal grid intersection
+        xintercept = player.x + (yintercept - player.y) / Math.tan(this.rayAngle);
+
+        // Calculate the increment xstep and ystep
+        ystep = TILE_SIZE;
+        ystep *= this.isRayFacingUp ? -1 : 1;
+
+        xstep = TILE_SIZE / Math.tan(this.rayAngle);
+        xstep *= (this.isRayFacingLeft && xstep > 0) ? -1 : 1;
+        xstep *= (this.isRayFacingRight && xstep < 0) ? -1 : 1;
+
+        var nextHorzTouchX = xintercept;
+        var nextHorzTouchY = yintercept;
+
+        // Increment xstep and ystep until we find a wall
+        while (nextHorzTouchX >= 0 && nextHorzTouchX <= WINDOW_WIDTH && nextHorzTouchY >= 0 && nextHorzTouchY <= WINDOW_HEIGHT) {
+            if (grid.hasWallAt(nextHorzTouchX, nextHorzTouchY - (this.isRayFacingUp ? 1 : 0)) !== 0) {
+                foundHorzWallHit = true;
+                horzWallHitX = nextHorzTouchX;
+                horzWallHitY = nextHorzTouchY;
+                horWallColor = grid.hasWallAt(nextHorzTouchX, nextHorzTouchY - (this.isRayFacingUp ? 1 : 0))
+                break;
+            } else {
+                nextHorzTouchX += xstep;
+                nextHorzTouchY += ystep;
+            }
+        }
+
+        ///////////////////////////////////////////
+        // VERTICAL RAY-GRID INTERSECTION CODE
+        ///////////////////////////////////////////
+        var foundVertWallHit = false;
+        var vertWallHitX = 0;
+        var vertWallHitY = 0;
+        var verWallColor = 0
+
+        // Find the x-coordinate of the closest vertical grid intersenction
+        xintercept = Math.floor(player.x / TILE_SIZE) * TILE_SIZE;
+        xintercept += this.isRayFacingRight ? TILE_SIZE : 0;
+
+        // Find the y-coordinate of the closest vertical grid intersection
+        yintercept = player.y + (xintercept - player.x) * Math.tan(this.rayAngle);
+
+        // Calculate the increment xstep and ystep
+        xstep = TILE_SIZE;
+        xstep *= this.isRayFacingLeft ? -1 : 1;
+
+        ystep = TILE_SIZE * Math.tan(this.rayAngle);
+        ystep *= (this.isRayFacingUp && ystep > 0) ? -1 : 1;
+        ystep *= (this.isRayFacingDown && ystep < 0) ? -1 : 1;
+
+        var nextVertTouchX = xintercept;
+        var nextVertTouchY = yintercept;
+
+        // Increment xstep and ystep until we find a wall
+        while (nextVertTouchX >= 0 && nextVertTouchX <= WINDOW_WIDTH && nextVertTouchY >= 0 && nextVertTouchY <= WINDOW_HEIGHT) {
+            if (grid.hasWallAt(nextVertTouchX - (this.isRayFacingLeft ? 1 : 0), nextVertTouchY) !== 0) {
+                foundVertWallHit = true;
+                vertWallHitX = nextVertTouchX;
+                vertWallHitY = nextVertTouchY;
+                verWallColor = grid.hasWallAt(nextVertTouchX - (this.isRayFacingLeft ? 1 : 0), nextVertTouchY)
+                break;
+            } else {
+                nextVertTouchX += xstep;
+                nextVertTouchY += ystep;
+            }
+        }
+
+        // Calculate both horizontal and vertical distances and choose the smallest value
+        var horzHitDistance = (foundHorzWallHit)
+            ? calculateDistance(player.x, player.y, horzWallHitX, horzWallHitY)
+            : Number.MAX_VALUE;
+        var vertHitDistance = (foundVertWallHit)
+            ? calculateDistance(player.x, player.y, vertWallHitX, vertWallHitY)
+            : Number.MAX_VALUE;
+
+        // only store the smallest of the distances
+        if (vertHitDistance < horzHitDistance) {
+            this.wallHitX = vertWallHitX;
+            this.wallHitY = vertWallHitY;
+            this.distance = vertHitDistance;
+            this.wallColor = verWallColor
+            this.wasHitVertical = true;
+        } else {
+            this.wallHitX = horzWallHitX;
+            this.wallHitY = horzWallHitY;
+            this.distance = horzHitDistance;
+            this.wallColor = horWallColor
+            this.wasHitVertical = false;
+        }
+    }
+    render() {
+        stroke("rgba(255, 0, 0, 1.0)");//visor
+        line(
+            MINIMAP_SCALE_FACTOR * player.x,
+            MINIMAP_SCALE_FACTOR * player.y,
+            MINIMAP_SCALE_FACTOR * this.wallHitX,
+            MINIMAP_SCALE_FACTOR * this.wallHitY
+        );
+    }
+}
+
+var player = new Player()
+var grid = new Map()
+var rays = []
+
+function normalizeAngle(angle) {
+    angle = angle % (2 * Math.PI);
+    if (angle < 0) {
+        angle = (2 * Math.PI) + angle;
+    }
+    return angle;
+}
+
+function calculateDistance(x1, y1, x2, y2) {
+    return Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
+
+}
+function castAllRays() {
+
+    var rayAngle = player.rotationAngle - (VISION_ANGLE / 2);
+
+    rays = [];
+    for (var i = 0; i < NUM_RAYS; i++) {
+        var ray = new Ray(rayAngle);
+        ray.cast()
+        rays.push(ray);
+        rayAngle += VISION_ANGLE / NUM_RAYS;
+    }
+
+}
+
+function render3DProjectedWalls() {
+    // loop every ray in the array of rays
+    for (var i = 0; i < NUM_RAYS; i++) {
+        var ray = rays[i];
+
+        // get the perpendicular distance to the wall to fix fishbowl distortion
+        var correctWallDistance = ray.distance
+            * Math.cos(ray.rayAngle - player.rotationAngle);
+
+        // calculate the distance to the projection plane
+        var distanceProjectionPlane = (WINDOW_WIDTH / 2) / Math.tan(VISION_ANGLE / 2);
+
+        // projected wall height
+        var rayHeight = (TILE_SIZE / correctWallDistance) * distanceProjectionPlane;
+
+        // compute the transparency based on the wall distance
+        var alpha = 1.0; //170 / correctWallDistance;
+
+        var alpha = 180 / correctWallDistance
+
+        var alpha = ray.wasHitVertical ? 1 : 0.8;
+
+        // render a rectangle with the calculated wall height
+        // fill("rgba(" + color + "," + color/3 + "," + color/.3 + "," + alpha + ")");
+
+        var colorR = ray.wallColor == 1 ? 108 : ray.wallColor == 2 ? 39 : ray.wallColor == 3 ? 60 : 255;
+        var colorG = ray.wallColor == 1 ? 145 : ray.wallColor == 2 ? 145 : ray.wallColor == 3 ? 160 : 255;
+        var colorB = ray.wallColor == 1 ? 70 : ray.wallColor == 2 ? 190 : ray.wallColor == 3 ? 100 : 255;
+        noStroke();
+        fill(&#39;#C2F9E9&#39;)//cielo
+        rect(i * RAY_WIDTH,
+            0,
+            RAY_WIDTH,
+            (WINDOW_HEIGHT / 2) - (rayHeight / 2))
+        fill("rgba(" + colorR + ", " + colorG + ", " + colorB + ", " + alpha + ")"); //paredes
+        rect(
+            i * RAY_WIDTH,
+            (WINDOW_HEIGHT / 2) - (rayHeight / 2),
+            RAY_WIDTH,
+            rayHeight
+        );
+        fill(&#39;#FFE689&#39;)//s
+        rect(i * RAY_WIDTH,
+            (WINDOW_HEIGHT - rayHeight) / 2 + rayHeight,
+            RAY_WIDTH,
+            WINDOW_HEIGHT /2)
+    }
+}
+
+
+function setup(WEBGL) {
+    // initialize all objects
+    createCanvas(WINDOW_WIDTH, WINDOW_HEIGHT);
+}
+
+function update() {
+    // update game objects
+    player.update()
+    castAllRays()
+
+}
+
+function draw() {
+    // render objects
+    clear("#111");
+    update();
+
+    render3DProjectedWalls();
+    // fill(&#39;#eee&#39;)
+
+    grid.render()
+    for (const ray of rays) {
+        ray.render()
+    }
+    player.render()
+}
+
+// actions
+
+function keyPressed() {
+    // console.log(keyCode);
+    switch (keyCode) {
+        case UP_ARROW:
+            player.walkDirection = +1
+            break;
+        case DOWN_ARROW:
+            player.walkDirection = -1
+            break;
+        case RIGHT_ARROW:
+            player.turnDirection = +1
+            break;
+        case LEFT_ARROW:
+            player.turnDirection = -1
+            break;
+        case 33:
+            player.strafeDirection = +1
+            break;
+        case 34:
+            player.strafeDirection = -1
+            break;
+
+        default:
+            break;
+    }
+}
+function keyReleased() {
+    switch (keyCode) {
+        case UP_ARROW:
+            player.walkDirection = 0;
+            break;
+        case DOWN_ARROW:
+            player.walkDirection = 0;
+            break;
+        case RIGHT_ARROW:
+            player.turnDirection = 0;
+            break;
+        case LEFT_ARROW:
+            player.turnDirection = 0;
+            break;
+        case 33:
+            player.strafeDirection = 0;
+            break;
+        case 34:
+            player.strafeDirection = 0;
+            break;
+
+
+        default:
+            break;
+    }
+}
+
+
+// setup()
+
+
 
 
             </script>
@@ -607,5 +998,5 @@ Code Earth and Moon
       '></iframe><h2 id=aplicaciones>Aplicaciones
 <a class=anchor href=#aplicaciones>#</a></h2><p>Esta herramienta desarrollada permite aplicaciones en el ambito escolar y científico dando una imagen más clara de cómo es el comportamiento de nuestro satelite.</p><p>De manera general el modelado 3D tiene funciones que van más allá del diseño de una figura de acción para una película de animación. Con esta técnica también se ha beneficiado el campo de la medicina, representando modelos tridimensionales de la anatomía humana.</p><h2 id=conclusiones-y-trabajo-a-futuro>Conclusiones y trabajo a futuro
 <a class=anchor href=#conclusiones-y-trabajo-a-futuro>#</a></h2><p>WebGL es una tecnología diseñada para trabajar directamente con la GPU y puede resultar demasiado tedioso y difícil de usar directamente sin algunas librerías de utilidad, La carga de escenas gráficas y objetos 3D en los formatos convencionales también es tedioso por lo que se han creado las bibliotecas JavaScript o algunas importadas a WebGL, para aportar esta funcionalidad adicional.</p><h1 id=bibliografía>Bibliografía
-<a class=anchor href=#bibliograf%c3%ada>#</a></h1><ul><li><a href=https://github.com/processing/p5.js/wiki/Getting-started-with-WebGL-in-p5>Getting started with WebGL in p5 · processing/p5.js Wiki. (n.d.). GitHub. Retrieved October 12, 2022, from</a> por Processing Foundation</li><li><a href=https://solarsystem.nasa.gov/news/959/10-cosas-lo-que-aprendemos-sobre-la-tierra-estudiando-la-luna/>Centro de vuelo espacial Goddard de la NASA (Goddard Space Flight Center, & inglés), E. (2019, febrero 25). 10 Cosas: Lo que aprendemos sobre la Tierra estudiando la Luna. NASA Solar System Exploration. </a>, Por Isabelle Yan</li><li><a href=https://editor.p5js.org>P5.Js web editor. (s/f). P5js.org. Recuperado el 10 de octubre de 2022, de</a>, Por P5.js Org</li><li><a href=https://processing.org/tutorials/p3d>P3D. Processing. Recuperado el 12 de octubre de 2022, de </a>, Por Shiffman, D.</li></ul></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/emmendezp/RGB/commit/bff84f7a2eb98dfcea5e34cf05bbd8cd25720cad title='Last modified by jjmunozq | October 26, 2022' target=_blank rel=noopener><img src=/RGB/svg/calendar.svg class=book-icon alt=Calendar>
+<a class=anchor href=#bibliograf%c3%ada>#</a></h1><ul><li><a href=https://github.com/processing/p5.js/wiki/Getting-started-with-WebGL-in-p5>Getting started with WebGL in p5 · processing/p5.js Wiki. (n.d.). GitHub. Retrieved October 12, 2022, from</a> por Processing Foundation</li><li><a href=https://solarsystem.nasa.gov/news/959/10-cosas-lo-que-aprendemos-sobre-la-tierra-estudiando-la-luna/>Centro de vuelo espacial Goddard de la NASA (Goddard Space Flight Center, & inglés), E. (2019, febrero 25). 10 Cosas: Lo que aprendemos sobre la Tierra estudiando la Luna. NASA Solar System Exploration. </a>, Por Isabelle Yan</li><li><a href=https://editor.p5js.org>P5.Js web editor. (s/f). P5js.org. Recuperado el 10 de octubre de 2022, de</a>, Por P5.js Org</li><li><a href=https://processing.org/tutorials/p3d>P3D. Processing. Recuperado el 12 de octubre de 2022, de </a>, Por Shiffman, D.</li></ul></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/emmendezp/RGB/commit/1e67441317bd8b09169028808163042cf934bbb6 title='Last modified by jjmunozq | October 26, 2022' target=_blank rel=noopener><img src=/RGB/svg/calendar.svg class=book-icon alt=Calendar>
 <span>October 26, 2022</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#taller-2---3d-webgl-application>Taller 2 : 3D Webgl Application</a><ul><li><a href=#planteamiento-del-problema>Planteamiento del problema</a></li><li><a href=#main-spaces>Main spaces</a></li><li><a href=#sistema-tierra-luna->Sistema Tierra-Luna :</a></li><li><a href=#herramientas-a-utilizar>Herramientas a utilizar:</a></li><li><a href=#webgl-web-graphics-library>WEBGL (Web Graphics Library)</a></li><li><a href=#sistema-de-coordenadas-3d>Sistema de coordenadas 3D</a></li><li><a href=#código-y-resultado>Código y Resultado:</a><ul><li><a href=#inicialización-del-scriptbr>Inicialización del script<br></a></li><li><a href=#función-preload>Función Preload</a></li><li><a href=#create-canvas>Create Canvas</a></li><li><a href=#rotate>Rotate</a></li></ul></li><li><a href=#resultado>Resultado</a></li><li><a href=#proyecto-laberinto>Proyecto Laberinto</a></li><li><a href=#aplicaciones>Aplicaciones</a></li><li><a href=#conclusiones-y-trabajo-a-futuro>Conclusiones y trabajo a futuro</a></li></ul></li><li><a href=#bibliografía>Bibliografía</a></li></ul></nav></div></aside></main></body></html>
