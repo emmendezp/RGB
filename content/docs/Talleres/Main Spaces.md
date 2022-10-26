@@ -612,8 +612,6 @@ function keyReleased() {
 
 {{</details>}}
 
-
-{{</details>}}
 {{< p5-global-iframe id="breath" width="720" height="450" >}}
 <!DOCTYPE html>
 <html lang="en">
@@ -629,8 +627,6 @@ function keyReleased() {
    
 </body>
 </html>
-
-
 
 {{< /p5-global-iframe >}}
 
