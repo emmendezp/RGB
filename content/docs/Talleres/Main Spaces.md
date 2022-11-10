@@ -207,7 +207,7 @@ const WINDOW_WIDTH = MAP_NUM_COLS * TILE_SIZE;
 const WINDOW_HEIGHT = MAP_NUM_ROWS * TILE_SIZE;
 const MINIMAP_SCALE_FACTOR = 0.2;
 // const VISION_ANGLE = 2*Math.PI ;
-const VISION_ANGLE = Math.PI / 3;
+const VISION_ANGLE = Math.PI / 2;
 const RAY_WIDTH = 2; // can be increased for optimization
 const NUM_RAYS = WINDOW_WIDTH / RAY_WIDTH;
 class Map {
@@ -262,7 +262,7 @@ class Player {
         this.walkDirection = 0;      //-1 for back , 1 for front
         this.strafeDirection = 0;      //-1 for back , 1 for front
         this.rotationAngle =  -Math.PI / 2;
-        this.moveSpeed = 5.0;
+        this.moveSpeed = 2.0;
         this.rotationSpeed = 3 * (Math.PI / 180)
 
     }
@@ -619,7 +619,11 @@ function keyReleased() {
 Esta herramienta desarrollada permite aplicaciones en el ambito escolar y científico dando una imagen más clara de cómo es el comportamiento de nuestro satelite.
 
 De manera general el modelado 3D tiene funciones que van más allá del diseño de una figura de acción para una película de animación. Con esta técnica también se ha beneficiado el campo de la medicina, representando modelos tridimensionales de la anatomía humana.
+## Anotaciones sobre laberinto y tierra 
+Referencia del proyecto
 
+En el proyecto anteriormente mencionado de nuestro laberinto, y referido a publicaciones en github y videos de Youtube, se indica que la mayoría de codigo sé tomo de estas referencias, no obstante esto viene acompañado de una buena referencias en normas APA que sé pueden encontrar en las referencias bibliográficas.
+Como parte importante de nuestra formación académica adaptamos estos códigos a nuestro beneficio dándole un toque más personal y académico.. Sin embargo, sé puede crear un ambiente de falta de explicación la cual trae consigo malentendidos. No obstante en forma de aclaratoria el código anteriormente mencionado tiene comentarios los cuales explican las respectivas adaptaciones que realizamos como grupo.
 ## Conclusiones y trabajo a futuro
 WebGL es una tecnología diseñada para trabajar directamente con la GPU  y puede resultar demasiado tedioso y difícil de usar directamente sin algunas librerías de utilidad, La carga de escenas gráficas y objetos 3D en los formatos convencionales también es tedioso por lo que se han creado las bibliotecas JavaScript o algunas importadas a WebGL, para aportar esta funcionalidad adicional.
 
@@ -630,3 +634,5 @@ WebGL es una tecnología diseñada para trabajar directamente con la GPU  y pued
 * [P5.Js web editor. (s/f). P5js.org. Recuperado el 10 de octubre de 2022, de](https://editor.p5js.org
 ), Por P5.js Org
 * [P3D. Processing. Recuperado el 12 de octubre de 2022, de ](https://processing.org/tutorials/p3d), Por Shiffman, D.
+* [Ham, O. (s/f). Raycasting-basics.](https://github.com/OmarHP/raycasting-basics)
+* [README.Md at main · Jeff-Aporta/tierra. (s/f).](https://github.com/Jeff-Aporta/tierra/blob/main/README.md)
