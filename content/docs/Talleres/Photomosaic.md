@@ -35,6 +35,10 @@ Cada píxel de una imagen tiene un color que puede ser representado por sus valo
 
 <img src="https://www.geeksforgeeks.org/wp-content/ql-cache/quicklatex.com-34611203bc6570718be7cb97960bd09b_l3.svg" alt="Promedio colores">
 
+{{< katex [display] [class="text-center"]  >}}
+(r, g, b)_{avg} = (\frac{r_{_{1}}+r_{_{2}}+...+r_{_{N}}}{N},\frac{g_{_{1}}+g_{_{2}}+...+g_{_{N}}}{N}, \frac{b_{_{1}}+b_{_{2}}+...+b_{_{N}}}{N})
+{{< /katex >}}
+
 ## Eligiendo la mejor imagen para un recuadro
 
 Para el fotomosaico, hay que encontrar una imagen coincidente entre las imágenes del dataset. Para determinar si la imágen coincide con el recuadro seleccionado, utilice los valores RGB medios. La coincidencia más cercana es la imagen con el valor RGB medio más próximo.
