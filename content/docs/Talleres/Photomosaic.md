@@ -210,17 +210,9 @@ function draw() {
 La ilusión de cascada, o el efecto secundario del movimiento, es una ilusión de movimiento. Se experimenta después de ver un estímulo que se mueve en una dirección durante algún tiempo y luego mirar una escena estacionaria. La escena estacionaria parece tener movimiento (en la dirección opuesta al estímulo en movimiento que uno vio previamente). Esto se llama la "ilusión de la cascada", ya que se puede experimentar después de observar el movimiento del agua en una cascada y luego prestar atención a una escena estacionaria, estas ilusiones de este tipo se conocían mucho antes del siglo XIX. De hecho, el filósofo griego Aristóteles (384 – 322 a. C.) informó sobre tales ilusiones más de 2000 años antes de Addams: “cuando las personas dejan de mirar objetos en movimiento, por ejemplo, ríos, y especialmente aquellos que fluyen muy rápidamente, descubren que el los estímulos visuales todavía se presentan, porque las cosas que realmente están en reposo se ven luego en movimiento”.
 
 ## Código y su respectiva Solución:
-{{<details title="CODE" open=false >}}
-
-```js
-
-
-```
-
-{{</details>}}
-
 
 {{< p5-global-iframe id="breath" width="700" height="700" >}}
+
 let picture;
 let w_scaled;
 let h_scaled;
