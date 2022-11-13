@@ -23,7 +23,7 @@ En el tipo más avanzado de mosaico fotográfico, la imagen de destino no se red
 Lorem markdownum insigne. Olympo signis Delphis! Retexi Nereius nova develat
 stringit, frustra Saturnius uteroque inter! Oculis non ritibus Telethusa
 {{< /hint >}}
- >}}
+
 **¿Cómo crear fotomosaicos?**  
 1. Lee las imagenes del dataset, que sustituirán los recuadros de la imagen original.
 2. Leer la imagen original y dividirla en recuadros M x N formando el mosaico.
