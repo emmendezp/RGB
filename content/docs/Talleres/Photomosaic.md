@@ -104,7 +104,7 @@ function loadDataset(availableColors){
         const g = parseInt(c.substring(4,7),10);
         const b = parseInt(c.substring(8,11),10);
         dataset.push([r,g,b]);
-        loadImage(`RGB/docs/Talleres/dataset/${c}`, il => { 
+        loadImage(`/RGB/docs/Talleres/dataset/${c}`, il => { 
             il.resize(scaleFactor,scaleFactor);
             loadedImages.push(il);
         })
