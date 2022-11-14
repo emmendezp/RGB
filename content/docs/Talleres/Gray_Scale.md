@@ -49,7 +49,7 @@ Convertir imagen a gris usando  Average
 
 {{</details>}}
 
-{{< p5-global-iframe id="breath" width="800" height="400" >}}
+{{< p5-global-iframe id="breath" width="750" height="400" >}}
     let img;
 
     function preload() {
@@ -120,7 +120,7 @@ Una alternativa perceptualmente más relevante es usar luma , Y′ , como una di
 ```
 
 {{</details>}}
-{{< p5-global-iframe id="breath" width="800" height="400" >}}
+{{< p5-global-iframe id="breath" width="750" height="400" >}}
 
     let img;
 
