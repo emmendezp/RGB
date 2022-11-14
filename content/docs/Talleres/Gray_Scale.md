@@ -1,5 +1,8 @@
 #Implemente otras herramientas de brillo de color , como el valor V de HSV , la luminosidad L de HSL o el promedio de componentes .
+#Conversión a escala de grises
+El primer método, y más intuitivo, es convertir la imagen a escala de grises sacando el promedio aritmético de los valores RGB.
 
+<img src="https://i.imgur.com/GIPrBj9.png" alt="formula" style="width: 50%;"/>
 ## Convertir imagen a gris usando  Average 
 
 {{< p5-global-iframe id="breath" width="650" height="650" >}}
