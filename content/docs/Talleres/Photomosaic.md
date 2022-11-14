@@ -57,9 +57,9 @@ const scaleFactor = 6;
 const datasetSize =70;
 
 function preload() {
-    const location = '/RGB/content/sketches/pesebre.png'
+    const location = '/RGB/sketches/pesebre.png'
     picture = loadImage(location);
-    loadStrings('/RGB/content/sketches/dataset.txt',loadDataset)
+    loadStrings('/RGB/sketches/dataset.txt',loadDataset)
     noLoop()
 }
 
@@ -104,7 +104,7 @@ function loadDataset(availableColors){
         const g = parseInt(c.substring(4,7),10);
         const b = parseInt(c.substring(8,11),10);
         dataset.push([r,g,b]);
-        loadImage(`/dataset/${c}`, il => { 
+        loadImage(`RGB/docs/Talleres/dataset/${c}`, il => { 
             il.resize(scaleFactor,scaleFactor);
             loadedImages.push(il);
         })
