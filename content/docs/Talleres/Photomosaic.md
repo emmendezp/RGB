@@ -46,8 +46,7 @@ Para el fotomosaico, hay que encontrar una imagen coincidente entre las imágene
 # Código
 
 
-{{< p5-global-iframe id="breath" width="500" height="500" >}}
-
+{{< p5-global-iframe id="breath" width="600" height="600" >}}
 let picture;
 let w_scaled;
 let h_scaled;
@@ -55,18 +54,17 @@ let availableColors;
 let dataset= [];
 let loadedImages = [];
 const scaleFactor = 6;
-const datasetSize =105;
+const datasetSize =70;
 
 function preload() {
-    const location = 'perrito.jpg'
+    const location = '../content/docs/Talleres/pesebre.png'
     picture = loadImage(location);
-    loadStrings('data/dataset.txt',loadDataset)
+    loadStrings('../content/docs/Talleres/dataset.txt',loadDataset)
     noLoop()
 }
 
 function setup() {
-    createCanvas(650, 850);
-    image(picture,0,0);
+    createCanvas(600, 600);
     noLoop();
 }
 
@@ -80,7 +78,7 @@ function draw() {
             const [r, g, b] = picture.get(x, y);
             const index = closestColor(r,g,b);
             const pixelImage = loadedImages[index];
-            image(pixelImage,x*scaleFactor,430 + y*scaleFactor);
+            image(pixelImage,x*scaleFactor, y*scaleFactor);
         }
     }
 }
@@ -106,13 +104,20 @@ function loadDataset(availableColors){
         const g = parseInt(c.substring(4,7),10);
         const b = parseInt(c.substring(8,11),10);
         dataset.push([r,g,b]);
-        loadImage(`data/${c}`, il => { 
+        loadImage(`../content/docs/Talleres/dataset/${c}`, il => { 
             il.resize(scaleFactor,scaleFactor);
             loadedImages.push(il);
         })
     })
     noLoop();
 }
+
+function keyPressed() {
+    if (key === "d") {
+        image(picture,0,0);
+    }
+  }
+
 
 {{< /p5-global-iframe >}}
 
