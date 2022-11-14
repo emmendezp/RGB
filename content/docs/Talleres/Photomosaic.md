@@ -45,8 +45,10 @@ Para el fotomosaico, hay que encontrar una imagen coincidente entre las imágene
 
 # Código
 
+## Imagen original
+<img src="/RGB/sketches/pesebre.png" alt="Pesebre" style="width: 50%;"/>
 
-{{< p5-global-iframe id="breath" width="600" height="600" >}}
+{{< p5-global-iframe id="breath" width="650" height="650" >}}
 let picture;
 let w_scaled;
 let h_scaled;
