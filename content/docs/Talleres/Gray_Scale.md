@@ -8,6 +8,8 @@ El primer método, y más intuitivo, es convertir la imagen a escala de grises s
 El segundo método es calculando la variable luma. Para eso se utiliza la siguiente ecuación:
 
 <a href="https://imgur.com/1cXvnyg"><img src="https://i.imgur.com/1cXvnyg.png" title="source: imgur.com" /></a>
+
+
 Convertir imagen a gris usando  Average 
 
 {{<details title="CODE" open=false >}}
@@ -47,7 +49,7 @@ Convertir imagen a gris usando  Average
 
 {{</details>}}
 
-{{< p5-global-iframe id="breath" width="650" height="650" >}}
+{{< p5-global-iframe id="breath" width="800" height="400" >}}
     let img;
 
     function preload() {
@@ -118,7 +120,7 @@ Una alternativa perceptualmente más relevante es usar luma , Y′ , como una di
 ```
 
 {{</details>}}
-{{< p5-global-iframe id="breath" width="650" height="650" >}}
+{{< p5-global-iframe id="breath" width="800" height="400" >}}
 
     let img;
 
