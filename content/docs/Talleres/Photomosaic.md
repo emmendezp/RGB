@@ -57,9 +57,9 @@ const scaleFactor = 6;
 const datasetSize =70;
 
 function preload() {
-    const location = 'https://raw.githubusercontent.com/emmendezp/RGB/main/content/docs/Talleres/pesebre.png'
+    const location = '/RGB/content/docs/Talleres/pesebre.png'
     picture = loadImage(location);
-    loadStrings('https://github.com/emmendezp/RGB/blob/6681ac28cc1eaa7c042ac506e968c04cb0ed4fc9/content/docs/Talleres/dataset.txt',loadDataset)
+    loadStrings('/RGB/content/docs/Talleres/dataset.txt',loadDataset)
     noLoop()
 }
 
