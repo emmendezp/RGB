@@ -53,7 +53,7 @@ Para el fotomosaico, hay que encontrar una imagen coincidente entre las imágene
 
 Los colores de cada imagen se guardan en un archivo TXT, estos serán precargados para puedan ser analizados y obtener su repesentación de color RGB.
 <br>
-<img src="[/RGB/sketches/dataset.png](https://github.com/emmendezp/RGB/blob/ea2c572648c8f8120b18b9c0aabbd6007a344753/content/docs/Talleres/dataset.png)" alt="dataset">
+<img src="https://github.com/emmendezp/RGB/blob/ea2c572648c8f8120b18b9c0aabbd6007a344753/content/docs/Talleres/dataset.png" alt="dataset">
 
 {{< details title="Implementation of the Floyd-Steinberg Dithering algorithm" open=false >}}
 {{< highlight javascript >}}
