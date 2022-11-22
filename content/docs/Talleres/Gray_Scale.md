@@ -163,12 +163,7 @@ Una alternativa perceptualmente más relevante es usar luma , Y′ , como una di
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    
-    <script src="p5.js"></script>
-    <script src=https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.min.js></script>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <meta charset="utf-8" />
-
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
   </head>
   <body>
 
