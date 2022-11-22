@@ -174,7 +174,25 @@ function keyPressed() {
 {{< /p5-global-iframe >}}
 
 
+# Fotomosaico por hardware
+{{< p5-global-iframe id="breath" width="600" height="600" >}}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.js"></script>
+    <script src=https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.min.js></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/addons/p5.sound.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8" />
 
+  </head>
+  <body>
+    <main>
+    </main>
+    <script src="/RGB/docs/Talleres/mosaic.js"></script>
+  </body>
+</html>
+{{< /p5-global-iframe >}}
 
 # Bibliografía:
 * Artensoft. Archives of sample photos for photomosaic -Archive with christmas images. Recuperado el 12 de noviembre de 2022, de https://www.artensoft.com/ArtensoftPhotoMosaicWizard/photobases.php 
