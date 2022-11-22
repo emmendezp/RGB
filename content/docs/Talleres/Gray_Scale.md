@@ -159,38 +159,20 @@ Una alternativa perceptualmente más relevante es usar luma , Y′ , como una di
 * Conversión a escala de grises. (s/f). Github.Io. Recuperado el 14 de noviembre de 2022, de https://nigogumolvilada.github.io/grayscale
 * Wikipedia contributors. (2022, octubre 13). HSL and HSV. Wikipedia, The Free Encyclopedia. https://en.wikipedia.org/w/index.php?title=HSL_and_HSV&oldid=1115874918
 
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.js"></script>
+    <script src="p5.js"></script>
+    <script src=https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.min.js></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/addons/p5.sound.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8" />
 
-
-{{</details>}}
-{{< p5-global-iframe id="breath" width="750" height="400" >}}
-      let lumaShader;
-    let img;
-    let grey_scale;
-
-    function preload() {
-      lumaShader = readShader('/content/docs/Talleres/luma.frag',
-                            { varyings: Tree.texcoords2 });
-      // image source: https://t.ly/Dz8W
-      img = loadImage('https://i.imgur.com/SE4gXmS.jpg');
-    }
-
-    function setup() {
-      createCanvas(700, 500, WEBGL);
-      noStroke();
-      textureMode(NORMAL);
-      shader(lumaShader);
-      grey_scale = createCheckbox('luma', false);
-      grey_scale.position(10, 10);
-      grey_scale.style('color', 'white');
-      grey_scale.input(() => lumaShader.setUniform('grey_scale',
-                                                    grey_scale.checked()));
-      lumaShader.setUniform('texture', img);
-    }
-
-    function draw() {
-      background(0);
-      quad(-width / 2, -height / 2, width / 2, -height / 2,
-            width / 2, height / 2, -width / 2, height / 2);
-    }
-
-{{< /p5-global-iframe >}}
+  </head>
+  <body>
+    <main>
+    </main>
+    <script src="sketch.js"></script>
+  </body>
+</html>
