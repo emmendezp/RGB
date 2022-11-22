@@ -181,7 +181,7 @@ Una alternativa perceptualmente más relevante es usar luma , Y′ , como una di
         let grey_scale;
 
         function preload() {
-        lumaShader = readShader('../Talleres/luma.frag',
+        lumaShader = readShader('`/RGB/docs/Talleres/luma.frag',
                                 { varyings: Tree.texcoords2 });
         // image source: https://t.ly/Dz8W
         img = loadImage('https://i.imgur.com/SE4gXmS.jpg');
