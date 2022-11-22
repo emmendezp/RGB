@@ -125,7 +125,7 @@ Una alternativa perceptualmente más relevante es usar luma , Y′ , como una di
     let img;
 
     function preload() {
-        img = loadImage(https://i.imgur.com/SE4gXmS.jpg');
+        img = loadImage('https://i.imgur.com/SE4gXmS.jpg');
     }
 
     function setup() {
