@@ -10,7 +10,7 @@ El segundo método es calculando la variable luma. Para eso se utiliza la siguie
 <a href="https://imgur.com/1cXvnyg"><img src="https://i.imgur.com/1cXvnyg.png" title="source: imgur.com" /></a>
 
 
-Convertir imagen a gris usando  Average 
+Convertir imagen a gris usando  Average SOFTWARE
 
 {{<details title="CODE" open=false >}}
 
@@ -78,6 +78,60 @@ Convertir imagen a gris usando  Average
     image(img, 0,0, 720,560);
 
     }
+
+
+{{< /p5-global-iframe >}}
+
+Convertir usando HARDWARE
+{{< p5-global-iframe id="breath" width="720" height="450" >}}
+
+Code Earth and Moon
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.js"></script>
+    <script src="p5.sound.js"></script>
+    <script src=https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.min.js></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/addons/p5.sound.min.js"></script>
+</head>
+
+<body>
+    <main>
+    </main>
+    <script>
+        let lumaShader;
+        let img;
+        let grey_scale;
+
+        function preload() {
+        lumaShader = readShader('/RGB/docs/Talleres/avg.frag',
+                                { varyings: Tree.texcoords2 });
+        // image source: https://t.ly/Dz8W
+        img = loadImage('https://i.imgur.com/SE4gXmS.jpg');
+        }
+
+        function setup() {
+        createCanvas(700, 500, WEBGL);
+        noStroke();
+        textureMode(NORMAL);
+        shader(lumaShader);
+        grey_scale = createCheckbox('luma', false);
+        grey_scale.position(10, 10);
+        grey_scale.style('color', 'white');
+        grey_scale.input(() => lumaShader.setUniform('grey_scale',
+                                                        grey_scale.checked()));
+        lumaShader.setUniform('texture', img);
+        }
+
+        function draw() {
+        background(0);
+        quad(-width / 2, -height / 2, width / 2, -height / 2,
+                width / 2, height / 2, -width / 2, height / 2);
+        }
+    </script>
+</body>
+</html>
 
 
 {{< /p5-global-iframe >}}
@@ -159,55 +213,3 @@ Una alternativa perceptualmente más relevante es usar luma , Y′ , como una di
 * Conversión a escala de grises. (s/f). Github.Io. Recuperado el 14 de noviembre de 2022, de https://nigogumolvilada.github.io/grayscale
 * Wikipedia contributors. (2022, octubre 13). HSL and HSV. Wikipedia, The Free Encyclopedia. https://en.wikipedia.org/w/index.php?title=HSL_and_HSV&oldid=1115874918
 
-{{< p5-global-iframe id="breath" width="720" height="450" >}}
-
-Code Earth and Moon
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.js"></script>
-    <script src="p5.sound.js"></script>
-    <script src=https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.min.js></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/addons/p5.sound.min.js"></script>
-</head>
-
-<body>
-    <main>
-    </main>
-    <script>
-        let lumaShader;
-        let img;
-        let grey_scale;
-
-        function preload() {
-        lumaShader = readShader('/RGB/docs/Talleres/luma.frag',
-                                { varyings: Tree.texcoords2 });
-        // image source: https://t.ly/Dz8W
-        img = loadImage('https://i.imgur.com/SE4gXmS.jpg');
-        }
-
-        function setup() {
-        createCanvas(700, 500, WEBGL);
-        noStroke();
-        textureMode(NORMAL);
-        shader(lumaShader);
-        grey_scale = createCheckbox('luma', false);
-        grey_scale.position(10, 10);
-        grey_scale.style('color', 'white');
-        grey_scale.input(() => lumaShader.setUniform('grey_scale',
-                                                        grey_scale.checked()));
-        lumaShader.setUniform('texture', img);
-        }
-
-        function draw() {
-        background(0);
-        quad(-width / 2, -height / 2, width / 2, -height / 2,
-                width / 2, height / 2, -width / 2, height / 2);
-        }
-    </script>
-</body>
-</html>
-
-
-{{< /p5-global-iframe >}}
