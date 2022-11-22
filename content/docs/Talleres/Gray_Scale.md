@@ -159,13 +159,15 @@ Una alternativa perceptualmente más relevante es usar luma , Y′ , como una di
 * Conversión a escala de grises. (s/f). Github.Io. Recuperado el 14 de noviembre de 2022, de https://nigogumolvilada.github.io/grayscale
 * Wikipedia contributors. (2022, octubre 13). HSL and HSV. Wikipedia, The Free Encyclopedia. https://en.wikipedia.org/w/index.php?title=HSL_and_HSV&oldid=1115874918
 
+
 {{< p5-global-iframe id="breath" width="720" height="450" >}}
+
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+<head>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
-  </head>
-  <body>
+</head>
+<body>
 
     <script>
 
@@ -200,7 +202,7 @@ Una alternativa perceptualmente más relevante es usar luma , Y′ , como una di
         }
 
     </script>
-  </body>
+</body>
 </html>
 
 
