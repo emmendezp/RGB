@@ -158,8 +158,8 @@ Una alternativa perceptualmente más relevante es usar luma , Y′ , como una di
 * (S/f). Codepen.io. Recuperado el 14 de noviembre de 2022, de https://codepen.io/duketeam/pen/rMxNdB
 * Conversión a escala de grises. (s/f). Github.Io. Recuperado el 14 de noviembre de 2022, de https://nigogumolvilada.github.io/grayscale
 * Wikipedia contributors. (2022, octubre 13). HSL and HSV. Wikipedia, The Free Encyclopedia. https://en.wikipedia.org/w/index.php?title=HSL_and_HSV&oldid=1115874918
-{{<details title="CODE" open=false >}}
-```js
+
+{{< p5-global-iframe id="breath" width="720" height="450" >}}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -180,4 +180,4 @@ Una alternativa perceptualmente más relevante es usar luma , Y′ , como una di
 
 ```
 
-{{</details>}}
+{{< /p5-global-iframe >}}
