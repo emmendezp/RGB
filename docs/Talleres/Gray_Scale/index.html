@@ -1,6 +1,6 @@
 <!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Implemente otras herramientas de brillo de color , como el valor V de HSV , la luminosidad L de HSL o el promedio de componentes . # Conversión a escala de grises # El primer método, y más intuitivo, es convertir la imagen a escala de grises sacando el promedio aritmético de los valores RGB.
 El segundo método es calculando la variable luma. Para eso se utiliza la siguiente ecuación:"><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content><meta property="og:description" content="Implemente otras herramientas de brillo de color , como el valor V de HSV , la luminosidad L de HSL o el promedio de componentes . # Conversión a escala de grises # El primer método, y más intuitivo, es convertir la imagen a escala de grises sacando el promedio aritmético de los valores RGB.
-El segundo método es calculando la variable luma. Para eso se utiliza la siguiente ecuación:"><meta property="og:type" content="article"><meta property="og:url" content="https://emmendezp.github.io/RGB/docs/Talleres/Gray_Scale/"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2022-11-21T22:39:43-05:00"><title>Gray Scale | Computacion Visual 2022-2 RGB</title><link rel=manifest href=/RGB/manifest.json><link rel=icon href=/RGB/favicon.png type=image/x-icon><link rel=stylesheet href=/RGB/book.min.ab46de3e725a6415339a37bba23a0067534a37289b063c9f8d011515a63097a8.css integrity="sha256-q0bePnJaZBUzmje7ojoAZ1NKNyibBjyfjQEVFaYwl6g=" crossorigin=anonymous><script defer src=/RGB/flexsearch.min.js></script>
+El segundo método es calculando la variable luma. Para eso se utiliza la siguiente ecuación:"><meta property="og:type" content="article"><meta property="og:url" content="https://emmendezp.github.io/RGB/docs/Talleres/Gray_Scale/"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2022-11-21T22:44:58-05:00"><title>Gray Scale | Computacion Visual 2022-2 RGB</title><link rel=manifest href=/RGB/manifest.json><link rel=icon href=/RGB/favicon.png type=image/x-icon><link rel=stylesheet href=/RGB/book.min.ab46de3e725a6415339a37bba23a0067534a37289b063c9f8d011515a63097a8.css integrity="sha256-q0bePnJaZBUzmje7ojoAZ1NKNyibBjyfjQEVFaYwl6g=" crossorigin=anonymous><script defer src=/RGB/flexsearch.min.js></script>
 <script defer src=/RGB/en.search.min.6846c062eb7dcd25268ae0956848a0f05fb73572adfc23b3a0aaa1a9278e7c77.js integrity="sha256-aEbAYut9zSUmiuCVaEig8F+3NXKt/COzoKqhqSeOfHc=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
 <input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/RGB/><span>Computacion Visual 2022-2 RGB</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li><input type=checkbox id=section-bab8b9365022340ebec5653746d3d735 class=toggle>
 <label for=section-bab8b9365022340ebec5653746d3d735 class="flex justify-between"><a href=/RGB/docs/Ejercicios/>Ejercicios</a></label><ul><li><a href=/RGB/docs/Ejercicios/Ejercicio1/>Ejercicio1</a></li><li><a href=/RGB/docs/Ejercicios/Ejercicio2/>Ejercicio2</a></li><li><a href=/RGB/docs/Ejercicios/Ejercicio3/>Ejercicio3</a></li></ul></li><li><input type=checkbox id=section-9370f1a5d0248572ac505e0c6d4ad190 class=toggle>
@@ -182,14 +182,17 @@ Code Earth and Moon
 <html lang="en">
 
 <head>
-     <title>Tierra y Luna</title>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.js"></script>
+    <script src="p5.sound.js"></script>
+    <script src=https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.min.js></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/addons/p5.sound.min.js"></script>
 </head>
 
 <body>
-<script src="/RGB/docs/Talleres/prueba.js"></script>
+    <main>
+    </main>
+    <script src="/RGB/docs/Talleres/prueba.js"></script>
 </body>
-
 </html>
 
 
@@ -199,5 +202,5 @@ Code Earth and Moon
           <body>
           </body>
         </html>
-      '></iframe></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/emmendezp/RGB/commit/26b04fc3c1163e49ac932ac2022907f748a6ad67 title='Last modified by emmendezp | November 22, 2022' target=_blank rel=noopener><img src=/RGB/svg/calendar.svg class=book-icon alt=Calendar>
+      '></iframe></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/emmendezp/RGB/commit/9c75a9f577a1ec5a384c322ae24f35e306b4c37b title='Last modified by emmendezp | November 22, 2022' target=_blank rel=noopener><img src=/RGB/svg/calendar.svg class=book-icon alt=Calendar>
 <span>November 22, 2022</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#implemente-otras-herramientas-de-brillo-de-color--como-el-valor-v-de-hsv--la-luminosidad-l-de-hsl-o-el-promedio-de-componentes->Implemente otras herramientas de brillo de color , como el valor V de HSV , la luminosidad L de HSL o el promedio de componentes .</a></li><li><a href=#conversión-a-escala-de-grises>Conversión a escala de grises</a><ul><li><a href=#convertir-imagen-a-gris-usando--luminance>Convertir imagen a gris usando Luminance</a></li></ul></li><li><a href=#conclusiones>conclusiones</a></li><li><a href=#bibliografia>Bibliografia</a></li></ul></nav></div></aside></main></body></html>
