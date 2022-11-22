@@ -174,49 +174,35 @@ Code Earth and Moon
 
      <script>
 
-          function preload() {
-               textura_tierra = loadImage('https://i.ibb.co/PD4LyP5/planeta.jpg');
-               textura_luna = loadImage('https://i.ibb.co/WPvVybx/luna.jpg');
-               textura_fondo_estrellas = loadImage("https://i.ibb.co/NNTFKmL/nocheHD.jpg")
-          }
+        let lumaShader;
+        let img;
+        let grey_scale;
 
-          function setup() {
-               createCanvas(800, 450, WEBGL);
-          }
+        function preload() {
+        lumaShader = readShader('../Talleres/luma.frag',
+                                { varyings: Tree.texcoords2 });
+        // image source: https://t.ly/Dz8W
+        img = loadImage('https://i.imgur.com/SE4gXmS.jpg');
+        }
 
-          function draw() {
-               background("black")
-               
-               noStroke() //No dibujar la malla de las esferas
-               
-               texture(textura_fondo_estrellas)
-               sphere(800)
+        function setup() {
+        createCanvas(700, 500, WEBGL);
+        noStroke();
+        textureMode(NORMAL);
+        shader(lumaShader);
+        grey_scale = createCheckbox('luma', false);
+        grey_scale.position(10, 10);
+        grey_scale.style('color', 'white');
+        grey_scale.input(() => lumaShader.setUniform('grey_scale',
+                                                        grey_scale.checked()));
+        lumaShader.setUniform('texture', img);
+        }
 
-               for (let i = 0; i < 3; i++) {
-                    directionalLight(
-                         255, 255, 255 - i * 25,//Color
-                         -1, 1, -1 //Dirección
-                    );
-               }
-
-               orbitControl() //Controlar con el mouse la cámara
-
-               rotateZ(-0.3) //Inclinación de la tierra
-
-               push()
-               rotateY(frameCount * 0.01); //rotación de la tierra sobre su propio eje
-               texture(textura_tierra); 
-               sphere(100);
-               pop()
-
-               push()
-               rotateY(-frameCount * 0.05 / 10);//Traslación de la luna alrededor de la tierra
-               translate(0, 0, 170)//Distancia del centro de la luna al centro de la tierra
-               rotateY(-frameCount * 0.05);//Rotación de la luna sobre su propio eje
-               texture(textura_luna);
-               sphere(25);
-               pop()
-          }
+        function draw() {
+        background(0);
+        quad(-width / 2, -height / 2, width / 2, -height / 2,
+                width / 2, height / 2, -width / 2, height / 2);
+        }
 
      </script>
 
