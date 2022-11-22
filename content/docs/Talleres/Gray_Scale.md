@@ -173,6 +173,6 @@ Una alternativa perceptualmente más relevante es usar luma , Y′ , como una di
   <body>
     <main>
     </main>
-    <script src="sketch.js"></script>
+    <script src="../Talleres/prueba.js"></script>
   </body>
 </html>
