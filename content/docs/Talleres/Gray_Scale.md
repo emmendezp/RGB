@@ -19,7 +19,7 @@ Convertir imagen a gris usando  Average
 
     function preload() {
 
-        img = loadImage('https://i.ibb.co/PD4LyP5/planeta.jpg');
+        img = loadImage('https://i.imgur.com/SE4gXmS.jpg');
     }
 
     function setup() {
@@ -54,7 +54,7 @@ Convertir imagen a gris usando  Average
 
     function preload() {
 
-        img = loadImage('https://i.ibb.co/PD4LyP5/planeta.jpg');
+        img = loadImage('https://i.imgur.com/SE4gXmS.jpg');
     }
 
     function setup() {
@@ -92,7 +92,7 @@ Una alternativa perceptualmente más relevante es usar luma , Y′ , como una di
     let img;
 
     function preload() {
-        img = loadImage('https://i.ibb.co/PD4LyP5/planeta.jpg');
+        img = loadImage('https://i.imgur.com/SE4gXmS.jpg');
     }
 
     function setup() {
@@ -125,7 +125,7 @@ Una alternativa perceptualmente más relevante es usar luma , Y′ , como una di
     let img;
 
     function preload() {
-        img = loadImage('https://i.ibb.co/PD4LyP5/planeta.jpg');
+        img = loadImage(https://i.imgur.com/SE4gXmS.jpg');
     }
 
     function setup() {
