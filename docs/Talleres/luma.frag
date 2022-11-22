@@ -9,7 +9,7 @@ varying vec2 texcoords2;
 
 // returns avg of given texel
 float avg(vec3 texel) {
-    return (0.2126*texel.r  +  0.7152*texel.g + 0.0722*texel.b)/3.0 ;
+    return 0.2126*texel.r  +  0.7152*texel.g + 0.0722*texel.b ;
 }
 
 void main() {
