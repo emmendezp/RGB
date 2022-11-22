@@ -166,14 +166,17 @@ Code Earth and Moon
 <html lang="en">
 
 <head>
-     <title>Tierra y Luna</title>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.js"></script>
+    <script src="p5.sound.js"></script>
+    <script src=https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.min.js></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/addons/p5.sound.min.js"></script>
 </head>
 
 <body>
-<script src="/RGB/docs/Talleres/prueba.js"></script>
+    <main>
+    </main>
+    <script src="/RGB/docs/Talleres/prueba.js"></script>
 </body>
-
 </html>
 
 
