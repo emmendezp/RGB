@@ -163,7 +163,7 @@ Una alternativa perceptualmente más relevante es usar luma , Y′ , como una di
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.js"></script>
+    
     <script src="p5.js"></script>
     <script src=https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.min.js></script>
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -171,7 +171,7 @@ Una alternativa perceptualmente más relevante es usar luma , Y′ , como una di
 
   </head>
   <body>
-  
+
     <script>
 
         let lumaShader;
@@ -182,7 +182,7 @@ Una alternativa perceptualmente más relevante es usar luma , Y′ , como una di
         lumaShader = readShader('`/RGB/docs/Talleres/luma.frag',
                                 { varyings: Tree.texcoords2 });
         // image source: https://t.ly/Dz8W
-        img = loadImage('https://i.imgur.com/SE4gXmS.jpg');
+        img = loadImage('RGB/docs/Talleres/fuego.jpg');
         }
 
         function setup() {
