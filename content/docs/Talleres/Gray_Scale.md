@@ -182,7 +182,7 @@ Una alternativa perceptualmente más relevante es usar luma , Y′ , como una di
         lumaShader = readShader('`/RGB/docs/Talleres/luma.frag',
                                 { varyings: Tree.texcoords2 });
         // image source: https://t.ly/Dz8W
-        img = loadImage('RGB/docs/Talleres/fuego.jpg');
+        img = loadImage('https://i.imgur.com/SE4gXmS.jpg');
         }
 
         function setup() {
