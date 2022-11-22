@@ -10,7 +10,7 @@ El segundo método es calculando la variable luma. Para eso se utiliza la siguie
 <a href="https://imgur.com/1cXvnyg"><img src="https://i.imgur.com/1cXvnyg.png" title="source: imgur.com" /></a>
 
 
-Convertir imagen a gris usando  Average SOFTWARE
+## Convertir imagen a gris usando  Average SOFTWARE
 
 {{<details title="CODE" open=false >}}
 
@@ -82,10 +82,10 @@ Convertir imagen a gris usando  Average SOFTWARE
 
 {{< /p5-global-iframe >}}
 
-Convertir usando HARDWARE
+## Convertir usando HARDWARE
 {{< p5-global-iframe id="breath" width="720" height="450" >}}
 
-Code Earth and Moon
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -137,7 +137,7 @@ Code Earth and Moon
 {{< /p5-global-iframe >}}
 
 
-## Convertir imagen a gris usando  Luminance 
+## Convertir imagen a gris usando  Luminance SOFTWARE
 Una alternativa perceptualmente más relevante es usar luma , Y′ , como una dimensión de luminosidad. Luma es el promedio ponderado de R , G y B con corrección de gamma , en función de su contribución a la luminosidad percibida, utilizada durante mucho tiempo como la dimensión monocromática en la transmisión de televisión en color
 
 {{<details title="CODE" open=false >}}
@@ -202,6 +202,59 @@ Una alternativa perceptualmente más relevante es usar luma , Y′ , como una di
     img.updatePixels();
     image(img, 0,0, 720,560);
     }
+
+{{< /p5-global-iframe >}}
+## Convertir usando HARDWARE
+{{< p5-global-iframe id="breath" width="720" height="450" >}}
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.js"></script>
+    <script src="p5.sound.js"></script>
+    <script src=https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.min.js></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/addons/p5.sound.min.js"></script>
+</head>
+
+<body>
+    <main>
+    </main>
+    <script>
+        let lumaShader;
+        let img;
+        let grey_scale;
+
+        function preload() {
+        lumaShader = readShader('/RGB/docs/Talleres/luma.frag',
+                                { varyings: Tree.texcoords2 });
+        // image source: https://t.ly/Dz8W
+        img = loadImage('https://i.imgur.com/SE4gXmS.jpg');
+        }
+
+        function setup() {
+        createCanvas(700, 500, WEBGL);
+        noStroke();
+        textureMode(NORMAL);
+        shader(lumaShader);
+        grey_scale = createCheckbox('luma', false);
+        grey_scale.position(10, 10);
+        grey_scale.style('color', 'white');
+        grey_scale.input(() => lumaShader.setUniform('grey_scale',
+                                                        grey_scale.checked()));
+        lumaShader.setUniform('texture', img);
+        }
+
+        function draw() {
+        background(0);
+        quad(-width / 2, -height / 2, width / 2, -height / 2,
+                width / 2, height / 2, -width / 2, height / 2);
+        }
+    </script>
+</body>
+</html>
+
 
 {{< /p5-global-iframe >}}
 
