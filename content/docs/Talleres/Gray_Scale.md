@@ -49,7 +49,7 @@ El segundo método es calculando la variable luma. Para eso se utiliza la siguie
 
 {{</details>}}
 
-{{< p5-global-iframe id="breath" width="750" height="400" >}}
+{{< p5-global-iframe id="breath" width="720" height="500" >}}
     let img;
 
     function preload() {
@@ -83,7 +83,7 @@ El segundo método es calculando la variable luma. Para eso se utiliza la siguie
 {{< /p5-global-iframe >}}
 
 ## Convertir usando HARDWARE
-{{< p5-global-iframe id="breath" width="720" height="450" >}}
+{{< p5-global-iframe id="breath" width="720" height="500" >}}
 
 
 <!DOCTYPE html>
@@ -174,7 +174,7 @@ Una alternativa perceptualmente más relevante es usar luma , Y′ , como una di
 ```
 
 {{</details>}}
-{{< p5-global-iframe id="breath" width="750" height="400" >}}
+{{< p5-global-iframe id="breath" width="720" height="500" >}}
 
     let img;
 
