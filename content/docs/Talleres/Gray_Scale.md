@@ -171,8 +171,7 @@ Una alternativa perceptualmente más relevante es usar luma , Y′ , como una di
 
   </head>
   <body>
-    <main>
-    </main>
+  
     <script>
 
         let lumaShader;
