@@ -116,7 +116,7 @@ El segundo método es calculando la variable luma. Para eso se utiliza la siguie
         noStroke();
         textureMode(NORMAL);
         shader(lumaShader);
-        grey_scale = createCheckbox('luma', false);
+        grey_scale = createCheckbox('avg', false);
         grey_scale.position(10, 10);
         grey_scale.style('color', 'white');
         grey_scale.input(() => lumaShader.setUniform('grey_scale',
