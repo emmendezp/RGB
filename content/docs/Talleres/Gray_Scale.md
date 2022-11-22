@@ -159,4 +159,70 @@ Una alternativa perceptualmente más relevante es usar luma , Y′ , como una di
 * Conversión a escala de grises. (s/f). Github.Io. Recuperado el 14 de noviembre de 2022, de https://nigogumolvilada.github.io/grayscale
 * Wikipedia contributors. (2022, octubre 13). HSL and HSV. Wikipedia, The Free Encyclopedia. https://en.wikipedia.org/w/index.php?title=HSL_and_HSV&oldid=1115874918
 
+{{< p5-global-iframe id="breath" width="720" height="450" >}}
 
+Code Earth and Moon
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+     <title>Tierra y Luna</title>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
+</head>
+
+<body>
+
+     <script>
+
+          function preload() {
+               textura_tierra = loadImage('https://i.ibb.co/PD4LyP5/planeta.jpg');
+               textura_luna = loadImage('https://i.ibb.co/WPvVybx/luna.jpg');
+               textura_fondo_estrellas = loadImage("https://i.ibb.co/NNTFKmL/nocheHD.jpg")
+          }
+
+          function setup() {
+               createCanvas(800, 450, WEBGL);
+          }
+
+          function draw() {
+               background("black")
+               
+               noStroke() //No dibujar la malla de las esferas
+               
+               texture(textura_fondo_estrellas)
+               sphere(800)
+
+               for (let i = 0; i < 3; i++) {
+                    directionalLight(
+                         255, 255, 255 - i * 25,//Color
+                         -1, 1, -1 //Dirección
+                    );
+               }
+
+               orbitControl() //Controlar con el mouse la cámara
+
+               rotateZ(-0.3) //Inclinación de la tierra
+
+               push()
+               rotateY(frameCount * 0.01); //rotación de la tierra sobre su propio eje
+               texture(textura_tierra); 
+               sphere(100);
+               pop()
+
+               push()
+               rotateY(-frameCount * 0.05 / 10);//Traslación de la luna alrededor de la tierra
+               translate(0, 0, 170)//Distancia del centro de la luna al centro de la tierra
+               rotateY(-frameCount * 0.05);//Rotación de la luna sobre su propio eje
+               texture(textura_luna);
+               sphere(25);
+               pop()
+          }
+
+     </script>
+
+</body>
+
+</html>
+
+
+{{< /p5-global-iframe >}}
