@@ -67,7 +67,6 @@ proyectos orientados a objetos donde son de suma importancia estos patrones.
 
 
 
-{{< /p5-global-iframe >}}
 
 {{< p5-global-iframe id="breath" width="720" height="450" >}}
 
