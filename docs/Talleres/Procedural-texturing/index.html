@@ -1,19 +1,19 @@
-<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Procedural texturing # En gráficos por computadora , una textura de procedimiento es una textura creada utilizando una descripción matemática (es decir, un algoritmo ) en lugar de datos almacenados directamente. La ventaja de este enfoque es el bajo costo de almacenamiento, la resolución ilimitada de texturas y el fácil mapeo de texturas . [2] Este tipo de texturas se utilizan a menudo para modelar superficies o representaciones volumétricas de elementos naturales como madera , mármol , granito , metal , piedra y otros."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content><meta property="og:description" content="Procedural texturing # En gráficos por computadora , una textura de procedimiento es una textura creada utilizando una descripción matemática (es decir, un algoritmo ) en lugar de datos almacenados directamente. La ventaja de este enfoque es el bajo costo de almacenamiento, la resolución ilimitada de texturas y el fácil mapeo de texturas . [2] Este tipo de texturas se utilizan a menudo para modelar superficies o representaciones volumétricas de elementos naturales como madera , mármol , granito , metal , piedra y otros."><meta property="og:type" content="article"><meta property="og:url" content="https://emmendezp.github.io/RGB/docs/Talleres/Procedural-texturing/"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2022-11-29T21:24:41-05:00"><title>Procedural Texturing | Computacion Visual 2022-2 RGB</title><link rel=manifest href=/RGB/manifest.json><link rel=icon href=/RGB/favicon.png type=image/x-icon><link rel=stylesheet href=/RGB/book.min.ab46de3e725a6415339a37bba23a0067534a37289b063c9f8d011515a63097a8.css integrity="sha256-q0bePnJaZBUzmje7ojoAZ1NKNyibBjyfjQEVFaYwl6g=" crossorigin=anonymous><script defer src=/RGB/flexsearch.min.js></script>
-<script defer src=/RGB/en.search.min.46c9ac9f0a1c349da68869d2586d108ecbe167354e7a49d8d388739e0741ad7c.js integrity="sha256-RsmsnwocNJ2miGnSWG0QjsvhZzVOeknY04hzngdBrXw=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
+<!doctype html><html lang=en-us dir=ltr><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="Procedural texturing # En gráficos por computadora , una textura de procedimiento es una textura creada utilizando una descripción matemática (es decir, un algoritmo ) en lugar de datos almacenados directamente. La ventaja de este enfoque es el bajo costo de almacenamiento, la resolución ilimitada de texturas y el fácil mapeo de texturas . [2] Este tipo de texturas se utilizan a menudo para modelar superficies o representaciones volumétricas de elementos naturales como madera , mármol , granito , metal , piedra y otros."><meta name=theme-color content="#FFFFFF"><meta name=color-scheme content="light dark"><meta property="og:title" content><meta property="og:description" content="Procedural texturing # En gráficos por computadora , una textura de procedimiento es una textura creada utilizando una descripción matemática (es decir, un algoritmo ) en lugar de datos almacenados directamente. La ventaja de este enfoque es el bajo costo de almacenamiento, la resolución ilimitada de texturas y el fácil mapeo de texturas . [2] Este tipo de texturas se utilizan a menudo para modelar superficies o representaciones volumétricas de elementos naturales como madera , mármol , granito , metal , piedra y otros."><meta property="og:type" content="article"><meta property="og:url" content="https://emmendezp.github.io/RGB/docs/Talleres/Procedural-texturing/"><meta property="article:section" content="docs"><meta property="article:modified_time" content="2022-11-29T21:39:29-05:00"><title>Procedural Texturing | Computacion Visual 2022-2 RGB</title><link rel=manifest href=/RGB/manifest.json><link rel=icon href=/RGB/favicon.png type=image/x-icon><link rel=stylesheet href=/RGB/book.min.ab46de3e725a6415339a37bba23a0067534a37289b063c9f8d011515a63097a8.css integrity="sha256-q0bePnJaZBUzmje7ojoAZ1NKNyibBjyfjQEVFaYwl6g=" crossorigin=anonymous><script defer src=/RGB/flexsearch.min.js></script>
+<script defer src=/RGB/en.search.min.c2a91a167b8dad2136a7b85686ac69e69678d8e3404d8baea77a73c103caba4d.js integrity="sha256-wqkaFnuNrSE2p7hWhqxp5pZ42ONATYuup3pzwQPKuk0=" crossorigin=anonymous></script></head><body dir=ltr><input type=checkbox class="hidden toggle" id=menu-control>
 <input type=checkbox class="hidden toggle" id=toc-control><main class="container flex"><aside class=book-menu><div class=book-menu-content><nav><h2 class=book-brand><a class="flex align-center" href=/RGB/><span>Computacion Visual 2022-2 RGB</span></a></h2><div class=book-search><input type=text id=book-search-input placeholder=Search aria-label=Search maxlength=64 data-hotkeys=s/><div class="book-search-spinner hidden"></div><ul id=book-search-results></ul></div><ul><li><input type=checkbox id=section-bab8b9365022340ebec5653746d3d735 class=toggle>
 <label for=section-bab8b9365022340ebec5653746d3d735 class="flex justify-between"><a href=/RGB/docs/Ejercicios/>Ejercicios</a></label><ul><li><a href=/RGB/docs/Ejercicios/Ejercicio1/>Ejercicio1</a></li><li><a href=/RGB/docs/Ejercicios/Ejercicio2/>Ejercicio2</a></li><li><a href=/RGB/docs/Ejercicios/Ejercicio3/>Ejercicio3</a></li></ul></li><li><input type=checkbox id=section-9370f1a5d0248572ac505e0c6d4ad190 class=toggle>
 <label for=section-9370f1a5d0248572ac505e0c6d4ad190 class="flex justify-between"><a href=/RGB/docs/shortcodes/>Shortcodes</a></label><ul><li><a href=/RGB/docs/shortcodes/buttons/>Buttons</a></li><li><a href=/RGB/docs/shortcodes/columns/>Columns</a></li><li><a href=/RGB/docs/shortcodes/details/>Details</a></li><li><a href=/RGB/docs/shortcodes/hints/>Hints</a></li><li><a href=/RGB/docs/shortcodes/katex/>Katex</a></li><li><a href=/RGB/docs/shortcodes/mermaid/>Mermaid</a></li><li><input type=checkbox id=section-ec67a64aba70b9df3d2a9acd6c92e3bc class=toggle>
 <label for=section-ec67a64aba70b9df3d2a9acd6c92e3bc class="flex justify-between"><a href=/RGB/docs/shortcodes/p5/>P5</a></label><ul><li><a href=/RGB/docs/shortcodes/p5/div/>Div</a></li><li><a href=/RGB/docs/shortcodes/p5/iframe/>Iframe</a></li></ul></li><li><a href=/RGB/docs/shortcodes/tabs/>Tabs</a></li></ul></li><li><input type=checkbox id=section-042d3f228c0d48b7873225f7fc71e929 class=toggle checked>
 <label for=section-042d3f228c0d48b7873225f7fc71e929 class="flex justify-between"><a href=/RGB/docs/Talleres/>Talleres</a></label><ul><li><a href=/RGB/docs/Talleres/Gray_Scale/>Gray Scale</a></li><li><a href=/RGB/docs/Talleres/Main-Spaces/>Main Spaces</a></li><li><a href=/RGB/docs/Talleres/Photomosaic/>Photomosaic</a></li><li><a href=/RGB/docs/Talleres/Procedural-texturing/ class=active>Procedural Texturing</a></li><li><a href=/RGB/docs/Talleres/visual_ilusions/>Visual Ilusions</a></li><li><a href=/RGB/docs/Talleres/visual_Masking/>Visual Masking</a></li></ul></li></ul><ul><li><a href=/RGB/posts/>Blog</a></li></ul></nav><script>(function(){var e=document.querySelector("aside .book-menu-content");addEventListener("beforeunload",function(){localStorage.setItem("menu.scrollTop",e.scrollTop)}),e.scrollTop=localStorage.getItem("menu.scrollTop")})()</script></div></aside><div class=book-page><header class=book-header><div class="flex align-center justify-between"><label for=menu-control><img src=/RGB/svg/menu.svg class=book-icon alt=Menu></label>
 <strong>Procedural Texturing</strong>
-<label for=toc-control><img src=/RGB/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#procedural-texturing>Procedural texturing</a></li><li><a href=#frame-buffer-object>frame buffer object</a><ul><li><a href=#ventajas-sobre-otros-métodos>Ventajas sobre otros métodos</a></li><li><a href=#the-book-of-shaders>The Book of Shaders</a></li><li><a href=#trabajo-realizado-y-a-futuro>Trabajo Realizado y a futuro:</a></li></ul></li></ul></nav></aside></header><article class=markdown><h1 id=procedural-texturing>Procedural texturing
+<label for=toc-control><img src=/RGB/svg/toc.svg class=book-icon alt="Table of Contents"></label></div><aside class="hidden clearfix"><nav id=TableOfContents><ul><li><a href=#procedural-texturing>Procedural texturing</a></li><li><a href=#frame-buffer-object>frame buffer object</a><ul><li><a href=#ventajas-sobre-otros-métodos>Ventajas sobre otros métodos</a></li><li><a href=#the-book-of-shaders>The Book of Shaders</a></li><li><a href=#trabajo-realizado-y-a-futuro>Trabajo Realizado y a futuro:</a></li></ul></li><li><a href=#conclusiones>Conclusiones:</a></li><li><a href=#bibliografía>Bibliografía:</a></li></ul></nav></aside></header><article class=markdown><h1 id=procedural-texturing>Procedural texturing
 <a class=anchor href=#procedural-texturing>#</a></h1><p>En gráficos por computadora , una textura de procedimiento es una textura creada
 utilizando una descripción matemática (es decir, un algoritmo ) en lugar de datos
 almacenados directamente. La ventaja de este enfoque es el bajo costo de
 almacenamiento, la resolución ilimitada de texturas y el fácil mapeo de texturas . [2]
 Este tipo de texturas se utilizan a menudo para modelar superficies o
 representaciones volumétricas de elementos naturales como madera , mármol ,
-granito , metal , piedra y otros.</p><h1 id=frame-buffer-object>frame buffer object
+granito , metal , piedra y otros.</p><p><a href=https://imgur.com/e2vK7JH><img src=https://i.imgur.com/e2vK7JH.jpg title="source: imgur.com"></a></p><h1 id=frame-buffer-object>frame buffer object
 <a class=anchor href=#frame-buffer-object>#</a></h1><p>La arquitectura de objeto de búfer de fotogramas (FBO) es una extensión de
 OpenGL para realizar una representación flexible fuera de la pantalla, incluida la
 representación en una textura . Al capturar imágenes que normalmente se dibujarán
@@ -44,5 +44,157 @@ sé encontraron en su mayoría en él libro guía, no obstante se adecuo de tal 
 que sé puedan ver los distintos patrones acompañados de una interfaz más amena
 al público en general.
 Por último un trabajo a futuro es la implementación de los shaders aplicados a
-proyectos orientados a objetos donde son de suma importancia estos patrones.</p></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/emmendezp/RGB/commit/505a8b5d385e914afa3aee5cf556da483f96ce52 title='Last modified by emmendezp | November 30, 2022' target=_blank rel=noopener><img src=/RGB/svg/calendar.svg class=book-icon alt=Calendar>
-<span>November 30, 2022</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#procedural-texturing>Procedural texturing</a></li><li><a href=#frame-buffer-object>frame buffer object</a><ul><li><a href=#ventajas-sobre-otros-métodos>Ventajas sobre otros métodos</a></li><li><a href=#the-book-of-shaders>The Book of Shaders</a></li><li><a href=#trabajo-realizado-y-a-futuro>Trabajo Realizado y a futuro:</a></li></ul></li></ul></nav></div></aside></main></body></html>
+proyectos orientados a objetos donde son de suma importancia estos patrones.</p><iframe id=breath style=width:720px;height:450px srcdoc="
+        <!DOCTYPE html>
+        <html>
+          <head>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/p5.min.js></script>
+            <script src=https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.2/addons/p5.sound.min.js></script>
+            
+            
+            
+            
+            
+            <script>
+              
+
+<!DOCTYPE html>
+<html lang=&#34;en&#34;>
+
+<head>
+    <script src=&#34;https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/p5.js&#34;></script>
+    <script src=&#34;p5.sound.js&#34;></script>
+    <script src=https://cdn.jsdelivr.net/gh/VisualComputing/p5.treegl/p5.treegl.min.js></script>
+    <script src=&#34;https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.5.0/addons/p5.sound.min.js&#34;></script>
+</head>
+
+<body>
+    <main>
+    </main>
+    <script>
+        let pg;
+        let colt;
+        let truchetShader;
+        let colorShader;
+        let moving;
+        let Hexagram;
+        let textura;
+        const opcionesS  = {'truchet':0, 'color':1, 'moving':3, 'Hexagram':4,};
+
+        function preload() {
+        // shader adapted from here: https://thebookofshaders.com/09/
+        truchetShader = readShader('/RGB/docs/Talleres/texturing_truchet.frag',
+                                    { matrices: Tree.NONE, varyings: Tree.NONE });
+        colorShader = readShader('/RGB/docs/Talleres/texturing_color.frag',
+                                    { matrices: Tree.NONE, varyings: Tree.NONE }); 
+        moving = readShader('/RGB/docs/Talleres/texturing_mobile.frag',
+                                    { matrices: Tree.NONE, varyings: Tree.NONE });
+        Hexagram = readShader('/RGB/docs/Talleres/texturing_Hexagram.frag',
+                                    { matrices: Tree.NONE, varyings: Tree.NONE });
+
+        }
+
+        function setup() {
+        createCanvas(400, 400, WEBGL);
+        // create frame buffer object to render the procedural texture
+        pg = createGraphics(400, 400, WEBGL);
+        textureMode(NORMAL);
+        textureMode(NORMAL);
+        noStroke();
+        texturaD = 'None'
+        textura = createSelect();
+        textura.position(15, 15);
+        textura.style('width', '90px');
+        textura.option('None'); 
+        textura.option('color'); 
+        textura.option('truchet');
+        textura.option('moving');
+        textura.option('Hexagram');
+        }
+
+        function draw() {
+        background(33);
+        orbitControl();
+        rotateX(millis() / 10000);
+        rotateY(millis() / 10000);
+        rotateZ(millis() / 10000);
+        cylinder(100, 200);
+        console.log(opcionesS[textura.value()]);  
+        
+        if (opcionesS[textura.value()] == 1){
+            pg.textureMode(NORMAL);
+            pg.noStroke();
+            pg.shader(colorShader);
+            pg.emitResolution(colorShader);
+            //colorShader.setUniform('u_zoom', 3);
+            pg.quad(-1, -1, 1, -1, 1, 1, -1, 1);
+            texture(pg);
+        }
+        else if(opcionesS[textura.value()] == 0){
+            pg.textureMode(NORMAL);
+            pg.noStroke();
+            pg.shader(truchetShader);
+            // emitResolution, see:
+            // https://github.com/VisualComputing/p5.treegl#macros
+            pg.emitResolution(truchetShader);
+            // https://p5js.org/reference/#/p5.Shader/setUniform
+            truchetShader.setUniform('u_zoom', 3);
+            // pg clip-space quad (i.e., both x and y vertex coordinates ∈ [-1..1])
+            pg.quad(-1, -1, 1, -1, 1, 1, -1, 1);
+            // set pg as texture
+            texture(pg);
+        }
+        
+        else if (opcionesS[textura.value()] == 3){
+            pg.textureMode(NORMAL);
+            pg.noStroke();
+            pg.shader(moving);
+            pg.emitResolution(moving);
+            //colorShader.setUniform('u_zoom', 3);
+            pg.quad(-1, -1, 1, -1, 1, 1, -1, 1);
+            texture(pg);
+        }
+        else if (opcionesS[textura.value()] == 4){
+            pg.textureMode(NORMAL);
+            pg.noStroke();
+            pg.shader(Hexagram);
+            pg.emitResolution(Hexagram);
+            //colorShader.setUniform('u_zoom', 3);
+            pg.quad(-1, -1, 1, -1, 1, 1, -1, 1);
+            texture(pg);
+        }
+        }
+
+        function mouseMoved() {
+        // https://p5js.org/reference/#/p5.Shader/setUniform
+        truchetShader.setUniform('_zoom', int(map(mouseX, 0, width, 1, 30)));
+        // pg clip-space quad (i.e., both x and y vertex coordinates ∈ [-1..1])
+        pg.quad(-1, -1, 1, -1, 1, 1, -1, 1);
+        }
+
+    </script>
+</body>
+</html>
+
+            </script>
+          </head>
+          <body>
+          </body>
+        </html>
+      "></iframe><h1 id=conclusiones>Conclusiones:
+<a class=anchor href=#conclusiones>#</a></h1><ol><li>Permiten trabajar diferentes patrones, los cuales manejan un .Frag</li><li>Además de programas especializados, otros, como Blender , CorelDRAW
+,contienen subsistemas de texturas procedimentales que se pueden utilizar
+para generar texturas.</li><li>De acuerdo al libro de los shaders, tenemos una buena cantidad de patrones
+de mosaicos, los cuales podemos crear o implementar de acuerdo a material
+proveniente de otros trabajos, dando a entender que es una comunidad la
+que trabaja este estilo de gráficos.</li></ol><h1 id=bibliografía>Bibliografía:
+<a class=anchor href=#bibliograf%c3%ada>#</a></h1><ul><li>Procedural Texturing. (s/f). Github.io. Recuperado el 25 de noviembre de 2022, de
+<a href=https://visualcomputing.github.io/docs/shaders/procedural_texturing/>https://visualcomputing.github.io/docs/shaders/procedural_texturing/</a></li><li>The book of shaders. (s/f). The Book of Shaders. Recuperado el 25 de noviembre de
+2022, de <a href=https://thebookofshaders.com/09/>https://thebookofshaders.com/09/</a></li><li>Wikipedia contributors. (s/f). Procedural texture. Wikipedia, The Free Encyclopedia.
+<a href="https://en-m-wikipedia-org.translate.goog/wiki/Procedural_texture?_x_tr_sl=auto&_x">https://en-m-wikipedia-org.translate.goog/wiki/Procedural_texture?_x_tr_sl=auto&_x</a>_
+tr_tl=es&_x_tr_hl=es-419</li><li>Wikipedia contributors. (s/f-a). Framebuffer object. Wikipedia, The Free
+Encyclopedia.
+<a href="https://en-m-wikipedia-org.translate.goog/wiki/Framebuffer_object?_x_tr_sl=auto&_x">https://en-m-wikipedia-org.translate.goog/wiki/Framebuffer_object?_x_tr_sl=auto&_x</a>
+_tr_tl=es&_x_tr_hl=es-419</li><li>home. (s/f). P5js.org. Recuperado el 25 de noviembre de 2022, de
+<a href=https://p5js.org/es/>https://p5js.org/es/</a></li></ul></article><footer class=book-footer><div class="flex flex-wrap justify-between"><div><a class="flex align-center" href=https://github.com/emmendezp/RGB/commit/dbdae138b042510993c0ebf4e167897c1864b862 title='Last modified by emmendezp | November 30, 2022' target=_blank rel=noopener><img src=/RGB/svg/calendar.svg class=book-icon alt=Calendar>
+<span>November 30, 2022</span></a></div></div><script>(function(){function e(e){const t=window.getSelection(),n=document.createRange();n.selectNodeContents(e),t.removeAllRanges(),t.addRange(n)}document.querySelectorAll("pre code").forEach(t=>{t.addEventListener("click",function(){e(t.parentElement),navigator.clipboard&&navigator.clipboard.writeText(t.parentElement.textContent)})})})()</script></footer><div class=book-comments></div><label for=menu-control class="hidden book-menu-overlay"></label></div><aside class=book-toc><div class=book-toc-content><nav id=TableOfContents><ul><li><a href=#procedural-texturing>Procedural texturing</a></li><li><a href=#frame-buffer-object>frame buffer object</a><ul><li><a href=#ventajas-sobre-otros-métodos>Ventajas sobre otros métodos</a></li><li><a href=#the-book-of-shaders>The Book of Shaders</a></li><li><a href=#trabajo-realizado-y-a-futuro>Trabajo Realizado y a futuro:</a></li></ul></li><li><a href=#conclusiones>Conclusiones:</a></li><li><a href=#bibliografía>Bibliografía:</a></li></ul></nav></div></aside></main></body></html>
