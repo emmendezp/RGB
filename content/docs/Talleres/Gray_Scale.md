@@ -267,3 +267,27 @@ Una alternativa perceptualmente más relevante es usar luma , Y′ , como una di
 * Wikipedia contributors. (2022, octubre 13). HSL and HSV. Wikipedia, The Free Encyclopedia. https://en.wikipedia.org/w/index.php?title=HSL_and_HSV&oldid=1115874918
 * Texturing. (s/f). Github.io. Recuperado el 22 de noviembre de 2022, de https://visualcomputing.github.io/docs/shaders/texturing/
 
+# Conclusiones:
+1. Permiten trabajar diferentes patrones, los cuales manejan un .Frag
+2. Además de programas especializados, otros, como Blender , CorelDRAW
+,contienen subsistemas de texturas procedimentales que se pueden utilizar
+para generar texturas.
+3. De acuerdo al libro de los shaders, tenemos una buena cantidad de patrones
+de mosaicos, los cuales podemos crear o implementar de acuerdo a material
+proveniente de otros trabajos, dando a entender que es una comunidad la
+que trabaja este estilo de gráficos.
+
+# Bibliografía:
+1. Procedural Texturing. (s/f). Github.io. Recuperado el 25 de noviembre de 2022, de
+https://visualcomputing.github.io/docs/shaders/procedural_texturing/
+2. The book of shaders. (s/f). The Book of Shaders. Recuperado el 25 de noviembre de
+2022, de https://thebookofshaders.com/09/
+3. Wikipedia contributors. (s/f). Procedural texture. Wikipedia, The Free Encyclopedia.
+https://en-m-wikipedia-org.translate.goog/wiki/Procedural_texture?_x_tr_sl=auto&_x_
+tr_tl=es&_x_tr_hl=es-419
+4. Wikipedia contributors. (s/f-a). Framebuffer object. Wikipedia, The Free
+Encyclopedia.
+https://en-m-wikipedia-org.translate.goog/wiki/Framebuffer_object?_x_tr_sl=auto&_x
+_tr_tl=es&_x_tr_hl=es-419
+5. home. (s/f). P5js.org. Recuperado el 25 de noviembre de 2022, de
+https://p5js.org/es/
